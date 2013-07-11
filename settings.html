@@ -2,8 +2,14 @@
 <html>
 <head>
     <title>Widget Settings &bull; Wix</title>
-    <link type="text/css" href="stylesheets/css/main.css" rel="stylesheet">
-    <link type="text/css" href="stylesheets/css/settings.css" rel="stylesheet">
+	<link type="text/css" href="stylesheets/css/bootstrap.css" rel="stylesheet">
+	<link type="text/css" href="stylesheets/css/common.css" rel="stylesheet">
+	<link type="text/css" href="stylesheets/css/buttons.css" rel="stylesheet">
+	<link type="text/css" href="stylesheets/css/settings.css" rel="stylesheet">
+	<link type="text/css" href="javascripts/components/color-picker/css/color-picker.css" rel="stylesheet"/>
+	<link type="text/css" href="javascripts/components/glued-position-min/glued.min.css" rel="stylesheet"/>
+	
+
 </head>
 <body>
 
@@ -53,6 +59,14 @@
 
 <!-- Settings box -->
 <div class="accordion">
+	<!-- Glued Component -->
+    <div class="box">
+        <h3>Widget Positioning: Controls</h3>
+		<div class="feature">
+			<div class="GluedControl"></div>
+        </div>
+    </div>
+	
     <!-- List 1: Controls -->
     <div class="box">
         <h3>List 1: Controls</h3>
@@ -61,14 +75,17 @@
             <ul class="list">
                 <li>
                     <span class="option">Option 1</span>
-                    <span class="checkboxes">
-                        <span class="checkbox">Show Badge</span>
+                    <span class="checkbox">
+                        <span class ="check"></span>
+                        Show Badge
                     </span>
                 </li>
                 <li>
                     <span class="option">Option 2</span>
                     <span class="picker"><a rel="popover" class="example-1-color-picker color-selector default"></a></span>
-                    <span class="values slider" id="exmaple1-slider"></span>
+                    <span class="slider-container">
+                        0<span class="values slider" id="exmaple1-slider"></span>100
+                    </span>
                 </li>
                 <li>
                     <span class="option">Option 4</span>
@@ -79,8 +96,9 @@
                 </li>
                 <li>
                     <span class="option">Option 5</span>
-                    <span class="checkboxes">
-                        <span class="checkbox">Use advanced settings</span>
+                    <span class="checkbox">
+                        <span class ="check"></span>
+                        Use advanced settings
                     </span>
                 </li>
             </ul>
@@ -118,11 +136,19 @@
         <h3>Checkboxes</h3>
         <div class="feature">
             <p>Checkboxes are use for multiple selection.</p>
-            <div class="checkboxes">
-                <div class="checkbox"><p>Option 1</p></div>
-                <div class="checkbox"><p>Option 2</p></div>
-                <div class="checkbox"><p>Option 3</p></div>
+            <div class="checkbox">
+                <span class ="check"></span>
+                <p>Option 1</p>
             </div>
+            <div class="checkbox">
+                <span class ="check"></span>
+                <p>Option 2</p>
+            </div>
+            <div class="checkbox">
+                <span class ="check"></span>
+                <p>Option 3</p>
+            </div>
+
         </div>
     </div>
 
@@ -159,16 +185,20 @@
         <h3>Sliders</h3>
         <div class="feature">
             <p>Sliders enable the user to easily select a value.</p>
-            <div id="slider1" class="slider"></div>
+            <div class="slider-container">
+                0<div id="slider1" class="slider"></div>100
+            </div>
+
         </div>
     </div>
 
 </div>
 
-<!-- Wix SDK -->
-<script type="text/javascript" src="//sslstatic.wix.com/services/js-sdk/1.16.0/js/Wix.js"></script>
 
-<!-- jQuery; needed for Twitter Bootstrap -->
+<!-- Wix SDK -->
+<script type="text/javascript" src="//sslstatic.wix.com/services/js-sdk/1.17.0/js/Wix.js"></script>
+
+<!-- jQuery; needed for Wix Plugins -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 <!-- Twitter Bootstrap components;
@@ -185,8 +215,12 @@
 <script type="text/javascript" src="javascripts/components/color-picker/color-pickers/advanced.js"></script>
 <script type="text/javascript" src="javascripts/components/color-picker/color-picker.js"></script>
 
+<!-- Settings Glued Logic -->
+<script type="text/javascript" src="javascripts/components/glued-position-min/glued.min.js"></script>
+
 <!-- Settings View Logic -->
 <script type="text/javascript" src="javascripts/views/settings.js"></script>
 
 </body>
 </html>
+

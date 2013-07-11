@@ -50,6 +50,13 @@
 
 
         el.addClass('checked');
+
+        var data = {
+            type: el.attr('id'),
+            checked: true
+        }
+
+        $(document).trigger('radioButton.change', data);
     };
 
     $.fn[pluginName] = function (options) {

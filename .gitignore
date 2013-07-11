@@ -1,6 +1,9 @@
+/stylesheets/*.json
 .DS_Store
 *.ipr
 *.iws
 *.iml
 codekit-config.json
 .idea/
+node_modules/
+target/

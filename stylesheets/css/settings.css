@@ -190,7 +190,7 @@ body {
 }
 .box .list li > * {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 15px;
   color: #373737;
 }
 .box .list li:nth-last-child(1) {
@@ -203,7 +203,7 @@ body {
   color: #373737;
 }
 .box .list li .slider .knob {
-  top: 27.5%;
+  top: 31%;
 }
 .checkbox {
   padding-left: 0;
@@ -220,7 +220,6 @@ body {
   display: inline-block;
   position: relative;
   top: 2px;
-  margin-right: 5px;
 }
 .checkbox.checked .check {
   background-position: 0 -1px;
@@ -253,8 +252,11 @@ body {
 }
 .slider {
   position: relative;
-  min-width: 180px;
+  min-width: 90px;
   vertical-align: middle;
+  display:inline-block;
+  margin-left: 7px;
+  margin-top: -6.5px;
 }
 .slider .slider-middle,
 .slider .slider-right,
@@ -290,7 +292,7 @@ body {
   top: 3px;
   left: -2px;
   height: 24px;
-  width: 18px;
+  width: 19px;
 }
 .slider .knob:hover {
   cursor: pointer;
