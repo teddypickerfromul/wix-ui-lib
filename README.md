@@ -216,8 +216,6 @@ Next, you specifiy the nested element (`el`) of the radio button:
 
 Note &mdash; `.boxes`, `.full` and `.grid` relate to `backgorund-position` of the layout sprite (See `images/layouts.png`):
 
-![Wix](https://dl.dropbox.com/u/427838/ui-lib/images/layouts.png)
-
 #### Checkbox
 
 ##### Usage
@@ -257,6 +255,12 @@ Initialize the Slider component with a value.
 	    value: 0.5
     });
 
+To subscribe to value-change event: 
+
+    $(document).on("slider.change", function (event, data) {
+            // data.type now has the id of the changed slider
+            // data.value has the selected value
+        });
 
 #### Fixed Positioning Control
 ---
@@ -267,6 +271,7 @@ Add the Fixed position widget control markup, add optional 'placements' array wi
     <div class="glued-positioning"></div>
 
 Initialize the Widget Positioning plugin with binding:
+
     $('.glued-positioning').GluedPosition({
 		placements:[
 			'TOP_LEFT',

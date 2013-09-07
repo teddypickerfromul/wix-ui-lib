@@ -3,27 +3,47 @@
 
     var pluginName = 'ColorPicker',
 
-        defaults = {
-            colorPickerTypes: {
-                "Simple": "SimpleColorPicker",
-                "Advanced": "AdvancedColorPicker"
-            },
+    defaults = {
+        colorPickerTypes: {
+            "Simple": "SimpleColorPicker",
+            "Advanced": "AdvancedColorPicker"
+        },
 
-            colorPickerTabs: {
-                "Simple": "Site colors",
-                "Advanced": "All colors"
-            },
+        colorPickerTabs: {
+            "Simple": "Site colors",
+            "Advanced": "All colors"
+        },
 
-            startWithColor: "#897185",
+        startWithColor: "#897185",
 
-            ColorPickers: {
-                Simple: {},
-                Advanced: {}
-            },
+        siteColors: undefined,
 
-            preview: "<span id=\"originalColor\"></span><span id=\"selectedColor\"></span>",
-            actions: "<button id=\"cancelSelection\" class=\"btn btn-small gray\">Cancel</button><button id=\"selectColor\" class=\"btn btn-small blue\">OK</button>"
-        };
+        ColorPickers: {
+            Simple: {},
+            Advanced: {}
+        },
+
+        preview: "<span id=\"originalColor\"></span><span id=\"selectedColor\"></span>",
+        actions: "<button id=\"cancelSelection\" class=\"btn btn-small gray\">Cancel</button><button id=\"selectColor\" class=\"btn btn-small blue\">OK</button>"
+    };
+
+    function getWixColors (callback) {        
+        if (!!window.Wix) {
+            Wix.Settings.getSiteColors(function(colors) {
+               callback(colors);
+            })
+        } else {
+            callback(null);
+        }
+    }
+
+    getWixColors(function(colors) {
+        if (colors) {
+            defaults.startWithColor = colors[7].value;
+            defaults.siteColors = colors;
+        }
+    });
+
 
     // The actual plugin constructor
     function Plugin(element, options) {
@@ -216,6 +236,7 @@
 
                 pickerOptions.wrapperId = "colorpicker_" + new Date().getTime();
                 pickerOptions.initColor =  this.$el.parent().find('.inner').css('background-color');
+                pickerOptions.colors = this.options.siteColors;
 
                 var pickerWrapper = $('<div>', { id: pickerOptions.wrapperId })
                     .appendTo(this.options.node.find('#palettes'));
