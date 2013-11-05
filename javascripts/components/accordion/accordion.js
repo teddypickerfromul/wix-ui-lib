@@ -3,13 +3,15 @@
 
 	var pluginName = 'Accordion',
 	defaults = {
-		triggerClass : "box",
+		triggerClass : "acc-pane",
 		triggerCSS : {},
-		contentClass : "feature",
+		contentClass : "acc-content",
 		contentCSS : {},
 		animationTime : 150,
-		activeClass : 'active',
-		ease : 'linear'
+		activeClass : 'acc-active',
+		ease : 'linear',
+		openByDeafult:'acc-open',
+		openPanel : 0
 	};
 
 	// The actual plugin constructor
@@ -22,6 +24,9 @@
 	}
 
 	Plugin.prototype.init = function () {
+		if(!this.$el.hasClass('accordion')){
+			this.$el.addClass('accordion');
+		}
 		this.showFirst();
 		this.bindEvents();
 		this.applyCSS();
@@ -30,8 +35,50 @@
 	Plugin.prototype.showFirst = function () {
 		var opt = this.options;
 		this.$el.find('.' + opt.contentClass).hide();
-        this.$el.find('.' + opt.triggerClass + ':first').find('.'+opt.contentClass).css('display','block');
-        this.$el.find('.' + opt.triggerClass + ':first').addClass(opt.activeClass);
+		var $panels = this.$el.find('.' + opt.triggerClass);
+		var $toOpen;
+		if(typeof this.options.openPanel === 'string'){
+			$toOpen = $panels.filter(this.options.openPanel);
+		} else {
+			$toOpen = $panels.eq(this.options.openPanel || 0);
+		}
+		
+		var $openByDefault = this.$el.find('.'+opt.triggerClass+'.' + opt.openByDeafult)
+		$toOpen = $toOpen.add($openByDefault);
+		
+		$toOpen.addClass(opt.activeClass + ' ' + opt.openByDeafult)
+			.find('.'+opt.contentClass)
+			.css('display','block');
+	};
+	
+	Plugin.prototype.getValue = function () {
+		var triggers = this.$el.find('.' + this.options.triggerClass);
+		for(var i = 0; i < triggers.length; i++){
+			if(triggers.eq(i).hasClass(this.options.activeClass)){
+				return i;
+			}
+		}
+		return -1;
+	};
+
+	Plugin.prototype.setValue = function ($el) {
+		var opt = this.options;
+		if(typeof $el === 'number'){
+			$el = this.$el.find('.' + opt.triggerClass).eq($el); 
+		}
+		if ($el.find('.' + opt.contentClass).is(':hidden')) {
+			this.openElementContent($el);
+		}
+	};
+	
+	Plugin.prototype.openElementContent = function ($el) {
+		var opt = this.options;
+		this.$el.find('.' + opt.triggerClass).removeClass(opt.openByDeafult).removeClass(opt.activeClass).find('.' + opt.contentClass).slideUp(opt.animationTime, opt.ease);
+		var $active = $el.toggleClass(opt.activeClass).find('.'+opt.contentClass);
+		$active.fadeIn('fast').slideDown(opt.animationTime, opt.ease, function(){
+			$active.css('overflow', 'visible');			
+			$(document.body).trigger('uilib-update-scroll-bars');
+		});
 	};
 
 	Plugin.prototype.applyCSS = function () {
@@ -40,14 +87,13 @@
 	};
 
 	Plugin.prototype.bindEvents = function () {
-		var opt = this.options;
-		this.$el.on('click', '.' + opt.triggerClass, function (e) {
-			var $this = $(this);
-			if ($this.find('.' + opt.contentClass).is(':hidden')) {
-				$('.' + opt.triggerClass).removeClass(opt.activeClass).find('.' + opt.contentClass).slideUp(opt.animationTime, opt.ease);
-				$this.toggleClass(opt.activeClass).find('.'+opt.contentClass).fadeIn('fast').slideDown(opt.animationTime, opt.ease);
-                return false;
-            }
+		var that = this;
+		this.$el.on('click', '.' + this.options.triggerClass, function (e) {
+			if($(e.target).parents('.'+that.options.contentClass).length === 0){
+				e.preventDefault();
+				that.setValue($(this));
+				that.$el.trigger(pluginName + '.change', that.getValue())
+			}
 		});
 	};
 

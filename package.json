@@ -1,0 +1,25 @@
+{
+  "name": "ui-lib",
+  "version": "2.0.0",
+  "description": "wix ui controls for third party applications",
+  "repository": {
+    "type": "git",
+    "url": "git@git.wixpress.com:tpa-space-apps/ui-lib.git"
+  },
+  "keywords": [
+    "HTML",
+    "Wix",
+    "UI",
+    "Controls",
+    "Javascript"
+  ],
+  "dependencies": {
+    "grunt": "~0.4"
+  },
+  "author": "",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "grunt-contrib": "~0.6.1"   
+  }
+}

@@ -1,0 +1,28 @@
+.rb-radio {
+  cursor: pointer;
+  margin-right: 10px;
+  margin: 0 10px 0 0;
+  /*display: inline-block;*/
+  vertical-align: middle;
+}
+
+.rb-radio-check {
+  /*background-image: url('../../images/radio-button-sprite.png');*/
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAaCAYAAACD+r1hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2MTg4QjgzMDNBODkxMUUyODM2MkUwRTZERTNBNzBDQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2MTg4QjgzMTNBODkxMUUyODM2MkUwRTZERTNBNzBDQiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjYxODhCODJFM0E4OTExRTI4MzYyRTBFNkRFM0E3MENCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjYxODhCODJGM0E4OTExRTI4MzYyRTBFNkRFM0E3MENCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+DWFsBQAAAcNJREFUeNrcUrtKA0EUPbuuq5ioW9ioRERWVESSEPIBYmOhkN7C/II/oGhrI/6AwQ+QCHYWFlYSzENBwWyRoJhokQy68bGaxHuHjSSKQgobL1zuMPecmTtnjlKv19FOKI1FLBYbpbJGGaE03G1BGadcj0ajuU8CgQNUjrxer+H3+0FVom3bRiaT4crEWSKlFffklGmaRjgchq7rLSM4joNEIgHLspgUVHkMj8djhEIhaJqGWq3WkrzHPcYwVuOZJyYm6aQ3mT8FY5LJ0wgTDEVR8Ejz/qqOIp9rMEFeXa1WfyUwhoMJgv7C6HWV+SnKpZKUmQnxbPYqao6b3xRqVoowvIyzSuuVSkWkUynU6dpOUqU5eY97jGFs+x/XtjX+gfm0r+bbOipi/7wswf7hHqzOD0nzFQoFg6RdU5vNt3l4jZW9PKxn4JJy+/gey7uW7DGGsS3m2z8rw+frw1xwENc2jdKh4uBCyF7DfGqz+Vjhd9Kh8PQG8VqF474jX3I+zae65gObL+jz4O72ESdWCRc3D3gp2pgZ7MbUcD/c/xKqaz7oXTo2FkawON0PkRN4zgsEBnTsLI3JXsN8bcv69+b7EGAArAc4GUs8ZLQAAAAASUVORK5CYII=');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  width: 16px;
+  height: 14px;
+  top:-2px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.rb-radio-checked .rb-radio-check {
+  background-position: 0 -13px;
+}
+.rb-radio p {
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+}

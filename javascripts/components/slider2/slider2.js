@@ -1,18 +1,20 @@
 ;(function ($, window, document, undefined) {
 
-	var pluginName = 'AdvancedSlider';
+	var pluginName = 'Slider';
 
 	var defaults = {
-		minValue : -1,
-		maxValue : 1,
-		value : 0.5,
+		minValue : 0,
+		maxValue : 100,
+		value : 0,
 		width : 80,
-		className: 'default-wix-slider-ui',
+		preLabel:'',
+		postLabel:'',
+		className: 'default-uilib-slider-ui',
 		slide : function () {},
 		create : function () {}
 	};
 
-	function AdvancedSlider(element, options) {
+	function Plugin(element, options) {
 		this.$el = $(element);
 		this.options = $.extend({}, defaults, options);
 		this._defaults = defaults;
@@ -20,34 +22,54 @@
 		this.init();
 	}
 
-	AdvancedSlider.prototype.init = function () {
+	Plugin.prototype.init = function () {
 		this.markup();
 		this.registerEvents();
 		this.options.create.call(this);
 		this.setValue(this.options.value);
 	};
 
-	AdvancedSlider.prototype.markup = function () {
+	Plugin.prototype.markup = function () {
+		var leftOffset = this.$el.css('left');
+		var style = {
+			width : this.options.width
+		};
+		
+		if(!this.$el.hasClass('uilib-slider')){
+			this.$el.addClass('uilib-slider');
+		}
+		
+		if(this.options.preLabel){
+			this.$el.prepend('<span class="uilib-text uilib-slider-preLabel">' + this.options.preLabel + '</span>');
+			style.left = 14;
+		}
+		
 		this.$pin = $('<div>');
 		this.$el.append(this.$pin);
-		this.$el.addClass('wix-advanced-slider').css({
-			width : this.options.width
-		}).addClass(this.options.className);
-		this.$pin.addClass('wix-advanced-slider-pin');
+		
+		if(this.options.postLabel){
+			this.$el.append('<span class="uilib-text uilib-slider-postLabel">' + this.options.postLabel + '</span>');
+		}
+		
+		
+		this.$el.addClass('uilib-slider').css(style).addClass(this.options.className);
+		
+		this.$pin.addClass('uilib-slider-pin');
+		this.$pin.width(19);
 	};
 
-	AdvancedSlider.prototype.disableTextSelection = function (evt) {
+	Plugin.prototype.disableTextSelection = function (evt) {
 		document.body.focus();
 		//prevent text selection in IE
 		document.onselectstart = function () { return false; };
         //evt.target.ondragstart = function() { return false; };
 	};
 	
-	AdvancedSlider.prototype.enableTextSelection = function () {
+	Plugin.prototype.enableTextSelection = function () {
 		document.onselectstart = null;
 	};
 		
-	AdvancedSlider.prototype.registerEvents = function () {
+	Plugin.prototype.registerEvents = function () {
 		var $body = $(window);
 		var slider = this;
 		//this.$el.on('click', function(evt){
@@ -64,13 +86,14 @@
 				slider.enableTextSelection();
 				$body.off('mousemove', mousemove_handler);
 				$body.off('mouseup', mouseup_handler);
+				slider.$el.trigger(pluginName + '.change', slider.getValue());
 			}
 			$body.on('mousemove', mousemove_handler);
 			$body.on('mouseup', mouseup_handler);
 		});
 	};
 
-	AdvancedSlider.prototype.setPosition = function (evt) {
+	Plugin.prototype.setPosition = function (evt) {
 		if (this.isDisabled()) { return; }
 		var x = evt.pageX - this.startDragPos;
 		var pos = this.currentPos + x;
@@ -83,55 +106,58 @@
 		this.currentPos = pos;
 	};
 
-	AdvancedSlider.prototype.update = function () {
+	Plugin.prototype.update = function () {
 		this.$pin.css({
 			left : this.options.value * (this.$el.width() - this.$pin.width())
 		});
 		return this;
 	};
 
-	AdvancedSlider.prototype.getValue = function () {
+	Plugin.prototype.getValue = function () {
 		return this.transform(this.options.value);
 	};
 
-	AdvancedSlider.prototype.transform = function (valueInRange) {
+	Plugin.prototype.transform = function (valueInRange) {
 		return this.options.minValue + valueInRange * (this.options.maxValue - this.options.minValue);
 	};
 
-	AdvancedSlider.prototype.valueInRangeToInnerRange = function (value) {
+	Plugin.prototype.valueInRangeToInnerRange = function (value) {
 		value = value < this.options.minValue ? this.options.minValue : value;
 		value = value > this.options.maxValue ? this.options.maxValue : value;
 		return (value - this.options.minValue) / (this.options.maxValue - this.options.minValue);
 	};
 
-	AdvancedSlider.prototype.setValue = function (valueInRange) {
+	Plugin.prototype.setValue = function (valueInRange) {
+		var val;
 		this.options.value = this.valueInRangeToInnerRange(valueInRange);
 		if (this.options.value !== this.last_value) {
 			this.last_value = this.options.value;
-			this.$el.trigger('slide', this.getValue());
-			this.options.slide.call(this, this.getValue());
+			val = this.getValue();
+			this.$el.trigger('slide', val);
+			this.options.slide.call(this, val);
 		}
 		return this.update();
 	};
 
-	AdvancedSlider.prototype.disable = function () {
+	Plugin.prototype.disable = function () {
 		this.$el.addClass('disabled');
 	};
 
-	AdvancedSlider.prototype.enable = function () {
+	Plugin.prototype.enable = function () {
 		this.$el.removeClass('disabled');
 	};
 
-	AdvancedSlider.prototype.isDisabled = function () {
+	Plugin.prototype.isDisabled = function () {
 		return this.$el.hasClass('disabled');
 	};
+	
+    $.fn[pluginName] = function (options) {
+        return this.each(function () {
+            if (!$.data(this, 'plugin_' + pluginName)) {
+                $.data(this, 'plugin_' + pluginName, new Plugin(this, options));
+            }
+        });
+    };
 
-	$.fn[pluginName] = function (options) {
-		return this.each(function () {
-			if (!$.data(this, pluginName)) {
-				$.data(this, pluginName, new AdvancedSlider(this, options));
-			}
-		});
-	};
 
 })(jQuery, window, document);

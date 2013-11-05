@@ -1,57 +1,77 @@
 (function ($, window, document) {
-	'use strict';
+    'use strict';
 
-	var pluginName = 'Checkbox',
+    var pluginName = 'Checkbox',
 
-    defaults = {
-        checked : false
+	defaults = {
+		checked : false,
+		preLabel: '',
+		postLabel: ''			
+	};
+
+    // The actual plugin constructor
+    function Plugin(element, options) {
+        this.$el = $(element);
+        this.options = $.extend({}, defaults, options);
+        this.init();
+    }
+			
+    Plugin.prototype.init = function() {
+		this.markup();
+		this.bindEvents();		
     };
 
-	// The actual plugin constructor
-	function Plugin(element, options) {
-		this.$el = $(element);
-		this.options = $.extend({}, defaults, options);
-		this.init();
-	}
+	Plugin.prototype.markup = function() {
+		
+		if(!this.$el.hasClass('uilib-checkbox')){
+			this.$el.addClass('uilib-checkbox');
+		}
+		
+		this.$el.append('<span class="uilib-checkbox-check"></span>');
 
-    Plugin.prototype.init = function() {
-
+		if(this.options.preLabel){
+			this.$el.prepend('<span class="uilib-text uilib-checkbox-preLabel">' + this.options.preLabel + '</span>');
+		}
+		
+		if(this.options.postLabel){
+			this.$el.append('<span class="uilib-text uilib-checkbox-postLabel">' + this.options.postLabel + '</span>');
+		}
+		
         // Check the checkbox according to defaults or the value that was set by the user
         this.options.checked ? this.$el.addClass('checked'): this.$el.removeClass('checked');
+		
+		//this.setDataAttribute();
+	}	
+	
+	// Plugin.prototype.setDataAttribute = function() {
+		// this.$el.attr('data-uilib-value', this.$el.hasClass('checked'));
+	// }		
+	
+	Plugin.prototype.bindEvents = function() {
+        this.$el.on('click', this.toggleChecked.bind(this));
+	}
+	
+	Plugin.prototype.getValue = function() {
+        return this.$el.hasClass('checked');
+	}
+	
+		
+	Plugin.prototype.setValue = function(value) {
+        value ? this.$el.addClass('checked') : this.$el.removeClass('checked');
+	}
+	
+	Plugin.prototype.toggleChecked = function() {
+		this.$el.toggleClass('checked');		
+		//this.setDataAttribute();
+		this.$el.trigger(pluginName + '.change', this.getValue());	
+	}
 
-        this.$el.on('click', function(e) {
-            var el = $(e.target);
-            var checked = false;
-
-            if (!el.hasClass('checkbox')) {
-                el = el.parent();
+    $.fn[pluginName] = function (options) {
+        return this.each(function () {
+            if (!$.data(this, 'plugin_' + pluginName)) {
+                $.data(this, 'plugin_' + pluginName, new Plugin(this, options));
             }
-
-            if (el.hasClass('checked')) {
-                el.removeClass('checked');
-                checked = false;
-            } else {
-                el.addClass('checked');
-                checked = true;
-            }
-
-            var data = {
-                type: el.attr('id'),
-                checked: checked
-            };
-
-            $(document).trigger('checkbox.change', data);
-
-        }.bind(this));
+        });
     };
-
-	$.fn[pluginName] = function (options) {
-		return this.each(function () {
-			if (!$.data(this, 'plugin_' + pluginName)) {
-				$.data(this, 'plugin_' + pluginName,
-					new Plugin(this, options));
-			}
-		});
-	};
 
 })(jQuery, window, document);

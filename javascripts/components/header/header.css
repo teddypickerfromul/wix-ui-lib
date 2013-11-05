@@ -1,0 +1,38 @@
+header.box {
+	overflow:hidden;
+}
+header .logo {
+	float: left;
+	margin: 12px;
+	border-right: 1px solid #ccc;
+	padding-right: 20px;
+}
+.login-panel, .premium-panel {
+	overflow:hidden;
+	margin-bottom: 10px;
+}
+.login-panel .connect {
+	float: right;
+	margin: 2px 0 0 0;
+}
+.create-account {
+	margin: 0;
+	float: left;
+	font-size: 11px;
+	text-align: left;
+	color: #737373;
+}
+
+.premium-panel .upgrade {
+	float: right;
+	margin: -16px 0 0 0;
+}
+
+.premium-features {
+	margin: 0;	
+	color: #737373;
+}
+.premium-features {
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAMCAYAAAC5tzfZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTg4NEU4RTc2NTM3MTFFMjg0RTQ4NEYwMjhFQzkzQjUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTg4NEU4RTg2NTM3MTFFMjg0RTQ4NEYwMjhFQzkzQjUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBODg0RThFNTY1MzcxMUUyODRFNDg0RjAyOEVDOTNCNSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBODg0RThFNjY1MzcxMUUyODRFNDg0RjAyOEVDOTNCNSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PluJZR0AAADWSURBVHjaYvz//z8DOlgqvVQBSMWD2NFPoxvR5VkYsAOQpgYoG0MTEwMZgAXqnAAg9QDolAv4FMPUMYL8BOTchzoJpGkhSAKI10PVKgJxPhAHQNUcYAFqEAAxoIIGUIwM7iOxQYZdYEQOPaj18VADYOADEG8AuQDofJDhDIzoQQ7UWACk+tFsM0T2LxOaBpDT6qHcBqgNILAe6g2sQT4fiEGSF6CRmgj1hwKy7Uxo/jGA+iEQmhrgbCBIgKYUBgaQn2B4idQSByBOQBaDiicAsQGMDxBgACQAZdLcBNXhAAAAAElFTkSuQmCC') no-repeat center left;
+	padding: 1px 0 0 20px;
+}

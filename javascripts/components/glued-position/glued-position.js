@@ -14,7 +14,6 @@
 
 		this.$el = $(element);
         this.createControlHTML();
-
         if (options.bindToWidget) {
             this.initWithBinding(defaults, options);
         } else {
@@ -33,7 +32,7 @@
 
 	Plugin.prototype.initWithBinding = function (defaults, options) {
 		var plugin = this;
-		getPlacement(function (state) {			
+		getPlacement(function (state) {		
             $.extend(plugin.state, state);
             $.extend(defaults.slider, _getSliderEvents(plugin.state));
 			plugin.options = $.extend({}, defaults, options);			
@@ -47,7 +46,7 @@
 	Plugin.prototype.createSlider = function(options){
 		options.value = this.state[getPlacementOrientation(this.state)] || 0;
 		this.$slider = this.$el.find('.glued-slider');
-		return this.$slider.AdvancedSlider(options).data('AdvancedSlider');
+		return this.$slider.Slider(options).data('plugin_Slider');
 	};
 	
 	Plugin.prototype.createDropDown = function(options){
@@ -75,7 +74,7 @@
 		}
 
 		function getOption(value, imageSpriteData, title) {
-			return '<option value="' + value + '" data-image="#" data-imagecss="positionIcons ' + imageSpriteData + '" selected="selected">' + title + '</option>';
+			return '<option value="' + value + '" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-imagecss="positionIcons ' + imageSpriteData + '" selected="selected">' + title + '</option>';
 		}
 
 		var options = placements.map(function (value) {
@@ -176,7 +175,8 @@
 				width:158,
 				className:'',
                 minValue : -2,
-                maxValue : 2
+                maxValue : 2,
+				value : 0
             },
             dropdown : {
 				visibleRows:8,
@@ -204,9 +204,9 @@
 		
 		var elWidth = slider.$el.width();
 
-		slider.$center = $('<div class="wix-slider-back">');
-		slider.$leftLine = $('<div class="wix-slider-back">');
-		slider.$rightLine = $('<div class="wix-slider-back">');
+		slider.$center = $('<div class="uilib-slider-back">');
+		slider.$leftLine = $('<div class="uilib-slider-back">');
+		slider.$rightLine = $('<div class="uilib-slider-back">');
 
 		slider.$leftLine.css({
 			left:elWidth/4,
@@ -225,15 +225,16 @@
 			width:1
 		}).prependTo(slider.$el);
 
-		slider.$ribbon = $('<div class="wix-slider-back">').prependTo(slider.$el);
+		slider.$ribbon = $('<div class="uilib-slider-back">').prependTo(slider.$el);
 	}
 	function updateRibbon(slider, val){
 		var pinWidth = slider.$pin.width() / 2;
 		var elWidth = slider.$el.width() / 4;
-
+		var w, range;
+		
 		if(val > 1){
-			var range = (val - 1);
-			var w = elWidth * range;
+			range = (val - 1);
+			w = elWidth * range;
 			slider.$ribbon.css({
 				width:elWidth - w + range * pinWidth,
 				right:0,
@@ -243,7 +244,7 @@
 		}
 
 		if(val >= 0 && val <= 1){
-			var w = elWidth * (val);
+			w = elWidth * (val);
 			slider.$ribbon.css({
 				width:w,
 				right:'auto',
@@ -253,8 +254,8 @@
 		}
 
 		if(val < -1){
-			var range = ((val * -1) - 1);
-			var w = elWidth * range;
+			range = ((val * -1) - 1);
+			w = elWidth * range;
 			slider.$ribbon.css({
 				width: (elWidth - w) + range * pinWidth,
 				left:0,
@@ -264,7 +265,7 @@
 		}
 
 		if(val < 0 && val >= -1){
-			var w = elWidth * ((val * -1));
+			w = elWidth * ((val * -1));
 			slider.$ribbon.css({
 				width: w,
 				right:elWidth * 2,

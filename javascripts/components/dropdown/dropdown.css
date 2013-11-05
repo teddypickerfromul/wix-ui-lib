@@ -1,0 +1,49 @@
+.dropdown{
+  outline: 1px solid #ccc;
+  font-size:12px;
+  line-height:normal;
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown:hover{
+	box-shadow: 0 0 5px black;
+}
+
+.dropdown.focus-active{
+  outline: 1px solid #A8A8FF;
+}
+
+.dropdown .option{
+  margin:3px 5px;
+  padding:5px 3px;
+}
+
+.dropdown .options{
+  outline: 1px solid #ccc;  
+  background:white;
+}
+
+.dropdown .dropdown-highlight{
+  background:#eee;  
+}
+
+.dropdown-icon{
+	width: 28px;
+	height: 28px;
+	vertical-align:middle;
+	margin: 0 5px 0 0;
+}
+/* 
+.dropdown:hover .current-item:after{
+	content: '×';
+	position: absolute;
+	height: 100%;
+	width: 14px;
+	right: 0;
+	top: 2px;
+	display: block;
+	font-size: 18px;
+	color: #999;
+} 
+*/

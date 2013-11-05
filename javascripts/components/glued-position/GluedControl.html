@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Glued Control</title>
+	<link rel="stylesheet" type="text/css" href="advanced-dropdown/css/dd.css" />
+    <link rel="stylesheet" type="text/css" href="glued-position/css/glued-position.css" />
+    <link rel="stylesheet" type="text/css" href="slider2/css/slider2.css" />
+</head>
+<body>
+	
+	<div class="gluedControl"></div>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="advanced-dropdown/jquery.dd.js"></script>
+	<script type="text/javascript" src="slider2/slider2.js"></script>
+	<script type="text/javascript" src="glued-position/glued-position.js"></script>
+	<script type="text/javascript">
+		
+		$('.gluedControl').GluedControl({
+			dropDownCreate: console.log.bind(console, 'dropdown created'),
+			dropDownChange: console.log.bind(console, 'dropdown change'),
+			sliderCreate: console.log.bind(console, 'slide created'),
+			sliderChange: console.log.bind(console, 'slide change')
+		})
+	</script>
+</body>
+</html>
