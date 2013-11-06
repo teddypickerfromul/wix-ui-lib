@@ -348,7 +348,12 @@ label.deg-label{
 	display:inline-block;
 }
 
-
+.picker-with-opacity .color-box{
+	margin:0;
+}
+.picker-with-opacity .uilib-slider{
+	margin:2px 0 1px 10px;
+}
 
 
 
