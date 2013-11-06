@@ -141,14 +141,14 @@ hr {
 
 /* Images */
 
-img {
+/*img {
     position: relative;
     margin: 0 auto;
     max-width: 650px;
     padding: 5px;
     margin: 10px 0 32px 0;
     border: 1px solid #ccc;
-}
+}*/
 
 
 /* Code blocks */
@@ -414,7 +414,7 @@ footer {
         color:#444;
     }
 }
-
+/*
 #ui-lib-demo {
     padding: 10px 10px 0;
     background: #f0f0f0;
@@ -431,3 +431,4 @@ footer {
 #ui-lib-demo h3 {
     border-bottom: none;
 }
+*/

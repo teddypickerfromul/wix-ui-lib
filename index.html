@@ -1,49 +1,53 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <title>Wix UI Library</title>
+	<!--link type="text/css" href="stylesheets/settings.css" rel="stylesheet"-->
 
-	<link type="text/css" href="stylesheets/css/bootstrap.css" rel="stylesheet">
-	<link type="text/css" href="stylesheets/css/common.css" rel="stylesheet">
-	<link type="text/css" href="stylesheets/css/buttons.css" rel="stylesheet">
-	<link type="text/css" href="stylesheets/css/settings.css" rel="stylesheet">
-	<link type="text/css" href="javascripts/components/color-picker/css/color-picker.css" rel="stylesheet"/>
-	<link type="text/css" href="javascripts/components/glued-position-min/glued.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-	<link type="text/css" href="javascripts/components/glued-position-min/glued.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="stylesheets/styles.css"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+	<link type="text/css" href="build/ui-lib.min.css" rel="stylesheet"/>
 	<style type="text/css">
-		.GluedControl p {
-			font-size:12px;
-			
+		#ui-lib-demo *{
+			font-family:"Arial";
 		}
-		.dd .ddTitle .ddTitleText{
-				padding-top:0;
+		#ui-lib-demo h3{
+			border:0;
+			padding-bottom: 0;
 		}
+		#ui-lib-demo .ddChild li {
+			height: 25px;
+		}
+		#ui-lib-demo .dd .ddTitle .ddTitleText {
+			padding: 1px 20px 2px 9px;
+		}
+		#ui-lib-demo .loggedOut{
+			margin: 10px;
+		}	
 		
-		.intro .icon, .intro .description{
-			float:none;
+		@media screen and (max-width:960px) {
+			.wrapper > header {
+				width: auto;
+				float: none;
+				position: static;
+			}
 		}
-		header.intro.box{
-			height:210px;
-		}
-		.ddcommon .ddChild{
-			height:220px;
-		}
+
+		
+		
 	</style>
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 </head>
-<body>
+<body wix-ui>
 <div class="wrapper">
 
 <header>
-    <h1 class="header">UI Library</h1>
+    <h1 class="header">Wix UI Library 2</h1>
     <p class="header">3rd Party Applications Starter Kit</p>
     <ul>
         <li class="download"><a class="buttons" href="https://github.com/wix/wix-ui-lib/zipball/master">Download ZIP</a></li>
@@ -59,500 +63,142 @@
 
 <h2>Demo</h2>
 <div id="ui-lib-demo">
-    <header class="intro box">
-        <div class="title">
-            <!-- App Logo with native CSS3 gloss -->
-            <div class="icon">
-                <div class="logo">
-                    <span class="gloss"></span>
-                </div>
-            </div>
 
-            <!-- This divider is a must according to the Wix design requirements -->
-            <div class="divider"></div>
-        </div>
+	<header class="box">
+		<div class="logo">
+			<img width="86" src="images/wix_icon.png" alt="logo"/>
+		</div>
+		<div class="loggedOut">
+			<p>
+				This is a sample Settings view for widgets and pages created with
+				<a href="http://dev.wix.com" target="_blank">Wix's 3rd Party SDK</a>,
+				compatible with Wix's product requirements.
+				This boilerplate is aimed at saving time for developing the UI of your apps, and let the
+				developer focus on developing logic.
+			</p>
 
-        <!-- Connect account area -->
-        <div class="login">
-            <div class="guest">
-                <div class="description">
-                    <p>
-                        This is a sample Settings view for widgets and pages created with <a href="http://dev.wix.com" target="_blank">Wix's 3rd Party SDK</a>,
-                        compatible with Wix's product requirements.
-                        This boilerplate is aimed at saving time for developing the UI of your apps, and let the
-                        developer focus on developing logic.
-                    </p>
-                </div>
+			<div class="login-panel">
+				<p class="create-account">Don't have an<br/>account? <strong><a href="#" target="_blank">Create
+					one</a></strong></p>
+				<button class="submit btn connect">Connect account</button>
+			</div>
+		</div>
+		<div class="loggedIn hidden">
+			<p>You are now connected to <strong>John Doe (john@doe.com)</strong> account<br/>
+				<a class="disconnect-account">Disconnect account</a></p>
 
-                <div class="login-panel">
-                    <p class="create-account">Don't have an<br/>account? <a href="#"><strong>Create one</strong></a></p>
-                    <button class="submit btn connect">Connect account</button>
-                </div>
-            </div>
+			<div class="premium-panel">
+				<p class="premium-features ">Premium features</p>
+				<button class="submit btn upgrade">Upgrade</button>
+			</div>
+		</div>
+	</header>
 
-            <div class="user hidden">
-                <p>
-                    You are now connected to <strong class="user-name">John Doe (john@doe.com)</strong> account<br/>
-                    <a class="disconnect-account">Disconnect account</a>
-                </p>
-                <div class="premium">
-                    <p class="premium-features">Premium features</p>
-                    <button class="submit btn upgrade">Upgrade</button>
-                </div>
-            </div>
-        </div>
-    </header>
+	<!-- Settings box -->
+	<div wix-ctrl="Accordion">
 
-<!-- Settings box -->
-<div class="accordion">
-	<!-- Glued Component -->
-    <div class="box">
-        <h3>Widget Positioning: Controls</h3>
-		<div class="feature">
-			<div class="GluedControl"></div>
-        </div>
-    </div>
-	
-    <!-- List 1: Controls -->
-    <div class="box">
-        <h3>List 1: Controls</h3>
-        <div class="feature">
-            <p>Lists can be used to collect a bulk of controls on the same subject.</p>
-            <ul class="list">
-                <li>
-                    <span class="option">Option 1</span>
-                    <span class="checkbox">
-                        <span class ="check"></span>
-                        Show Badge
-                    </span>
-                </li>
-                <li>
-                    <span class="option">Option 2</span>
-                    <span class="picker"><a rel="popover" class="example-1-color-picker color-selector default"></a></span>
-                    <span class="slider-container">
-                        0<span class="values slider" id="exmaple1-slider"></span>100
-                    </span>
-                </li>
-                <li>
-                    <span class="option">Option 4</span>
-                    <span class="options radiobuttons">
-                        <span class="radiobutton">Transparent</span>
-                        <span class="radiobutton">Dark</span>
-                    </span>
-                </li>
-                <li>
-                    <span class="option">Option 5</span>
-                    <span class="checkbox">
-                        <span class ="check"></span>
-                        Use advanced settings
-                    </span>
-                </li>
-            </ul>
-        </div>
-    </div>
+		<!-- Glued Component -->
+		<div class="acc-pane">
+			<h3>Widget Positioning: Controls</h3>
+			<div class="acc-content">
+				<div wix-ctrl="GluedControl" wix-options="{bindToWidget:false}"></div>
+			</div>
+		</div>
+		
+		<!-- List: Controls -->
+		<div class="acc-pane">
+			<h3>List 1: Controls</h3>
+			<div class="acc-content">
+				<p>Lists can be used to collect a bulk of controls on the same subject.</p>
+				<ul class="list">
+					<li wix-label="Visibility:">
+						<div wix-model="option1" wix-ctrl="Checkbox" wix-options="{preLabel:'Title'}"></div>
+						<div wix-model="option2" wix-ctrl="Checkbox" wix-options="{preLabel:'Description'}"></div>
+					</li>
+					<li wix-label="Box Color:">
+						<div wix-ctrl="ColorPickerWithOpacity"></div>
+					</li>
+					<li wix-label="Text Color">
+						<div wix-ctrl="ColorPicker"></div>
+					</li>
+					<li wix-label="Background:">
+						<div wix-ctrl="Radio">
+							<div data-radio-value="dark">Dark</div>
+							<div data-radio-value="transparent">Transparent</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
 
-    <!-- List 2: Layouts -->
-    <div class="box">
-        <h3>List 2: Layouts</h3>
-        <div class="feature">
-            <p>Layout Pickers are helpful in letting the user choose between different layout presets.</p>
-            <div class="layouts">
-                <figure class="boxes"><figcaption class="radiobutton">Layout 1</figcaption></figure>
-                <figure class="full"><figcaption class="radiobutton">Layout 2</figcaption></figure>
-                <figure class="grid"><figcaption class="radiobutton">Layout 3</figcaption></figure>
-            </div>
-        </div>
-    </div>
+		<!-- Checkboxes -->
+		<div class="acc-pane">
+			<h3>Checkboxes</h3>
+			<div class="acc-content">
+				<p>Checkboxes are use for multiple selection.</p>
+				<div wix-model="auto_update" wix-ctrl="Checkbox" wix-options="{postLabel:'Enable Auto update'}"></div>
+				<div wix-model="auto_save" wix-ctrl="Checkbox" wix-options="{postLabel:'Enable Auto save'}"></div>
+				<div wix-model="animations" wix-ctrl="Checkbox" wix-options="{postLabel:'Enable Animations'}"></div>
+			</div>
+		</div>
 
-    <!-- Radio Buttons -->
-    <div class="box">
-        <h3>Radio Buttons</h3>
-        <div class="feature">
-            <p>Radio Buttons groups options and lets the user select one options from the group.</p>
-            <div class="radiobuttons">
-                <div class="radiobutton"><p>Option 1</p></div>
-                <div class="radiobutton"><p>Option 2</p></div>
-                <div class="radiobutton"><p>Option 3</p></div>
-            </div>
-        </div>
-    </div>
+		<!-- Buttons and Button Groups (Twitter Bootstrap) -->
+		<div class="acc-pane">
+			<h3>Button Groups</h3>
+			<div class="acc-content">
+				<p>
+					Button groups are used to present a collection of buttons, and behaves like Radio Buttons
+					(you can only select <strong>one</strong> option in the group).
+				</p>
+				<div wix-ctrl="ButtonGroup">
+					<button value="option1">Option 1</button>
+					<button value="option2">Option 2</button>
+					<button value="option3">Option 3</button>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Sliders -->
+		<div class="acc-pane">
+			<h3>Sliders</h3>
+			<div class="acc-content">
+				<p>Sliders enable the user to easily select a value.</p>
+				<div wix-ctrl="Slider" wix-options="{preLabel:'0', postLabel:'100'}"></div>
+				<div wix-ctrl="Slider" wix-options="{preLabel:'0', postLabel:'100'}"></div>
+				<div wix-ctrl="Slider" wix-options="{preLabel:'0', postLabel:'100'}"></div>
 
-    <!-- Checkboxes -->
-    <div class="box">
-        <h3>Checkboxes</h3>
-        <div class="feature">
-            <p>Checkboxes are use for multiple selection.</p>
-            <div class="checkbox">
-                <span class ="check"></span>
-                <p>Option 1</p>
-            </div>
-            <div class="checkbox">
-                <span class ="check"></span>
-                <p>Option 2</p>
-            </div>
-            <div class="checkbox">
-                <span class ="check"></span>
-                <p>Option 3</p>
-            </div>
+			</div>
+		</div>
 
-        </div>
-    </div>
-
-    <!-- Color Pickers -->
-    <div class="box">
-        <h3>Color Pickers</h3>
-        <div class="feature">
-            <p>Color pickers are easy to use and enable the user to customize your widget or page.</p>
-            <a rel="popover" class="color-picker-1 color-selector default"></a>
-        </div>
-    </div>
-
-    <!-- Buttons and Button Groups (Twitter Bootstrap) -->
-    <div class="box">
-        <!-- Box title -->
-        <h3>Button Groups</h3>
-        <!-- Feature wrapper -->
-        <div class="feature">
-            <!-- Feature title -->
-            <p>
-                Button groups are used to present a collection of buttons, and behaves like Radio Buttons
-                (you can only select <strong>one</strong> option in the group).
-            </p>
-            <div class="btn-group" data-toggle="buttons-radio">
-                <button type="button" value="option1" class="btn default active">Option 1</button>
-                <button type="button" value="option2" class="btn default">Option 2</button>
-                <button type="button" value="option3" class="btn default">Option 3</button>
-            </div>
-        </div>
-    </div>
-	
-    <!-- Sliders -->
-    <div class="box">
-        <h3>Sliders</h3>
-        <div class="feature">
-            <p>Sliders enable the user to easily select a value.</p>
-            <div class="slider-container">
-                0<div id="slider1" class="slider"></div>100
-            </div>
-
-        </div>
-    </div>
-
-</div>
+	</div>
 
 
 </div>
-
-<h2>Structure &amp; Standards</h2>
-
-<h4>App Intro</h4>
-
-<hr><p>First, make an introduction. <em>This is compulsry according to Wix Apps product style guide.</em></p>
-
-<h6>HTML</h6>
-
-<pre><code>&lt;div class="title"&gt;
-    &lt;div class="icon"&gt;
-        &lt;div class="logo"&gt;
-            &lt;span class="gloss"&gt;&lt;/span&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-
-    &lt;div class="divider"&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>You can simply paste your app icon in the CSS <code>.logo</code> class:</p>
-
-<h6>CSS</h6>
-
-<pre><code>.intro .icon .logo {
-    border-radius: 15px;
-    height: 100%;
-    width: 100%;
-    background: url('../../images/wix_icon.png') center;
-}
-</code></pre>
-
-<p>Or, if you're using the precompiled Less sources, neatly nested in the <code>.intro</code> block, is the <code>.logo</code> class.</p>
-
-<h6>Less (precompiled)</h6>
-
-<pre><code>.intro {
-    .logo {
-       // ...
-       background: url('@{images}/wix_icon.png') center;
-    }
-}
-</code></pre>
-
-<h4>Guest &amp; User</h4>
-
-<hr><p>Once your app is running, an <strong>authenticated user mode</strong> should come in handy. Under the <code>.intro</code> block you'll find two sections: <code>.guest</code> and <code>.user</code>. Switch the <code>.hidden</code> class between the two to accompany each these state in the app, respectively.</p>
-
-<p>Guests will see the <strong>App Intro</strong>, a <strong>Connect Button</strong>, and a <strong>Text Link</strong> for creating a new account. </p>
-
-<h6>Guest</h6>
-
-<pre><code>&lt;div class="guest"&gt;
-    &lt;div class="description"&gt;
-        &lt;p&gt;&lt;!-- App Description --&gt;&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div class="login-panel"&gt;
-        &lt;p class="create-account"&gt;Don't have an&lt;br/&gt;account? &lt;a href="#"&gt;&lt;strong&gt;Create one&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-        &lt;button class="submit btn connect"&gt;Connect account&lt;/button&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>Authenticated users will see the details of their <strong>Session Details</strong> (User name, e-mail etc) and a <strong>Text Link</strong> for disconnecting the session.</p>
-
-<h6>User</h6>
-
-<pre><code>&lt;div class="user hidden"&gt;
-    &lt;p&gt;
-        You are now connected to &lt;strong class="user-name"&gt;John Doe (john@doe.com)&lt;/strong&gt; account&lt;br/&gt;
-        &lt;a class="disconnect-account"&gt;Disconnect account&lt;/a&gt;
-    &lt;/p&gt;
-    &lt;div class="premium"&gt;
-        &lt;p class="premium-features"&gt;Premium features&lt;/p&gt;
-        &lt;button class="submit btn upgrade"&gt;Upgrade&lt;/button&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>If this is irrelevant to your project, simply remove this markup.</p>
-
-<h4>Box (Container)</h4>
-
-<hr><p>Box is the basic container for Wix 3rd Party Settings panel. Boxes are for grouped controls or information blocks. Use them as you like!</p>
-
-<pre><code>&lt;div class="box"&gt;
-    &lt;h3&gt;Checkboxes&lt;/h3&gt;
-    &lt;div class="feature"&gt;
-        &lt;p&gt;Feature description&lt;/p&gt;
-        &lt;!-- Box content goes here --&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>Boxes also contain the <code>.feature</code>, which styles a simple paragraph for textual information.</p>
-
-<h4>List</h4>
-
-<hr><p>To group different controls in horizontal view, you can use the <code>.list</code> class and structure:</p>
-
-<pre><code> &lt;ul class="list"&gt;
-    &lt;li&gt;
-        &lt;span class="option"&gt;Option Name&lt;/span&gt;
-        &lt;!-- Option Markup --&gt;
-    &lt;/li&gt;
-&lt;/ul&gt;
-</code></pre>
-
-<p>This is a simple list with the proper CSS styling to contain all the HTML and JS components offered in the starter kit and present them in a neat horizontal row.</p>
-
-<h4>Layouts Picker</h4>
-
-<hr><pre><code>&lt;div class="layouts"&gt;
-    &lt;figure class="boxes"&gt;&lt;figcaption class="radiobutton"&gt;Layout 1&lt;/figcaption&gt;&lt;/figure&gt;
-    &lt;figure class="full"&gt;&lt;figcaption class="radiobutton"&gt;Layout 2&lt;/figcaption&gt;&lt;/figure&gt;
-    &lt;figure class="grid"&gt;&lt;figcaption class="radiobutton"&gt;Layout 3&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>Available Layouts (<code>images/layouts.png</code>)</p>
-
-<p><img src="https://dl.dropbox.com/u/427838/ui-lib/images/layouts.png" alt="Wix"></p>
-
-<h2>Javascript Components</h2>
-
-<p>The starter kit Javascript components are basically a set of <a href="http://jquery.com/">jQuery</a> Plugins.</p>
-
-<h4>Accordion</h4>
-
-<hr><h5>Usage</h5>
-
-<pre><code>&lt;div class="accordion"&gt;
-    &lt;div class="box"&gt;
-        &lt;h3&gt;Title&lt;/h3&gt;
-        &lt;div class="feature"&gt;
-
-            // content goes here
-
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>Set the Accordion parameters in <code>accordion.js</code>. In this case, <code>box</code> defines the Wrapper Class, and <code>feature</code> defines the content wrapper.</p>
-
-<pre><code>{
-    triggerClass: "box",
-    contentClass: "feature"
-}
-</code></pre>
-
-<p>Initialize the Accordion in <code>settings.js</code>:</p>
-
-<pre><code>$('.accordion').Accordion();
-</code></pre>
-
-<h4>Color Picker</h4>
-
-<hr><h5>Usage</h5>
-
-<p>Add the following HTML Markup</p>
-
-<pre><code>&lt;a rel="popover" class="color-picker-1 color-selector default"&gt;&lt;/a&gt;
-</code></pre>
-
-<p>Include <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a> components <code>Tooltip</code> and <code>Popover</code> dependencies in your main HTML file</p>
-
-<pre><code>&lt;script type="text/javascript" src="javascripts/bootstrap/bootstrap-tooltip.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript" src="javascripts/bootstrap/bootstrap-popover.js"&gt;&lt;/script&gt;
-</code></pre>
-
-<p>Next, initialize your color picker on DOM ready like so:</p>
-
-<pre><code>$('.color-selector').ColorPicker();
-</code></pre>
-
-<h4>Radio Button</h4>
-
-<hr><h5>Usage</h5>
-
-<p>Add a radio button group to your HTML file:</p>
-
-<pre><code>&lt;div class="radiobuttons"&gt;
-    &lt;div class="radiobutton"&gt;&lt;p&gt;Option 1&lt;/p&gt;&lt;/div&gt;
-    &lt;div class="radiobutton"&gt;&lt;p&gt;Option 2&lt;/p&gt;&lt;/div&gt;
-    &lt;div class="radiobutton"&gt;&lt;p&gt;Option 3&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>Initialize the button group and decicde which button is <code>checked</code>.</p>
-
-<pre><code>$('.radiobuttons').Radio({ checked: 0 });
-</code></pre>
-
-<h5>Nested Radio Buttons</h5>
-
-<p>This is another use case for radio buttons, implemented in the Layout Picker structure:</p>
-
-<pre><code>&lt;div class="layouts"&gt;
-    &lt;figure class="boxes"&gt;&lt;figcaption class="radiobutton"&gt;Layout 1&lt;/figcaption&gt;&lt;/figure&gt;
-    &lt;figure class="full"&gt;&lt;figcaption class="radiobutton"&gt;Layout 2&lt;/figcaption&gt;&lt;/figure&gt;
-    &lt;figure class="grid"&gt;&lt;figcaption class="radiobutton"&gt;Layout 3&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>Next, you specifiy the nested element (<code>el</code>) of the radio button:</p>
-
-<pre><code>$('.layouts').Radio({el: "figure figcaption", checked: 1});
-</code></pre>
-
-<h4>Checkbox</h4>
-
-<hr><h5>Usage</h5>
-
-<p>Add a checkbox group (Note, one checkbox also needs to be in a wrapping group):</p>
-
-<pre><code>&lt;div class="checkboxes"&gt;
-    &lt;div class="checkbox"&gt;&lt;p&gt;Option 1&lt;/p&gt;&lt;/div&gt;
-    &lt;div class="checkbox"&gt;&lt;p&gt;Option 2&lt;/p&gt;&lt;/div&gt;
-    &lt;div class="checkbox"&gt;&lt;p&gt;Option 3&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>Initialize checkbox, specifying <code>checked</code> checkboxes array with checkboxes 0 and 2 are:</p>
-
-<pre><code>$('.checkboxes').Checkbox({ checked: [0,2] });
-</code></pre>
-
-<h4>Slider</h4>
-
-<hr><h5>Usage</h5>
-
-<p>Add the slider markup, a simple <code>div</code> would do.</p>
-
-<pre><code>&lt;div id="slider1" class="slider"&gt;&lt;/div&gt;
-</code></pre>
-
-<p>Initialize the Slider component with a value string.</p>
-
-<pre><code>$('.slider').Slider({ type: "Value" });
-</code></pre>
-
-
-
-<h4>Fixed Widget Positioning Control</h4>
-
-<hr><h5>Usage</h5>
-
-<p>Add the Fixed position widget control markup, add optional 'placements' array with available placements options (when not specified, all available placements will be shown):</p>
-
-<pre><code>&lt;div class="glued-positioning"&gt;&lt;/div&gt;</code></pre>
-
-<p>Initialize the Widget Positioning plugin with binding:</p>
-
-<pre><code>$('.glued-positioning').GluedPosition({
-    placements:[
-        'TOP_LEFT',
-        'TOP_CENTER',
-        'TOP_RIGHT',
-        'CENTER_LEFT',
-        'CENTER_RIGHT',
-        'BOTTOM_LEFT',
-        'BOTTOM_CENTER',
-        'BOTTOM_RIGHT'
-    ],
-    bindToWidget: true
-});
-</code></pre>
-
-
-<p>Or initialize the plugin with user events:</p>
-
-<pre><code>$('.glued-positioning').GluedPosition({
-    placements:['TOP_LEFT','BOTTOM_LEFT'],
-    dropDownChange: function() {} ),
-    dropDownCreate: function() {} ),
-    sliderChange: function() {} ),
-    sliderCreate: function() {} )
-});
-</code></pre>
 
 </section>
-<footer>
 
-</footer>
 </div>
-<!--[if !IE]><script>fixScale(document);</script><![endif]-->
 
 </body>
 </html>
 
+<!--[if !IE]><![endif]-->
+<!--script src="javascripts/scale.fix.js"></script>
+<script>fixScale(document);</script-->
+
+
 <!-- Wix SDK -->
-<script type="text/javascript" src="//sslstatic.wix.com/services/js-sdk/1.19.0/js/Wix.js"></script>
+<script type="text/javascript" src="https://sslstatic.wix.com/services/js-sdk/1.22.0/js/Wix.js"></script>
 
 <!-- jQuery; needed for Twitter Bootstrap -->
 <script src="javascripts/jquery.min.js"></script>
-<script type="text/javascript" src="javascripts/bootstrap/bootstrap-tooltip.js"></script>
-<script type="text/javascript" src="javascripts/bootstrap/bootstrap-popover.js"></script>
-
-<!-- Wix UI Components -->
-<script type="text/javascript" src="javascripts/components/accordion/accordion.js"></script>
-<script type="text/javascript" src="javascripts/components/checkbox/checkbox.js"></script>
-<script type="text/javascript" src="javascripts/components/radio-button/radio-button.js"></script>
-<script type="text/javascript" src="javascripts/components/slider/slider.js"></script>
-<script type="text/javascript" src="javascripts/components/color-picker/color-pickers/simple.js"></script>
-<script type="text/javascript" src="javascripts/components/color-picker/color-pickers/advanced.js"></script>
-<script type="text/javascript" src="javascripts/components/color-picker/color-picker.js"></script>
 
 <!-- Settings Glued Logic -->
-<script type="text/javascript" src="javascripts/components/glued-position-min/glued.min.js"></script>
+<script type="text/javascript" src="build/ui-lib.min.js"></script>
+
+<script type="text/javascript">
+	Wix.UI.initialize();
+</script>
 
 <!-- Settings View Logic -->
-<script type="text/javascript" src="javascripts/views/settings.js"></script>
+<!--script type="text/javascript" src="javascripts/views/settings.js"></script-->
