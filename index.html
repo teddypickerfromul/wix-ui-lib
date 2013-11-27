@@ -193,7 +193,7 @@
 <h3>
 <a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
 
-<p>Wix UI lib dependencies is jQuery from version 1.9.0 and Wix SDK from version 1.22.0</p>
+<p>Wix UI lib dependencies are jQuery from version 1.9.0 and Wix SDK from version 1.23.0</p>
 
 <h3>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
@@ -207,9 +207,8 @@
     &lt;/head&gt;
     &lt;body wix-ui&gt;
         &lt;!-- your settings --&gt;
-
-        &lt;script src="http://sslstatic.wix.com/services/js-sdk/1.22.0/js/Wix.js"&gt;&lt;/script&gt;
         &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"&gt;&lt;/script&gt;
+        &lt;script src="http://sslstatic.wix.com/services/js-sdk/1.24.0/js/Wix.js"&gt;&lt;/script&gt;
         &lt;script src="ui-lib.min.js"&gt;&lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -221,7 +220,7 @@
 <p>First, make an introduction. <em>This is compulsory according to Wix Apps product style guide.</em></p>
 
 <p>This following markup is for the app intro, description and login panel. 
-it will be automatically styled by the UI library.
+It will be automatically styled by the UI library.
 The login panel is used for connecting your user to his account in your app.</p>
 
 <h6>
@@ -231,12 +230,12 @@ The login panel is used for connecting your user to his account in your app.</p>
     &lt;div class="logo"&gt;
         &lt;img width="86" src="images/wix_icon.png" alt="logo"/&gt;
     &lt;/div&gt;
-    &lt;div class="logedOut"&gt;
+    &lt;div class="loggedOut"&gt;
         &lt;p&gt;&lt;!-- App Description --&gt;&lt;/p&gt;
         &lt;div class="login-panel"&gt;&lt;!-- App login panel --&gt;&lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="logedIn hidden"&gt;
-        &lt;!-- App Loged in information --&gt;
+    &lt;div class="loggedIn hidden"&gt;
+        &lt;!-- App Logged in information --&gt;
         &lt;div class="premium-panel"&gt;&lt;!-- Premium features --&gt;&lt;/div&gt;
     &lt;/div&gt;
 &lt;/header&gt;
@@ -296,7 +295,7 @@ use the <code>.loggedOut</code>, <code>.loggedIn</code> areas to put the authent
 <p>If this is irrelevant to your project, simply remove this markup.</p>
 
 <h2>
-<a name="css-styleing" class="anchor" href="#css-styleing"><span class="octicon octicon-link"></span></a>CSS Styleing</h2>
+<a name="css-styling" class="anchor" href="#css-styling"><span class="octicon octicon-link"></span></a>CSS Styling</h2>
 
 <h4>
 <a name="box-container" class="anchor" href="#box-container"><span class="octicon octicon-link"></span></a>Box (Container)</h4>
@@ -328,19 +327,19 @@ This is a simple list with the proper CSS styling to contain all the HTML and JS
 <p>The <strong>Wix.UI</strong> Javascript components are basically a set of <a href="http://jquery.com/">jQuery</a> Plugins.</p>
 
 <h3>
-<a name="specil-html-attributes" class="anchor" href="#specil-html-attributes"><span class="octicon octicon-link"></span></a>Specil HTML attributes</h3>
+<a name="special-html-attributes" class="anchor" href="#special-html-attributes"><span class="octicon octicon-link"></span></a>Special HTML attributes</h3>
 
-<p>Wix UI library includes custom attributes which enable components initilization from within the HTML markup.</p>
+<p>Wix UI library includes custom attributes which enable components initialization from within the HTML markup.</p>
 
-<p><strong>wix-ctrl -</strong> component's controller decleration</p>
+<p><strong>wix-ctrl -</strong> component's controller declaration</p>
 
-<p><strong>wix-options -</strong> component initilization</p>
+<p><strong>wix-options -</strong> component initialization</p>
 
 <p><strong>wix-param -</strong> sets the key of the style parameter.</p>
 
 <p><strong>wix-model -</strong> sets a key to access the component value from Wix.UI and subscribe to change events.</p>
 
-<p>All attributes can be prefixed with <strong>data-</strong> to be W3C complient (Optional). </p>
+<p>All attributes can be prefixed with <strong>data-</strong> to be W3C compliant (Optional). </p>
 
 <h3>
 <a name="initialization" class="anchor" href="#initialization"><span class="octicon octicon-link"></span></a>Initialization</h3>
@@ -356,9 +355,11 @@ This is a simple list with the proper CSS styling to contain all the HTML and JS
 <p>Each component can be initialized with a simple markup and two important attributes
 <code>wix-ctrl</code> and <code>wix-options</code></p>
 
-<p>**wix-ctrl - ** Sets the component`s controller that will be conected to the element.</p>
+<p>**wix-ctrl - ** Sets the component`s controller that will be connected to the element.</p>
 
 <p>**wix-options - ** Sets the component`s controller options.</p>
+
+<p>**wix-ctrl:{options} - ** Sets the component`s controller and options.</p>
 
 <p>In this way all the Javascript component are managed by the <strong>Wix.UI</strong> library. To initialize the components you need to call <strong>Wix.UI.initialize()</strong> then all the components that has <code>wix-ctrl</code> attribute will be initialized with the options that you entered to the <code>wix-option</code> attribute and the settings window will be visible.</p>
 
@@ -369,7 +370,7 @@ This is a simple list with the proper CSS styling to contain all the HTML and JS
 
 <pre><code>$( document ).ready(function(){
 
-    Wix.UI.initialize();
+    Wix.UI.initialize({});
 
 });
 </code></pre>
@@ -377,7 +378,7 @@ This is a simple list with the proper CSS styling to contain all the HTML and JS
 <h4>
 <a name="initialize-with-javascript-advance" class="anchor" href="#initialize-with-javascript-advance"><span class="octicon octicon-link"></span></a>Initialize with javascript (advance)</h4>
 
-<p>In this way you need to subscribe to chages and set values directly on the jQuery plugin.</p>
+<p>In this way you need to subscribe to changes and set values directly on the jQuery plugin.</p>
 
 <pre><code>$('#myElement').PluginName(options);
 </code></pre>
@@ -389,7 +390,7 @@ This is a simple list with the proper CSS styling to contain all the HTML and JS
 
 <p><strong>wix-model</strong> attribute sets a key to access the component value from Wix.UI and subscribe to change events.</p>
 
-<p>Then you will be able to use the <strong>Wix.UI.set(key, value)</strong> or <strong>Wix.UI.get(key)</strong> to update the component state and retrive the component value.</p>
+<p>Then you will be able to use the <strong>Wix.UI.set(key, value)</strong> or <strong>Wix.UI.get(key)</strong> to update the component state and retrieve the component value.</p>
 
 <pre><code>&lt;div wix-model="myKey" wix-ctrl="ComponentName" wix-options="{option: 'value'}"&gt;&lt;/div&gt;
 </code></pre>
@@ -412,6 +413,8 @@ This is a simple list with the proper CSS styling to contain all the HTML and JS
 
       Wix.UI.get('showTweets'); //returns false
 
+      Wix.UI.set('showTweets', false, true); //sets the value and not fire change event
+
     });
 &lt;/script&gt;
 ...
@@ -420,7 +423,7 @@ This is a simple list with the proper CSS styling to contain all the HTML and JS
 <h4>
 <a name="subscribe-to-model-change-events" class="anchor" href="#subscribe-to-model-change-events"><span class="octicon octicon-link"></span></a>Subscribe to model change events</h4>
 
-<p>You can subscribe to chages in the wix-model with the following code:</p>
+<p>You can subscribe to changes in the wix-model with the following code:</p>
 
 <pre><code>//subscribe to one key change
 Wix.UI.onChange('myKey', function(value, key){
@@ -468,45 +471,75 @@ $( document ).ready(function(){
 <h3>
 <a name="style-parameters" class="anchor" href="#style-parameters"><span class="octicon octicon-link"></span></a>Style Parameters</h3>
 
-<p>Wix Style parameters, which replace the wix-model parameters, allow an app developer to save specfifc keys inside the Wix Site. Meaning, they do not need to be saved in the App's database, like  wix-model parameters. <strong>Wix.UI</strong> takes care of saving it inside the site using the Wix SDK.</p>
+<p>Wix Style parameters, which replace the wix-model parameters, allow an app developer to save specific keys inside the Wix Site. Meaning, they do not need to be saved in the App's database like  wix-model parameters. <strong>Wix.UI</strong> takes care of saving it inside the site using the Wix SDK.</p>
 
 <p>You can use the <code>wix-param</code> attribute on supported components. Currently Wix supports the following Components for wix-param:</p>
+
+<h4>
+<a name="color-parameters-components" class="anchor" href="#color-parameters-components"><span class="octicon octicon-link"></span></a>Color Parameters Components</h4>
 
 <ul>
 <li>ColorPicker</li>
 <li>ColorPickerWithOpacity</li>
+</ul><h4>
+<a name="number-parameters-components" class="anchor" href="#number-parameters-components"><span class="octicon octicon-link"></span></a>Number Parameters Components</h4>
+
+<ul>
+<li>ButtonGroup</li>
+<li>RadioButton</li>
+<li>Dropdown</li>
+<li>Slider</li>
+</ul><h4>
+<a name="boolean-parameters-components" class="anchor" href="#boolean-parameters-components"><span class="octicon octicon-link"></span></a>Boolean Parameters Components</h4>
+
+<ul>
+<li>Checkbox</li>
 </ul><p><strong>wix-param</strong> attribute sets the key of the style parameter.</p>
 
 <pre><code>&lt;div wix-param="myParam" wix-ctrl="ColorPickerWithOpacity"&gt;&lt;/div&gt;
 </code></pre>
 
-<p>wix-pram can also be consumed inside the App's Widget/Page. You can use <strong>Wix SDK</strong> to get all the style parameters that were set in the App's Settings.</p>
+<p>wix-param can also be consumed inside the App's Widget/Page. You can use <strong>Wix SDK</strong> to get all the style parameters that were set in the App's Settings.</p>
 
-<pre><code>var styleParams = Wix.getStyleParams(); // returns a map with all styles values
+<pre><code>Wix.getStyleParams(function(styleParams){
+    // styleParams is a map with all style values {colors:{}, numbers:{}, booleans:{}}
+}); 
 </code></pre>
 
 <h3>
 <a name="style-paramerters-in-a-css-stylesheet" class="anchor" href="#style-paramerters-in-a-css-stylesheet"><span class="octicon octicon-link"></span></a>Style paramerters in a CSS stylesheet</h3>
 
-<p>You can use the color style parameters inside a inline CSS style within your widget, its a simple template engine that uses {{value}} to interpolate the style parameters. In order to activate it put <code>wix-style</code> attribute on an inline style.</p>
+<p>You can use the color style parameters inside a <strong>inline CSS style</strong> within your widget, It's a simple template engine that uses {{value}} to interpolate the style parameters. fallback values are separated with spaces {{value fallback}}. In order to activate it put <code>wix-style</code> attribute on an inline style.</p>
 
 <pre><code>&lt;style wix-style&gt;
+
     #myElement {
         background-color: {{style.myParam}}; /* style parameter */
         color: {{color-1}}; /* style from the template */
     }
+
+    #myElement2 {
+        background-color: {{style.myParam color-1}}; /* style parameter with fallback value*/
+    }
+
+    @media(wix-device-type:mobile){ /* wix media query for device type */
+        #myElement {
+            border: 1px solid {{color-1}};
+        }
+    }        
+
 &lt;/style&gt;
 </code></pre>
 
-<p>Color style parameters can use reserved theme colors in the stylesheet using the following refrenecs:</p>
+<p>Color style parameters can use reserved theme colors in the stylesheet using the following references:</p>
 
 <ul>
-<li>white/black - primary white, black if the site theme is invereted</li>
-<li>black/white - primary black, white if the site theme is invereted</li>
-<li>primery-1 - defaults to red</li>
-<li>primery-2 - defaults to blue</li>
-<li>primery-3 - defaults to yellow</li>
-<li>color-1 to color-25 - pallete colors</li>
+<li>white/black - primary white, black if the site theme is inverted</li>
+<li>black/white - primary black, white if the site theme is inverted</li>
+<li>primary-1 - defaults to red</li>
+<li>primary-2 - defaults to blue</li>
+<li>primary-3 - defaults to yellow</li>
+<li>color-1 to color-25 - palette colors</li>
 </ul><h3>
 <a name="wixui-components" class="anchor" href="#wixui-components"><span class="octicon octicon-link"></span></a>Wix.UI Components</h3>
 
@@ -520,10 +553,25 @@ $( document ).ready(function(){
 <li>RadioButton</li>
 <li>Slider</li>
 <li>Fixed Positioning Control</li>
-</ul><h4>
-<a name="accordion" class="anchor" href="#accordion"><span class="octicon octicon-link"></span></a>Accordion</h4>
+</ul><hr><h3>
+<a name="accordion" class="anchor" href="#accordion"><span class="octicon octicon-link"></span></a>Accordion</h3>
 
-<pre><code>&lt;div wix-ctrl="Accordion"&gt;
+<h4>
+<a name="accordion-options" class="anchor" href="#accordion-options"><span class="octicon octicon-link"></span></a>Accordion Options</h4>
+
+<pre><code>{
+    animationTime : 150,
+    ease : 'linear',
+    openByDeafult:'acc-open',
+    value : 0,
+    toggleOpen: false
+}
+</code></pre>
+
+<h4>
+<a name="markup" class="anchor" href="#markup"><span class="octicon octicon-link"></span></a>Markup</h4>
+
+<pre><code>&lt;div wix-ctrl="Accordion" wix-options="{toggleOpen:false}"&gt;
     &lt;div class="acc-pane"&gt;
         &lt;h3&gt;&lt;!-- Title --&gt;&lt;/h3&gt;
         &lt;div class="acc-content"&gt;
@@ -533,68 +581,181 @@ $( document ).ready(function(){
 &lt;/div&gt;
 </code></pre>
 
-<h4>
-<a name="colorpicker" class="anchor" href="#colorpicker"><span class="octicon octicon-link"></span></a>ColorPicker</h4>
+<hr><h3>
+<a name="colorpicker" class="anchor" href="#colorpicker"><span class="octicon octicon-link"></span></a>ColorPicker</h3>
 
-<pre><code>&lt;div wix-ctrl="ColorPicker"&gt;&lt;/div&gt;
+<h4>
+<a name="colorpicker-options" class="anchor" href="#colorpicker-options"><span class="octicon octicon-link"></span></a>ColorPicker Options</h4>
+
+<pre><code>{
+    startWithColor : "#897185"
+}
 </code></pre>
 
 <h4>
-<a name="color-picker-with-stlye-parameter" class="anchor" href="#color-picker-with-stlye-parameter"><span class="octicon octicon-link"></span></a>Color picker with stlye parameter</h4>
+<a name="markup-1" class="anchor" href="#markup-1"><span class="octicon octicon-link"></span></a>Markup</h4>
 
-<pre><code>&lt;div wix-param="myColor" wix-ctrl="ColorPicker"&gt;&lt;/div&gt;
+<pre><code>&lt;div wix-ctrl="ColorPicker" wix-options="{startWithColor:'black/white'}"&gt;&lt;/div&gt;
 </code></pre>
 
-<h4>
-<a name="colorpickerwithopacity" class="anchor" href="#colorpickerwithopacity"><span class="octicon octicon-link"></span></a>ColorPickerWithOpacity</h4>
+<h5>
+<a name="color-picker-with-stlye-parameter" class="anchor" href="#color-picker-with-stlye-parameter"><span class="octicon octicon-link"></span></a>Color picker with stlye parameter</h5>
+
+<pre><code>&lt;div wix-param="myColor" wix-ctrl="ColorPicker" wix-options="{startWithColor:'black/white'}"&gt;&lt;/div&gt;
+</code></pre>
+
+<h5>
+<a name="colorpickerwithopacity" class="anchor" href="#colorpickerwithopacity"><span class="octicon octicon-link"></span></a>ColorPickerWithOpacity</h5>
 
 <pre><code>&lt;div wix-ctrl="ColorPickerWithOpacity"&gt;&lt;/div&gt;
 </code></pre>
 
-<h4>
-<a name="color-picker-with-opacity-with-stlye-parameter" class="anchor" href="#color-picker-with-opacity-with-stlye-parameter"><span class="octicon octicon-link"></span></a>Color picker with opacity with stlye parameter</h4>
+<h5>
+<a name="color-picker-with-opacity-with-stlye-parameter" class="anchor" href="#color-picker-with-opacity-with-stlye-parameter"><span class="octicon octicon-link"></span></a>Color picker with opacity with stlye parameter</h5>
 
-<pre><code>&lt;div wix-param="myColor" wix-ctrl="ColorPickerWithOpacity"&gt;&lt;/div&gt;
+<pre><code>&lt;div wix-param="myColor" wix-ctrl="ColorPickerWithOpacity"  wix-options="{startWithColor:'black/white'}"&gt;&lt;/div&gt;
+</code></pre>
+
+<hr><h3>
+<a name="radio-button" class="anchor" href="#radio-button"><span class="octicon octicon-link"></span></a>Radio Button</h3>
+
+<h4>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h4>
+
+<pre><code>{
+    radioValueAttrName:'data-radio-value',
+    inline:false,
+    value:0
+}
 </code></pre>
 
 <h4>
-<a name="radio-button" class="anchor" href="#radio-button"><span class="octicon octicon-link"></span></a>Radio Button</h4>
+<a name="markup-2" class="anchor" href="#markup-2"><span class="octicon octicon-link"></span></a>Markup</h4>
 
-<pre><code>&lt;div wix-ctrl="Radio"&gt;
+<pre><code>&lt;div wix-ctrl="Radio" wix-options="{value:0}"&gt;
     &lt;div data-radio-value="value-1"&gt;Option 1&lt;/div&gt;
     &lt;div data-radio-value="value-2"&gt;Option 2&lt;/div&gt;
     &lt;div data-radio-value="value-3"&gt;Option 3&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
+<h5>
+<a name="advance-radio-button" class="anchor" href="#advance-radio-button"><span class="octicon octicon-link"></span></a>Advance Radio Button</h5>
+
+<pre><code>&lt;div wix-ctrl="Radio"&gt;
+    &lt;div data-radio-value="value-1"&gt;
+        &lt;img src="layout1.png"/&gt;
+    &lt;/div&gt;
+    &lt;div data-radio-value="value-2"&gt;
+        &lt;img src="layout2.png"/&gt;
+    &lt;/div&gt;
+    &lt;div data-radio-value="value-3"&gt;
+        &lt;img src="layout3.png"/&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<hr><h3>
+<a name="checkbox" class="anchor" href="#checkbox"><span class="octicon octicon-link"></span></a>Checkbox</h3>
+
 <h4>
-<a name="checkbox" class="anchor" href="#checkbox"><span class="octicon octicon-link"></span></a>Checkbox</h4>
+<a name="options-1" class="anchor" href="#options-1"><span class="octicon octicon-link"></span></a>Options</h4>
 
-<p>Add the following HTML Markup</p>
-
-<pre><code>&lt;div wix-ctrl="Checkbox"&gt;&lt;/div&gt;
+<pre><code>{
+    preLabel: '',
+    postLabel: '',
+    value: false
+}
 </code></pre>
 
 <h4>
-<a name="slider" class="anchor" href="#slider"><span class="octicon octicon-link"></span></a>Slider</h4>
+<a name="markup-3" class="anchor" href="#markup-3"><span class="octicon octicon-link"></span></a>Markup</h4>
 
-<pre><code>&lt;div wix-ctrl="Slider"&gt;&lt;/div&gt;
+<pre><code>&lt;div wix-ctrl="Checkbox" wix-options="{value:false}"&gt;&lt;/div&gt;
+</code></pre>
+
+<hr><h3>
+<a name="slider" class="anchor" href="#slider"><span class="octicon octicon-link"></span></a>Slider</h3>
+
+<h4>
+<a name="options-2" class="anchor" href="#options-2"><span class="octicon octicon-link"></span></a>Options</h4>
+
+<pre><code>{
+    minValue : 0,
+    maxValue : 100,
+    value : 0,
+    width : 80,
+    preLabel:'',
+    postLabel:''
+}
 </code></pre>
 
 <h4>
-<a name="dropdown" class="anchor" href="#dropdown"><span class="octicon octicon-link"></span></a>Dropdown</h4>
+<a name="markup-4" class="anchor" href="#markup-4"><span class="octicon octicon-link"></span></a>Markup</h4>
 
-<pre><code>&lt;div wix-ctrl="Dropdown"&gt;
+<pre><code>&lt;div wix-ctrl="Slider" wix-options="{value:0}"&gt;&lt;/div&gt;
+</code></pre>
+
+<hr><h3>
+<a name="dropdown" class="anchor" href="#dropdown"><span class="octicon octicon-link"></span></a>Dropdown</h3>
+
+<h4>
+<a name="options-3" class="anchor" href="#options-3"><span class="octicon octicon-link"></span></a>Options</h4>
+
+<pre><code>{
+    slideTime : 150,
+    value: 0,
+    autoCloseTime : 5000
+}
+</code></pre>
+
+<h4>
+<a name="markup-5" class="anchor" href="#markup-5"><span class="octicon octicon-link"></span></a>Markup</h4>
+
+<pre><code>&lt;div wix-ctrl="Dropdown" wix-options="{value:0}"&gt;
     &lt;option value="value-1"&gt;Option A&lt;/option&gt;
     &lt;option value="value-2"&gt;Option B&lt;/option&gt;
     &lt;option value="value-3"&gt;Option C&lt;/option&gt;
 &lt;/div&gt;
 </code></pre>
 
-<h4>
-<a name="fixed-positioning-control" class="anchor" href="#fixed-positioning-control"><span class="octicon octicon-link"></span></a>Fixed Positioning Control</h4>
+<hr><h3>
+<a name="button-group" class="anchor" href="#button-group"><span class="octicon octicon-link"></span></a>Button Group</h3>
 
-<pre><code>&lt;div wix-ctrl="GluedControl"&gt;&lt;/div&gt;
+<h4>
+<a name="options-4" class="anchor" href="#options-4"><span class="octicon octicon-link"></span></a>Options</h4>
+
+<pre><code>{
+    value: 0
+}
+</code></pre>
+
+<h4>
+<a name="markup-6" class="anchor" href="#markup-6"><span class="octicon octicon-link"></span></a>Markup</h4>
+
+<pre><code>&lt;div wix-ctrl="ButtonGroup" wix-options="{value:0}"&gt;
+    &lt;button value="value-1"&gt;Button 1&lt;/button&gt;
+    &lt;button value="value-2"&gt;Button 2&lt;/button&gt;
+    &lt;button value="value-3"&gt;Button 3&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+
+<hr><h3>
+<a name="fixed-positioning-control" class="anchor" href="#fixed-positioning-control"><span class="octicon octicon-link"></span></a>Fixed Positioning Control</h3>
+
+<h4>
+<a name="options-5" class="anchor" href="#options-5"><span class="octicon octicon-link"></span></a>Options</h4>
+
+<pre><code>{
+    bindToWidget: false,
+    placements : []
+}
+</code></pre>
+
+<h4>
+<a name="markup-7" class="anchor" href="#markup-7"><span class="octicon octicon-link"></span></a>Markup</h4>
+
+<pre><code>&lt;div wix-ctrl="GluedControl" wix-options="{bindToWidget: true}"&gt;&lt;/div&gt;
 </code></pre>
 
 <h2>
@@ -607,7 +768,6 @@ $( document ).ready(function(){
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></article>
-
 </section>
 
 </div>
