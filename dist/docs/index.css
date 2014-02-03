@@ -1,0 +1,387 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+ul, li {
+    padding: 0;
+}
+
+h1{
+    padding: 10px 0;
+    margin: 0;
+}
+
+.wix-logo {
+    position: relative;
+    top: 4px;
+}
+
+.wix-logo > a {
+    background: url(images/wix-logo.png) no-repeat;
+    height: 19px;
+    width: 183px;
+    display: block;
+}
+
+.white {
+    color: #fff;
+}
+
+.cell {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.page {
+    display: table;
+}
+
+.page-css, .page-components, .page-demo, .page-getting-started {
+    padding-top: 50px;
+}
+
+.navigation {
+    position: fixed;
+    margin: 0;
+    top: 0;
+    padding-left: 85px;
+    width: 100%;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000000;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.navigation.shown {
+    /*
+    display: inline-block;
+    animation: fadeIn 0.5s;
+    -moz-animation: fadeIn 0.5s;
+    -o-animation: fadeIn 0.5s;
+    -webkit-animation: fadeIn 0.5s;
+    */
+}
+
+.navigation > ul {
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.navigation > ul > li {
+    display: inline-block;
+    line-height: 54px;
+}
+
+.navigation ul > li > a {
+    padding: 10px 15px;
+    color: #fff;
+}
+
+.container {
+    text-align: left;
+    margin: 0 30px 25px 100px;
+    width: 775px;
+}
+
+.page-welcome {
+    display: table;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #292929 url(images/welcome.png) 0 0 repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.page-welcome .container.center {
+    text-align: center;
+}
+
+.page-welcome .container > h1 {
+    font-size: 60px;
+    margin-top: 0;
+    line-height: 48px;
+}
+
+.page-welcome .container > h2 {
+    font-size: 30px;
+}
+
+.page-welcome .get-ui-lib {
+    margin-top: 30px;
+}
+
+.page-welcome .get-ui-lib > .uilib-btn {
+    margin-right: 10px;
+}
+
+.page-welcome .get-ui-lib > .uilib-btn > a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.page-welcome .get-ui-lib > .uilib-btn.extra {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.page-welcome .scrollMore {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 42px;
+    width: 34px;
+    height: 65px;
+    background-image: url(http://static.parastorage.com/services/html-landing/2013/resources/hp_v2/images-v2/1280/scroll_more_out.png);
+    background-position: 0px 0px;
+}
+
+.page-welcome .scrollMore:hover {
+    background-position: 0px -65px;
+}
+
+.wix#demo .demo .demo-container {
+    height: 646px;
+    width: 600px;
+    padding: 0 11px;
+}
+
+.wix#demo .demo .demo-container > iframe {
+    overflow:hidden;
+    width:100%;
+    height:100%;
+    display: block;
+}
+
+/*Start DEMO Style*/
+.wix .demo .container{
+    width: 622px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: rgb(0, 0, 0) -3px 0px 50px 0px;
+    margin: 0;
+}
+
+.wix .demo .container .title{
+    font-size: 16px;
+    display: block;
+    padding: 0px 10px;
+    border-bottom: 1px solid #cccccc;
+    line-height: 34px;
+}
+
+.wix .demo .container .footer{
+    font-size: 14px;
+    display: block;
+    padding: 10px;
+    border-top: 1px solid #cccccc;
+    line-height: 34px;
+}
+
+.wix .demo header.box {
+    margin: 10px;
+}
+
+.wix .demo div.accordion {
+    margin: 10px;
+}
+
+.wix .demo section.box:last-child {
+    padding-bottom: 10px;
+}
+
+.wix .demo .left-margin{
+    margin-left: 40px;
+}
+
+/*End DEMO Style*/
+
+.page-components .container,  .page-css .container {
+    width: 970px;
+    margin-left: 100px;
+}
+.js-main {
+    float:left;
+    width: 670px;
+    box-shadow: 0 0 10px 1px rgba(0,0,0,0.4);
+    padding: 0 10px;
+    margin: 18px 0;
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.8);
+}
+.js-sidebar {
+    float:left;
+    width: 230px;
+    min-height: 1px;
+}
+
+.js-back-to-top {
+    display: none;
+    background-color: rgba(0,0,0,0.7);
+    cursor: pointer;
+    position: fixed;
+    right: 0px;
+    bottom: 0;
+    margin-bottom: 15px;
+    padding: 10px;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+    -webkit-transition: color 0.1s linear 0s;
+    -moz-transition: color 0.1s linear 0s;
+    -o-transition: color 0.1s linear 0s;
+    transition: color 0.1s linear 0s;
+}
+
+.js-back-to-top.shown {
+    display: block;
+    animation: fadeIn 0.5s;
+    -moz-animation: fadeIn 0.5s;
+    -o-animation: fadeIn 0.5s;
+    -webkit-animation: fadeIn 0.5s;
+}
+
+.js-back-to-top > a {
+    color: #bbb;
+}
+
+
+.js-back-to-top:hover a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.side-bar ul {
+    list-style: none;
+}
+
+.side-bar h2 {
+    margin: 0;
+}
+
+.cmp-sidebar{
+    width: 210px;
+
+    color: #ffffff;
+    /*padding: 20px 15px;*/
+
+    border-radius: 3px;
+    background-color: #0099FF;
+    background-color: rgba(0, 153, 255, 0.8);
+    border: 1px solid rgba(0,0,0,0.3);
+    padding: 3px 0;
+}
+.plugin-markup, .plugin-options{
+    word-break: break-word;
+    padding: 5px;
+    background-color:rgba(127,127,127,0.04);
+    border: 1px solid rgba(127,127,127,0.3);
+    border-radius:4px;
+}
+.plugin-demo{
+    margin: 10px 0;
+}
+
+.cmp-plugin-decs-entry{
+    padding: 50px 0 20px 0;
+}
+.cmp-plugin-entry{
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.cmp-plugin-entry:last-child{
+    border-bottom: 0;
+}
+
+
+.cmp-plugin-entry > a{
+    color: #ffffff;
+    font-size: 15px;
+    display:block;
+    text-decoration: none;
+    padding: 4px 15px;
+    transition:all 0.3s;
+    background:transparent;
+}
+
+.cmp-plugin-entry a:hover {
+    background: rgba(255,255,255,0.5);
+}
+
+.cmp-plugin-entry .current-viewed{
+    background-color: rgba(0,0,0,0.25);
+}
+
+.js-cmp-sidebar-wrapper .nav {
+    list-style: none;
+    display:none;
+}
+
+.cmp-plugin-decs-entry > table {
+    border-spacing: 0;
+    font-size: 14px;
+    color: #4f4f4f;
+    border-collapse: separate !important;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.cmp-plugin-decs-entry > table th, .cmp-plugin-decs-entry > table td {
+    padding: 0.25rem;
+    text-align: left;
+    border: 1px solid rgba(0,0,0,0.1);
+    white-space: pre-wrap;
+}
+
+.cmp-plugin-decs-entry > table tbody, .cmp-plugin-decs-entry > table thead {
+    border: none;
+}
+
+
+.cmp-plugin-decs-entry > table tbody tr:nth-child(odd) {
+    background: rgba(0,0,0,0.015);
+}
+
+.cmp-plugin-decs-entry > table th{
+    background: rgba(0,0,0,0.15);
+}
+
+#Accordion-entry [wix-ctrl]{
+    height:186px;
+}
+
+.page-css .icons {
+    padding-top: 10px;
+}
+
+.page-css ul.icons > li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.page-getting-started ul, .page-components .content ul {
+    margin-left: 16px;
+    list-style: inherit;
+    font-size: 12px;
+}
+
+#footer{
+    height: 160px;
+    clear:both;
+}
