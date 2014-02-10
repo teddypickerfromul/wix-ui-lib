@@ -2,11 +2,11 @@ Getting Started
 ========================
 
 ## Get the Code
-Download the latest relaese of the ui lib from [here](https://github.com/wix/wix-ui-lib/releases/download/v2.0.4/wix-ui-lib-v2.0.4.zip) and add it to your project folder.
+Download the latest release of the ui lib from [here](https://github.com/wix/wix-ui-lib/releases/download/v2.1.0/v2.1.0.zip) and add it to your project folder.
 
 ## Dependencies
 
-Wix UI lib dependencies are jQuery from version 1.9.0 and Wix SDK from version 1.25.0 make sure you include them in your HTML.
+Wix UI lib dependencies are jQuery from version 1.9.0 and Wix SDK from version 1.26.0 make sure you include them in your HTML.
 
 ## HTML file setup
 
@@ -34,7 +34,7 @@ To get started, include the minified ui lib JS and CSS files in your App Setting
         </header>
         <!-- your settings -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-        <script src="http://sslstatic.wix.com/services/js-sdk/1.24.0/js/Wix.js"></script>
+        <script src="http://sslstatic.wix.com/services/js-sdk/1.26.0/js/Wix.js"></script>
         <script src="ui-lib.min.js"></script>
     </body>
 </html>
