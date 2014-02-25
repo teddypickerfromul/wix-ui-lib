@@ -207,8 +207,8 @@ h1{
 
 /*End DEMO Style*/
 
-.page-components .container,  .page-css .container {
-    width: 970px;
+.page-getting-started .container, .page-components .container,  .page-css .container {
+    width: 935px;
     margin-left: 100px;
 }
 .js-main {
@@ -221,6 +221,18 @@ h1{
     overflow: hidden;
     background: rgba(255,255,255,0.8);
 }
+
+.js-getting-started {
+    float:left;
+    width: 670px;
+    box-shadow: 0 0 10px 1px rgba(0,0,0,0.4);
+    padding: 0 10px;
+    margin: 18px 0;
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.8);
+}
+
 .js-sidebar {
     float:left;
     width: 230px;
@@ -308,28 +320,48 @@ h1{
     border-bottom: 0;
 }
 
+ul.nav .cmp-plugin-entry:first-child {
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
 
-.cmp-plugin-entry > a{
+li.cmp-plugin-entry {
+    background-color: rgba(0, 153, 255, 0.8);
+}
+
+
+.cmp-plugin-entry  a{
     color: #ffffff;
     font-size: 15px;
     display:block;
     text-decoration: none;
     padding: 4px 15px;
-    transition:all 0.3s;
     background:transparent;
+}
+
+.page-getting-started .cmp-plugin-entry ul.nav {
+    margin-left: 0px;
+}
+
+.cmp-plugin-entry .nav  a{
+    font-size: 13px;
+    padding-left: 32px;
 }
 
 .cmp-plugin-entry a:hover {
     background: rgba(255,255,255,0.5);
 }
 
-.cmp-plugin-entry .current-viewed{
+li.cmp-plugin-entry.current-viewed{
     background-color: rgba(0,0,0,0.25);
 }
 
 .js-cmp-sidebar-wrapper .nav {
     list-style: none;
     display:none;
+}
+
+.js-cmp-sidebar-wrapper .current-viewed .nav {
+    display:block;
 }
 
 .cmp-plugin-decs-entry > table {
@@ -375,10 +407,15 @@ h1{
     margin-right: 10px;
 }
 
-.page-getting-started ul, .page-components .content ul {
+.page-getting-started .content ul,
+.page-components .content ul {
     margin-left: 16px;
     list-style: inherit;
     font-size: 12px;
+}
+
+.page-getting-started .js-docs .content {
+    padding-bottom: 100px;
 }
 
 #footer{

@@ -51,13 +51,58 @@
 </div>
 
 <div class="page-getting-started" id="getting-started">
-    <div class="container">
-        <h1 id="getting-started">Getting Started</h1>
+    <div class="container clearfix">
+        <div class="side-bar js-sidebar">
+            <div class="js-cmp-sidebar-wrapper">
+                <h2>Getting Started</h2>
+                <ul class="cmp-sidebar content">
+                    <li class="cmp-plugin-entry"><a data-scroll-inter="" href="#GetTheCode-entry">Get the code</a></li>
+                    <li class="cmp-plugin-entry"><a data-scroll-inter="" href="#Dependencies-entry">Dependencies</a></li>
+                    <li class="cmp-plugin-entry"><a data-scroll-inter="" href="#HTMLFileSetup-entry">HTML file setup</a></li>
+                    <li class="cmp-plugin-entry"><a data-scroll-inter="" href="#NamespaceAndProgramming-entry">Namespace and programming</a></li>
+                    <li class="cmp-plugin-entry"><a data-scroll-inter="" href="#UsingComponents-entry">Using Components</a></li>
+                    <li class="cmp-plugin-entry"><a data-scroll-inter="" href="#WixCustomHTMLAttributes-entry">Wix custom HTML attributes</a>
+                        <ul class="nav">
+                            <li class="cmp-plugin-entry"><a data-scroll-inter href="#WixCustomHTMLAttributes-Initialization-entry">Initialization</a></li>
+                            <li class="cmp-plugin-entry"><a data-scroll-inter href="#WixCustomHTMLAttributes-Model-entry">Model</a></li>
+                            <li class="cmp-plugin-entry"><a data-scroll-inter href="#WixCustomHTMLAttributes-WixStyleParameters-entry">Wix Style Parameters</a></li>
+                            <li class="cmp-plugin-entry"><a data-scroll-inter href="#WixCustomHTMLAttributes-StyleParametersInCssStylesheet-entry">Style parameters in a CSS stylesheet</a></li>
+                            <li class="cmp-plugin-entry"><a data-scroll-inter href="#WixCustomHTMLAttributes-AdvanceUsage-entry">Advance Usage</a></li>
+                            <li class="cmp-plugin-entry"><a data-scroll-inter href="#WixCustomHTMLAttributes-DynamicCreationOfjavascriptComponents-entry">Dynamic Creation of javascript Components</a></li>
+                            <li class="cmp-plugin-entry"><a data-scroll-inter href="#WixCustomHTMLAttributes-GetComponentControllerInstanceDynamically-entry">Get component controller instance dynamically</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="content js-getting-started">
+            <div class="js-docs">
+                <div class="content">
+                    <h1>Getting Started</h1>
+                    <div data-scroll-target data-name="# Get the Code"id="GetTheCode-entry" class="cmp-plugin-decs-entry">
 <h2 id="get-the-code">Get the Code</h2>
-<p>Download the latest release of the ui lib from <a href="https://github.com/wix/wix-ui-lib/releases/download/v2.1.1/wix-ui-lib-v2.1.1.zip">here</a> and add it to your project folder.</p>
+<p><!-- GetTheCode -->
+Download the latest release of the ui lib from <a href="https://github.com/wix/wix-ui-lib/releases/download/v2.1.1/wix-ui-lib-v2.1.1.zip">here</a> and add it to your project folder.</p>
+
+</div>
+
+
+
+<div data-scroll-target data-name="# Dependencies"id="Dependencies-entry" class="cmp-plugin-decs-entry">
 <h2 id="dependencies">Dependencies</h2>
+<!-- Dependencies -->
+
 <p>Wix UI lib dependencies are jQuery from version 1.9.0 and Wix SDK from version 1.26.0 make sure you include them in your HTML.</p>
+
+</div>
+
+
+
+<div data-scroll-target data-name="# HTML file setup"id="HTMLFileSetup-entry" class="cmp-plugin-decs-entry">
 <h2 id="html-file-setup">HTML file setup</h2>
+<!-- HTMLFileSetup -->
+
 <p>To get started, include the minified ui lib JS and CSS files in your App Settings HTML. Also add the <code>wix-ui</code> attribute on the body element, this will hide the document until <strong>Wix.UI.initialize</strong> will be called.</p>
 <pre><code class="lang-html">&lt;!doctype html&gt;
 &lt;html&gt;
@@ -83,10 +128,28 @@
         &lt;script src=&quot;http://sslstatic.wix.com/services/js-sdk/1.26.0/js/Wix.js&quot;&gt;&lt;/script&gt;
         &lt;script src=&quot;ui-lib.min.js&quot;&gt;&lt;/script&gt;
     &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
+
+</div>
+
+
+
+<div data-scroll-target data-name="# Namespace and programming"id="NamespaceAndProgramming-entry" class="cmp-plugin-decs-entry">
 <h2 id="namespace-and-programming">Namespace and programming</h2>
+<!-- NamespaceAndProgramming -->
+
 <p><strong>Wix</strong> is the global namespace deployed by the Wix SDK. The UI Lib will deploy itself as a sub namespace of the SDK under <strong>Wix.UI</strong>.</p>
+
+</div>
+
+
+
+<div data-scroll-target data-name="# Using Components"id="UsingComponents-entry" class="cmp-plugin-decs-entry">
 <h2 id="using-components">Using Components</h2>
+<!-- UsingComponents -->
+
+
 <p>The Wix UI Lib include two types of components - CSS &amp; Javascript.</p>
 <h3 id="css-components">CSS Components</h3>
 <p>Css components are several css classes that can help you build the ui of the settings.</p>
@@ -96,7 +159,15 @@
 <p>Wix designed icons, can be used as part of your app buttons or as a standalone element.</p>
 <h3 id="javascript-components">Javascript Components</h3>
 <p>These are basically a set of <a href="http://jquery.com/">jQuery</a> Plugins with specific structure.</p>
+
+</div>
+
+
+
+<div data-scroll-target data-name="# Wix custom HTML attributes"id="WixCustomHTMLAttributes-entry" class="cmp-plugin-decs-entry">
 <h2 id="wix-custom-html-attributes">Wix custom HTML attributes</h2>
+<!-- WixCustomHTMLAttributes -->
+
 <p>The Wix UI Lib defines custom attributes which enable components initialization from within the HTML markup.</p>
 <p><strong>wix-ctrl -</strong> component&#39;s controller declaration.</p>
 <p><strong>wix-options -</strong> component initialization options.</p>
@@ -105,7 +176,15 @@
 <p><strong>wix-model -</strong> define app model key for a component - this is a two way data item that it&#39;s value is accessable by the app through the Wix.UI.get/set methods. Changes to this item can tracked by subscribing to change events Wix.UI.onChange method.</p>
 <p><code>Warning: wix-pram &amp; wix-model are mutually exclusive and can not co-exist on the same controller. Only one of them should be used.</code></p>
 <p>All attributes can be prefixed with <strong>data-</strong> to be W3C compliant (Optional).</p>
+
+</div>
+
+
+
+<div data-scroll-target data-name="## Initialization"id="WixCustomHTMLAttributes-Initialization-entry" class="cmp-plugin-decs-entry">
 <h3 id="initialization">Initialization</h3>
+<!-- WixCustomHTMLAttributes-Initialization -->
+
 <p>There are 2 ways to initialize the components:</p>
 <ul>
 <li>initialize with markup (prefered)</li>
@@ -114,17 +193,28 @@
 <h4 id="initialize-with-markup">Initialize with markup</h4>
 <p>Each component can be initialized with a simple markup and two important attributes
 <code>wix-ctrl</code> and <code>wix-options</code>:</p>
-<pre><code class="lang-html">&lt;div wix-model=&quot;myKey&quot; wix-ctrl=&quot;ComponentName&quot; wix-options=&quot;{Options}&quot;&gt;&lt;/div&gt;</code></pre>
+<pre><code class="lang-html">&lt;div wix-model=&quot;myKey&quot; wix-ctrl=&quot;ComponentName&quot; wix-options=&quot;{Options}&quot;&gt;&lt;/div&gt;
+</code></pre>
 <p>The <strong>Wix.UI</strong> library manages all components that were decalred through markup or created dynamically.  <strong>Wix.UI.initialize()</strong> must be called on DOM ready to start the compoenets creations process and to display the document body. The compoenets will get created with the options that were specified inside the markup using the <code>wix-option</code> attribute.</p>
 <p>All the <strong>Wix.UI</strong> components should be initialized after the DOM is ready.</p>
 <pre><code class="lang-javascript">$( document ).ready(function(){
 
     Wix.UI.initialize({});
 
-});</code></pre>
+});
+</code></pre>
+
+</div>
+
+
+
+<div data-scroll-target data-name="##Model"id="WixCustomHTMLAttributes-Model-entry" class="cmp-plugin-decs-entry">
 <h3 id="model">Model</h3>
+<!-- WixCustomHTMLAttributes-Model -->
+
 <p>In order to set/get component values, you should add a <code>wix-model</code> attribute to the component markup this will bind them to the <strong>Wix.UI</strong> model. This will allow using the <strong>Wix.UI.set(key, value)</strong> or <strong>Wix.UI.get(key)</strong> methods to update the component value and retrieve the component value.</p>
-<pre><code class="lang-html">&lt;div wix-model=&quot;myKey&quot; wix-ctrl=&quot;ComponentName&quot; wix-options=&quot;{option: &#39;value&#39;}&quot;&gt;&lt;/div&gt;</code></pre>
+<pre><code class="lang-html">&lt;div wix-model=&quot;myKey&quot; wix-ctrl=&quot;ComponentName&quot; wix-options=&quot;{option: &#39;value&#39;}&quot;&gt;&lt;/div&gt;
+</code></pre>
 <p>Components that has <code>wix-model</code> attribute can be initialized with default values or values that retrieved from your server.</p>
 <pre><code class="lang-html">...
 &lt;div wix-model=&quot;showTweets&quot; wix-ctrl=&quot;Checkbox&quot;&gt;&lt;/div&gt;
@@ -146,7 +236,8 @@
 
     });
 &lt;/script&gt;
-...</code></pre>
+...
+</code></pre>
 <h4 id="subscribe-to-model-change-events">Subscribe to model change events</h4>
 <p>You can subscribe to changes in the wix-model with the following code:</p>
 <pre><code class="lang-javascript">//subscribe to one key change
@@ -157,10 +248,12 @@ Wix.UI.onChange(&#39;myKey&#39;, function(value, key){
 //subscribe to changes in all keys
 Wix.UI.onChange(&#39;*&#39;, function(value, key){
     //do some awesome stuff with the value
-});</code></pre>
+});
+</code></pre>
 <h4 id="save-wix-ui-model">Save Wix.UI Model</h4>
 <p>When you want to save the state of your components you can simply call the toJSON function on the <strong>Wix.UI</strong> to get it&#39;s current state. This saved json representation can be later used to (re)initialize the <strong>Wix.UI</strong>. E.g. you can save it in your database and read on next invocations of the App Settings.</p>
-<pre><code class="lang-javascript">var componentsValues = Wix.UI.toJSON();</code></pre>
+<pre><code class="lang-javascript">var componentsValues = Wix.UI.toJSON();
+</code></pre>
 <h6 id="jquery-example">jQuery Example</h6>
 <pre><code class="lang-javascript">var widgetId = Wix.Utils.getInstanceId() + &#39;--&#39; + Wix.Utils.getCompId();
 
@@ -180,8 +273,17 @@ Wix.UI.onChange(&#39;*&#39;, function(){
 
 $( document ).ready(function(){
     loadSettings();
-});</code></pre>
+});
+</code></pre>
+
+</div>
+
+
+
+<div data-scroll-target data-name="## Wix Style Parameters"id="WixCustomHTMLAttributes-WixStyleParameters-entry" class="cmp-plugin-decs-entry">
 <h3 id="wix-style-parameters">Wix Style Parameters</h3>
+<!-- WixCustomHTMLAttributes-WixStyleParameters -->
+
 <p>Wix Style parameters, which replace the wix-model parameters, allow an app developer to save specific keys inside the Wix Site. Meaning, they do not need to be saved in the App&#39;s database like  wix-model parameters. <strong>Wix.UI</strong> takes care of saving it inside the site using the Wix SDK.</p>
 <p>You can use the <code>wix-param</code> attribute on supported components. Currently Wix supports the following Components for wix-param:</p>
 <h4 id="color-parameters-components">Color Parameters Components</h4>
@@ -207,14 +309,25 @@ $( document ).ready(function(){
 </ul>
 <p><strong>wix-param</strong> attribute sets the key of the style parameter.</p>
 <p>Color Picker component:</p>
-<pre><code class="lang-html">&lt;div wix-param=&quot;myParam&quot; wix-ctrl=&quot;ColorPickerWithOpacity&quot;&gt;&lt;/div&gt;</code></pre>
+<pre><code class="lang-html">&lt;div wix-param=&quot;myParam&quot; wix-ctrl=&quot;ColorPickerWithOpacity&quot;&gt;&lt;/div&gt;
+</code></pre>
 <p>Font Picker component:</p>
-<pre><code class="lang-html">&lt;div wix-param=&quot;myFont&quot; wix-ctrl=&quot;FontStylePicker&quot;&gt;&lt;/div&gt;</code></pre>
+<pre><code class="lang-html">&lt;div wix-param=&quot;myFont&quot; wix-ctrl=&quot;FontStylePicker&quot;&gt;&lt;/div&gt;
+</code></pre>
 <p>wix-param can also be consumed inside the App&#39;s Widget/Page. You can use <strong>Wix SDK</strong> to get all the style parameters that were set in the App&#39;s Settings.</p>
 <pre><code class="lang-javascript">Wix.getStyleParams(function(styleParams){
     // styleParams is a map with all style values {colors:{}, numbers:{}, booleans:{}, fonts:{}}
-});</code></pre>
-<h3 id="style-paramerters-in-a-css-stylesheet">Style paramerters in a CSS stylesheet</h3>
+});
+</code></pre>
+
+</div>
+
+
+
+<div data-scroll-target data-name="##Style parameters in a CSS stylesheet"id="WixCustomHTMLAttributes-StyleParametersInCssStylesheet-entry" class="cmp-plugin-decs-entry">
+<h3 id="style-parameters-in-a-css-stylesheet">Style parameters in a CSS stylesheet</h3>
+<!-- WixCustomHTMLAttributes-StyleParametersInCssStylesheet -->
+
 <p>You can use the color and font style parameters inside a <strong>inline CSS style</strong> within your widget/page, It&#39;s a simple template engine that uses {{value}} to interpolate the style parameters. fallback values are separated with spaces {{value fallback}}. In order to activate it put <code>wix-style</code> attribute on an inline style.</p>
 <pre><code class="lang-html">&lt;style wix-style&gt;
     body {
@@ -239,7 +352,8 @@ $( document ).ready(function(){
     &lt;footer&gt;
         &lt;h2&gt;Footer&lt;/h2&gt;
     &lt;/footer&gt;
-&lt;/body&gt;</code></pre>
+&lt;/body&gt;
+</code></pre>
 <p>Color style parameters can use reserved theme colors in the stylesheet using the following references:</p>
 <ul>
 <li>white/black - primary white, black if the site theme is inverted</li>
@@ -263,7 +377,15 @@ $( document ).ready(function(){
 <li>Body-S</li>
 <li>Body-XS</li>
 </ul>
-<h3 id="adavnce-usage">Adavnce Usage</h3>
+
+</div>
+
+
+
+<div data-scroll-target data-name="##Advavnce Usage"id="WixCustomHTMLAttributes-AdvanceUsage-entry" class="cmp-plugin-decs-entry">
+<h3 id="advavnce-usage">Advavnce Usage</h3>
+<!-- WixCustomHTMLAttributes-AdvanceUsage -->
+
 <h4 id="initialize-with-javascript">Initialize with javascript</h4>
 <p>In this way you need to subscribe to changes and set values directly on the jQuery plugin.</p>
 <pre><code class="lang-javascript">//create plugin on existing element
@@ -278,8 +400,17 @@ Wix.UI.initializePlugin($el);
 //init Wix.UI bindings on an Wix ready element and override the options
 Wix.UI.initializePlugin($(&#39;&lt;div wix-ctrl=&quot;ColorPicker&quot; wix-model=&quot;myColor&quot;&gt;&#39;), {
     startWithColor:&#39;#ffffff&#39;
-});</code></pre>
+});
+</code></pre>
+
+</div>
+
+
+
+<div data-scroll-target data-name="## Dynamic creation of javascript components"id="WixCustomHTMLAttributes-DynamicCreationOfjavascriptComponents-entry" class="cmp-plugin-decs-entry">
 <h3 id="dynamic-creation-of-javascript-components">Dynamic creation of javascript components</h3>
+<!-- WixCustomHTMLAttributes-DynamicCreationOfjavascriptComponents -->
+
 <pre><code class="lang-javascript">//create plugin and element that are conected to wix param or model
 var jQueryElement = Wix.UI.create({
     id:&#39;myElement&#39;, //DOM element id
@@ -291,19 +422,34 @@ var jQueryElement = Wix.UI.create({
     options: { //wix-options
         startWithColor: &#39;#ffffff&#39;
     }
-});</code></pre>
+});
+</code></pre>
+
+</div>
+
+
+
+<div data-scroll-target data-name="## Get component controller instance dynamically"id="WixCustomHTMLAttributes-GetComponentControllerInstanceDynamically-entry" class="cmp-plugin-decs-entry">
 <h3 id="get-component-controller-instance-dynamically">Get component controller instance dynamically</h3>
+<!-- WixCustomHTMLAttributes-GetComponentControllerInstanceDynamically -->
+
 <pre><code class="lang-javascript">//get the plugin instance from jQuery element
 var pluginInstance = jQueryElement.getCtrl();
-var pluginInstance = $(&#39;#myElement&#39;).getCtrl();</code></pre>
+var pluginInstance = $(&#39;#myElement&#39;).getCtrl();
+</code></pre>
 <h4 id="dynamic-component-destruction">Dynamic component destruction</h4>
 <p>when you need to remove a component form the page to avoid memeory leaks use <strong>Wix.UI.destroyPlugin</strong></p>
 <pre><code class="lang-javascript">//destroy the component and remove all listeners
 Wix.UI.destroy($(&#39;#myElement&#39;));
 
 //destroy the component, remove all listeners and delete the model key
-Wix.UI.destroy($(&#39;#myElement&#39;), true);</code></pre>
+Wix.UI.destroy($(&#39;#myElement&#39;), true);
+</code></pre>
 
+</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
