@@ -4,3 +4,7 @@
 *.iml
 node_modules/*
 .idea/
+
+dev/*
+dist/docs/md/*.md
+dist/docs/md/WixCustomHtmlAttributes/*.md
