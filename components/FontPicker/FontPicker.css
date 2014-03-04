@@ -100,3 +100,16 @@
 	color:#373737;
 	border: 1px solid #ccc;
 }
+
+.font-style-picker .font-style-option {
+    height: 74px;
+}
+
+.font-style-picker .font-style-option.font{
+    font-size: 28px;
+}
+
+.font-style-picker .font-style-option .description{
+    font-size: 12px;
+    color: #888888;
+}

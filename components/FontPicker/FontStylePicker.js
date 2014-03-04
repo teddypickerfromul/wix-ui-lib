@@ -93,9 +93,10 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 			
 			var presets = this.getSiteTextPresets();
 			Object.keys(presets).sort().forEach(function(presetName){
-				html += '<div value="'+presetName+'">'+presetName.replace(/-/g,' ')+'</div>';
+                var css = 'font-style-option font' + ' ' + presetName + '"';
+                html += '<div class="' +css + ' value="'+presetName+'">'+presetName.replace(/-/g,' ')+'</div>';
 			});
-			html += '<div value="Custom">Custom</div>';
+            html += '<div value="Custom">Custom</div>';
 
 			this.presetSelectPicker = this.UI().create({
 				ctrl: 'Dropdown',
