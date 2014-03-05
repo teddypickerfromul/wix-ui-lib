@@ -1,4 +1,4 @@
-describe('LanguagePicker', function () {
+describe('FontStylePicker', function () {
     'use strict';
 
     var element;
@@ -8,9 +8,9 @@ describe('LanguagePicker', function () {
 
     afterEach(function(){
         Wix.UI.destroy(element);
-    });
+    })
 
-    it('should apply wix markup to given wix-ctrl', function(){
+    it('should set the corect font class name for each item in the dropdown', function(){
         Wix.UI.initializePlugin(element);
         var $fontPicker = $(".font-style-picker");
         $fontPicker.find('.box-like-drop').click();

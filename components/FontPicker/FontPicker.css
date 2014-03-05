@@ -32,7 +32,7 @@
 .props-place-holder{
 	width: 266px;
 	margin: 5px 0 0 0;
-};
+}
 
 .font-style-picker-font-size{
 	margin: 0 10px 0 0;
@@ -105,8 +105,9 @@
     height: 74px;
 }
 
-.font-style-picker .font-style-option.font{
+.font-style-picker .font-style-option .font{
     font-size: 28px;
+    line-height: 54px;
 }
 
 .font-style-picker .font-style-option .description{

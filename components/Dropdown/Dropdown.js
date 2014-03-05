@@ -14,7 +14,8 @@
 		selectedOptionsClassName : 'option-selected',
 		highlightClassName : 'dropdown-highlight',
 		iconClassName: 'dropdown-icon',
-		hideTextClass: 'dropdown-hideText'
+		hideTextClass: 'dropdown-hideText',
+        appendChildren:'data-append-children'
 	};
 
 	var optionsCSS = {
@@ -71,14 +72,20 @@
 			var $options = this.$el.find(this.options.optionSelector).map(function (index) {
 					var style = this.getAttribute('style');
 					var extended = this.getAttribute(names.extendedValueName);
+                    var appendChildren = this.getAttribute(names.appendChildren);
 					var $option = $('<div>')
 						.attr(names.valueAttrName, this.getAttribute(names.optionInitValueAttrName))
 						.attr(names.indexAttrName, index)
 						.addClass(names.optionClassName)
 						.addClass(this.className)
-						.text(this.textContent);
+
 					
-					
+					if(appendChildren){
+                        $option.append(this.children);
+                    } else {
+                        $option.text(this.textContent);
+                    }
+
 					if(extended){
 						$option.attr(names.extendedValueName, extended);
 					}

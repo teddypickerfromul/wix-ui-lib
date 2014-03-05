@@ -90,12 +90,22 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 		},
 		createPresetPicker: function(){
 			var html = '';
-			
+			var _this = this;
 			var presets = this.getSiteTextPresets();
-			Object.keys(presets).sort().forEach(function(presetName){
-                var css = 'font-style-option font' + ' ' + presetName + '"';
-                html += '<div class="' +css + ' value="'+presetName+'">'+presetName.replace(/-/g,' ')+'</div>';
+
+            Object.keys(presets).sort().forEach(function(presetName){
+
+                var styleFont = _this.getStyleFontByReference(presetName) ;
+                var font = (styleFont && styleFont.fontFamily) || 'helvetica';
+                var fontSize = (styleFont && styleFont.size) || '12px';
+                var styleCss = ' style="font-family:' + font +'"';
+                html += '<div data-append-children="true"  value="'+ presetName + '" class="font-style-option">' +
+                            '<div' + styleCss + ' class="font">'+presetName.replace(/-/g,' ')+'</div>' +
+                            '<div class="description">' + font + ', ' +fontSize + '</div>' +
+                        '</div>';
 			});
+
+
             html += '<div value="Custom">Custom</div>';
 
 			this.presetSelectPicker = this.UI().create({
@@ -107,6 +117,10 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 					height : 180,
 					value: 1,
 					modifier: function($el){
+                        // Remove the description of the font style
+                        $el.html($el.find('div:first').html());
+                        $el.removeClass('font-style-option');
+                        $el.removeClass('font');
 						return $el;
 					}
 				}
@@ -190,6 +204,9 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
             var presets = this.getSiteTextPresets();
             var preset = presets[presetName];
             return preset;
+        },
+        getStyleFontByReference: function(fontReference){
+            return (Wix && Wix.Styles)? Wix.Styles.getStyleFontByReference(fontReference) : {};
         },
 		handlePluginPresetSelectChange: function(plugin, evt){
 			var presets = this.getSiteTextPresets();
