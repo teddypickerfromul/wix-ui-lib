@@ -101,7 +101,10 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
                 var styleCss = ' style="font-family:' + font +'"';
                 html += '<div data-append-children="true"  value="'+ presetName + '" class="font-style-option">' +
                             '<div' + styleCss + ' class="font">'+presetName.replace(/-/g,' ')+'</div>' +
-                            '<div class="description">' + font + ', ' +fontSize + '</div>' +
+                            '<div class="description">' +
+                                '<div class="font-description">' + font + '</div>' +
+                                '<div> , ' + fontSize + '</div>' +
+                            '</div>' +
                         '</div>';
 			});
 
