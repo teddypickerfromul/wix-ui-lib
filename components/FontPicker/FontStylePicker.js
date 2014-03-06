@@ -96,13 +96,14 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
             Object.keys(presets).sort().forEach(function(presetName){
 
                 var styleFont = _this.getStyleFontByReference(presetName) ;
-                var font = (styleFont && styleFont.fontFamily) || 'helvetica';
+                var font = (styleFont && styleFont.fontFamily) || 'arial';
+                var fontDisplayName = _this.getFontDisplayName(font) || 'Arial';
                 var fontSize = (styleFont && styleFont.size) || '12px';
                 var styleCss = ' style="font-family:' + font +'"';
                 html += '<div data-append-children="true"  value="'+ presetName + '" class="font-style-option">' +
                             '<div' + styleCss + ' class="font">'+presetName.replace(/-/g,' ')+'</div>' +
                             '<div class="description">' +
-                                '<div class="font-description">' + font + '</div>' +
+                                '<div class="font-description">' + fontDisplayName + '</div>' +
                                 '<div> , ' + fontSize + '</div>' +
                             '</div>' +
                         '</div>';
@@ -203,6 +204,26 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
             var defaultTextPresets = {"Title":{"editorKey":"font_0","lineHeight":"1.1em","style":"normal","weight":"bold","size":"35px","fontFamily":"arial black","value":"font: normal normal bold 35px/1.1em arial black,gadget,sans-serif ; color: #333333;"},"Menu":{"editorKey":"font_1","lineHeight":"1.2em","style":"normal","weight":"bold","size":"17px","fontFamily":"arial","value":"font: normal normal bold 17px/1.2em arial,helvetica,sans-serif ; color: #FFE899;"},"Page-title":{"editorKey":"font_2","lineHeight":"1.2em","style":"normal","weight":"bold","size":"50px","fontFamily":"arial","value":"font: normal normal bold 50px/1.2em arial,helvetica,sans-serif ; color: #133C2A;"},"Heading-XL":{"editorKey":"font_3","lineHeight":"1.2em","style":"normal","weight":"bold","size":"80px","fontFamily":"arial","value":"font: normal normal bold 80px/1.2em arial,helvetica,sans-serif ; color: #133C2A;"},"Heading-L":{"editorKey":"font_4","lineHeight":"1.2em","style":"normal","weight":"bold","size":"50px","fontFamily":"arial","value":"font: normal normal bold 50px/1.2em arial,helvetica,sans-serif ; color: #FFE899;"},"Heading-M":{"editorKey":"font_5","lineHeight":"1.3em","style":"normal","weight":"normal","size":"25px","fontFamily":"arial","value":"font: normal normal normal 25px/1.3em arial,helvetica,sans-serif ; color: #EF6C6C;"},"Heading-S":{"editorKey":"font_6","lineHeight":"1.2em","style":"normal","weight":"normal","size":"18px","fontFamily":"arial","value":"font: normal normal normal 18px/1.2em arial,helvetica,sans-serif ; color: #EF6C6C;"},"Body-L":{"editorKey":"font_7","lineHeight":"1.2em","style":"normal","weight":"normal","size":"16px","fontFamily":"arial","value":"font: normal normal normal 16px/1.2em arial,helvetica,sans-serif ; color: #4D3613;"},"Body-M":{"editorKey":"font_8","lineHeight":"1.2em","style":"normal","weight":"normal","size":"14px","fontFamily":"arial","value":"font: normal normal normal 14px/1.2em arial,helvetica,sans-serif ; color: #4D3613;"},"Body-S":{"editorKey":"font_9","lineHeight":"1.2em","style":"normal","weight":"normal","size":"12px","fontFamily":"arial","value":"font: normal small-caps normal 12px/1.2em arial,helvetica,sans-serif ; color: #4D3613;"},"Body-XS":{"editorKey":"font_10","lineHeight":"1.2em","style":"normal","weight":"normal","size":"10px","fontFamily":"arial","value":"font: normal small-caps normal 10px/1.2em arial,helvetica,sans-serif ; color: #4D3613;"}};
             return ((Wix && Wix.Styles)? Wix.Styles.getSiteTextPresets() : defaultTextPresets) || defaultTextPresets;
         },
+
+        // Get font display name
+        getFontDisplayName: function(fontFamily){
+            var textPresets = Wix.Styles.getSiteTextPresets();
+            var editorFonts = Wix.Styles.getEditorFonts();
+
+            // Go over all editor fonts nad find the correct diaply name
+            for (var index = 0; index < editorFonts.length; ++index){
+                var fonts = editorFonts[index].fonts;
+                for (var index2 = 0; index2 < fonts.length; ++index2) {
+                    var findIndex = fonts[index2].cssFontFamily.indexOf(fontFamily);
+                    if (findIndex >= 0){
+                        return fonts[index2].displayName;
+                    }
+                }
+            }
+
+            return 'Arial';
+        },
+
         getTextPreset:function(presetName){
             var presets = this.getSiteTextPresets();
             var preset = presets[presetName];
