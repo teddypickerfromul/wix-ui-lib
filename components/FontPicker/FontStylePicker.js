@@ -44,10 +44,10 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 			this.$el.addClass(names.fontStylePickerClass);
 			
 			this.createPopup();
-			this.createPresetPicker();
 			this.createFontPicker();
 			this.createTextStylePicker();
 			this.createFontSizePicker();
+            this.createPresetPicker();
 
 			this.popup.content.innerHTML = contentMarkup;
 			
@@ -100,17 +100,10 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
                 var fontDisplayName = _this.getFontDisplayName(font) || 'Arial';
                 var fontSize = (styleFont && styleFont.size) || '12px';
                 var styleCss = ' style="font-family:' + font +'"';
-                html += '<div data-append-children="true"  value="'+ presetName + '" class="font-style-option">' +
-                            '<div' + styleCss + ' class="font">'+presetName.replace(/-/g,' ')+'</div>' +
-                            '<div class="description">' +
-                                '<div class="font-description">' + fontDisplayName + '</div>' +
-                                '<div> , ' + fontSize + '</div>' +
-                            '</div>' +
-                        '</div>';
+                html += _this.createStyleHtmlMarkup(presetName, presetName.replace(/-/g,' '), fontDisplayName, fontSize, styleCss, "");
 			});
 
-
-            html += '<div value="Custom">Custom</div>';
+            html += this.createCustomMarkup();
 
 			this.presetSelectPicker = this.UI().create({
 				ctrl: 'Dropdown',
@@ -120,17 +113,39 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 					width : 265,
 					height : 180,
 					value: 1,
-					modifier: function($el){
+					modifier: function($el, $original){
+                        // Update custom input with the selection of the style picker
+                        if ($original.hasClass("custom")) {
+                            $original.html(_this.createCustomMarkup());
+                        }
                         // Remove the description of the font style
                         $el.html($el.find('div:first').html());
                         $el.removeClass('font-style-option');
                         $el.removeClass('font');
+
+
 						return $el;
 					}
 				}
 			}).getCtrl();		
 			
 		},
+        createCustomMarkup: function(){
+            var fontFamily = (this.fontPicker && this.fontPicker.getValue() && this.fontPicker.getValue().value) || 'arial';
+            var fontDisplayName = this.getFontDisplayName(fontFamily) || 'Arial';
+            var customStyleCss = ' style="font-family:' + fontFamily +'"';
+            var fontSize = (this.fontSizePicker && this.fontSizePicker.getValue()) || 0;
+            return this.createStyleHtmlMarkup("Custom", "Custom", fontDisplayName, fontSize, customStyleCss, " custom");
+        },
+        createStyleHtmlMarkup: function(styleName, styleDisplayName, fontDisplayName, fontSize, styleCss, customClass){
+            return  ('<div data-append-children="true"  value="'+ styleName + '" class="font-style-option' + customClass +'" >' +
+                        '<div' + styleCss + ' class="font">'+styleDisplayName+'</div>' +
+                        '<div class="description">' +
+                            '<div class="font-description">' + fontDisplayName + '</div>' +
+                            '<div> , ' + fontSize + '</div>' +
+                        '</div>' +
+                    '</div>');
+        },
 		createPopup: function(){
 			var that = this;
 			this.popup = this.UI().create({

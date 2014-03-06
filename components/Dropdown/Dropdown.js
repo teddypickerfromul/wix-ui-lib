@@ -63,7 +63,7 @@
 				height:'',
 				//arrow:'down',
 				style: 'dropdown-style-1',
-                modifier: function($el){return $el;}
+                modifier: function($clone, $original){return $clone;}
 			};
 		},
 		markup: function () {
@@ -138,7 +138,7 @@
 			if ($option.length && this.getIndex() !== $option.attr(names.indexAttrName)) {
 				this.$options.find('.'+names.selectedOptionsClassName).removeClass(names.selectedOptionsClassName);
 				this.$selected.empty();
-                this.$selected.append(this.options.modifier($option.clone(true).addClass('current-item').removeClass(names.highlightClassName)));
+                this.$selected.append(this.options.modifier($option.clone(true).addClass('current-item').removeClass(names.highlightClassName), $option));
 				$option.addClass(names.selectedOptionsClassName);
 				return true;
 			}
