@@ -1,0 +1,207 @@
+
+.positionSelection {
+    width: 138px;    
+}
+
+[wix-ctrl="GluedControl"]{
+	vertical-align: middle;
+}
+
+.slider-wrapper{
+    display: inline-block;
+	vertical-align: middle;
+	height:80px;
+}
+.gluedDivider {
+    height: 80px;
+    width: 2px;
+    background: #f1f1f1;
+    display: inline-block;
+	vertical-align: middle;
+}
+
+.glued-dropdown{
+	width: 200px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.glued-slider{
+	display: inline-block;
+	vertical-align: top;
+	top: 52px;	
+	left: 45px;
+
+	
+	line-height: 17px;
+	color: #484848;
+	font-size: 12px;
+}
+
+
+.glued-slider.horizontalMargin:before {
+	content: 'Left';
+	position: relative;
+	right: 30px;
+	display: inline-block;
+	top: -1px;
+}
+
+.glued-slider.horizontalMargin:after {
+	content: 'Right';
+	left: 93%;
+	top: -1px;
+	position: relative;
+}
+
+
+.glued-slider.verticalMargin:before {
+	content: 'Top';
+	position: relative;
+	right: 30px;
+	display: inline-block;
+	top: -1px;
+	
+}
+
+.glued-slider.verticalMargin:after {	
+	content: 'Bottom';
+	left: 93%;
+	top: -1px;
+	position: relative;
+	
+}
+
+
+.glued-slider.disabled {
+	opacity:0.5;
+	
+}
+
+
+.glued-dropdown .option img{
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAADICAYAAACUE92AAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1NTMyNkI3REIwMEMxMUUyOEM3OEZFRDEzRDZBNDdGRCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1NTMyNkI3RUIwMEMxMUUyOEM3OEZFRDEzRDZBNDdGRCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU1MzI2QjdCQjAwQzExRTI4Qzc4RkVEMTNENkE0N0ZEIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU1MzI2QjdDQjAwQzExRTI4Qzc4RkVEMTNENkE0N0ZEIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+PJ1frAAAApRJREFUeNrs3UFugzAQRmFT5Vw5Tm+QS8AJ0uPkYjQsyCaNhOkYg/l+qZuq6tQv8nMYj9JuHMdUK91PCi8+fqduyc8NwxBe+zL/DZGMMhcf+eJk5Xa7hdV+vjgvmH/+IdNCH4/H2/ev1+vH70dBOGLtryRhATNU2M8DaIxNWvqV7sGF78vr930fWnv6fS9n5joi0lut1LbNOZMzOZMzOZMzOZMz35zZ1Xoxc5sTkZmaE6FrqdmC40wBE0wwwRQwwQRTwNw0l5rFDSEsYJS5+GrP+cWGED41PXMv6dekldqc6QDaaTSHXajtsrZtzpmcyZmcyZmcyZmcaQhhbk6ErsUQAmeCCaaACSaYAiaYYJ4mhhAKwDSEEPCcv7o5/OmSfk1aqc2ZDqCdRnPYhdoua9vmnMmZnMmZnMmZnMmZhhDm5kToWgwhcCaYYAqYYIIpYIIJ5mliCKEATEMIAc/5msOaww6g9qM5XOBCzb+w+X9t25wzOdMQgveZnMmZnMmZhhDm5kToWgwhcCaYYAqYYIIpYIIJ5mliCKEATEMIAc/5msOaww6g9qM5vIMLNZ8e817bNudMzuRM7zO9z+RMzuRMQwhzcyJ0LYYQOBNMMAVMMMEUMMEE8zQxhFAApiGEgOd8zWHNYQdQ+9EcdqHGmZwpnOnTYw5e2zbnTM40hLBB56haDCFwJpgCJphgCphgggmmrI0hhAIwDSEEPOe7UHOh5gBqP5rDhhA4kzOFM3fpzNxL+khvHa22bc6ZnGkIYYPOUbUYQuBMMAVMMMEUMMEEE0xZG0MIBWAaQgh4zneh5kLNAdR+NIcNIXAmZwpn+hc2B69tm3MmZxpC2KBzVC2GEDgTTAETTDAFTDDBBFPW5leAAQCnSGuEOByv6wAAAABJRU5ErkJggg==') no-repeat;
+	width: 24px;
+	height: 17px;
+}
+
+.glued-dropdown .option[data-value="TOP_LEFT"] img{
+	background-position:2px 1px;
+}
+
+.glued-dropdown .option[data-value="TOP_CENTER"] img{
+	background-position:2px -24px;
+}
+
+.glued-dropdown .option[data-value="TOP_RIGHT"] img{
+	background-position:2px -49px;
+}
+
+
+.glued-dropdown .option[data-value="CENTER_LEFT"] img{
+	background-position:2px -74px;
+}
+
+.glued-dropdown .option[data-value="CENTER_RIGHT"] img{
+	background-position:2px -99px;
+}
+
+.glued-dropdown .option[data-value="BOTTOM_LEFT"] img{
+	background-position:2px -124px;
+}
+
+
+.glued-dropdown .option[data-value="BOTTOM_CENTER"] img{
+	background-position:2px -149px;
+}
+
+.glued-dropdown .option[data-value="BOTTOM_RIGHT"] img{
+	background-position:2px -174px;
+}
+
+
+/*hovered*/
+
+.glued-dropdown .dropdown-highlight.option[data-value="TOP_LEFT"] img{
+	background-position:-60px 1px;
+}
+
+.glued-dropdown .dropdown-highlight.option[data-value="TOP_CENTER"] img{
+	background-position:-60px -24px;
+}
+
+.glued-dropdown .dropdown-highlight.option[data-value="TOP_RIGHT"] img{
+	background-position:-60px -49px;
+}
+
+
+.glued-dropdown .dropdown-highlight.option[data-value="CENTER_LEFT"] img{
+	background-position:-60px -74px;
+}
+
+.glued-dropdown .dropdown-highlight.option[data-value="CENTER_RIGHT"] img{
+	background-position:-60px -99px;
+}
+
+.glued-dropdown .dropdown-highlight.option[data-value="BOTTOM_LEFT"] img{
+	background-position:-60px -124px;
+}
+
+.glued-dropdown .dropdown-highlight.option[data-value="BOTTOM_CENTER"] img{
+	background-position:-60px -149px;
+}
+
+.glued-dropdown .dropdown-highlight.option[data-value="BOTTOM_RIGHT"] img{
+	background-position:-60px -174px;
+}
+
+/* selected */
+
+.glued-dropdown .current-item.option[data-value="TOP_LEFT"] img,
+.glued-dropdown .option-selected.option[data-value="TOP_LEFT"] img
+{
+	background-position:-30px 1px;
+}
+
+.glued-dropdown .current-item.option[data-value="TOP_CENTER"] img,
+.glued-dropdown .option-selected.option[data-value="TOP_CENTER"] img
+{
+	background-position:-30px -24px;
+}
+
+.glued-dropdown .current-item.option[data-value="TOP_RIGHT"] img,
+.glued-dropdown .option-selected.option[data-value="TOP_RIGHT"] img
+{
+	background-position:-30px -49px;
+}
+
+
+.glued-dropdown .current-item.option[data-value="CENTER_LEFT"] img,
+.glued-dropdown .option-selected.option[data-value="CENTER_LEFT"] img
+{
+	background-position:-30px -74px;
+}
+
+.glued-dropdown .current-item.option[data-value="CENTER_RIGHT"] img,
+.glued-dropdown .option-selected.option[data-value="CENTER_RIGHT"] img
+{
+	background-position:-30px -99px;
+}
+
+.glued-dropdown .current-item.option[data-value="BOTTOM_LEFT"] img,
+.glued-dropdown .option-selected.option[data-value="BOTTOM_LEFT"] img
+{
+	background-position:-30px -124px;
+}
+
+.glued-dropdown .current-item.option[data-value="BOTTOM_CENTER"] img,
+.glued-dropdown .option-selected.option[data-value="BOTTOM_CENTER"] img
+{
+	background-position:-30px -149px;
+}
+
+.glued-dropdown .current-item.option[data-value="BOTTOM_RIGHT"] img,
+.glued-dropdown .option-selected.option[data-value="BOTTOM_RIGHT"] img
+{
+	background-position:-30px -174px;
+}

@@ -1,0 +1,96 @@
+.uilib-tooltip{
+    position:absolute;
+    min-width: 100px;
+    font-family: Helvetica Neue, Helvetica, Arial;
+}
+
+[wix-ctrl="Tooltip"]{
+	display:inline-block;
+}
+
+.uilib-tooltip .arrow_box {
+    position: relative;
+    padding: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.3);
+    background: #fdfdfd;
+    border-radius: 4px;
+    border: 1px solid #d4d4d4;
+    font-weight: normal;
+    text-align: center;
+}
+
+.uilib-tooltip .arrow_box:after, .arrow_box:before {
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.uilib-tooltip .arrow_box:after{
+    border-color: rgba(136, 183, 213, 0);
+    border-width: 8px;
+}
+
+.uilib-tooltip .arrow_box:before{
+    border-color: rgba(194, 225, 245, 0);
+    border-width: 9px;
+}
+
+.uilib-tooltip .arrow_box.up:after, .uilib-tooltip .arrow_box.up:before {
+    bottom: 100%;
+    left: 50%;
+}
+
+.uilib-tooltip .arrow_box.down:after, .uilib-tooltip .arrow_box.down:before {
+    top: 100%;
+    left: 50%;
+}
+
+.uilib-tooltip .arrow_box.left:after, .uilib-tooltip .arrow_box.left:before {
+    right: 100%;
+    top: 50%;
+}
+
+.uilib-tooltip .arrow_box.right:after, .uilib-tooltip .arrow_box.right:before {
+    left: 100%;
+    top: 50%;
+}
+
+.uilib-tooltip .arrow_box.up:after {
+    border-bottom-color: #ffffff;
+    margin-left: -8px;
+}
+
+.uilib-tooltip .arrow_box.up:before {
+    border-bottom-color: #d4d4d4;
+    margin-left: -9px;
+}
+
+.uilib-tooltip .arrow_box.down:after {
+    border-top-color: #ffffff;
+    margin-left: -8px;
+}
+.uilib-tooltip .arrow_box.down:before {
+    border-top-color: #d4d4d4;
+    margin-left: -9px;
+}
+
+.uilib-tooltip .arrow_box.left:after {
+    border-right-color: #ffffff;
+    margin-top: -8px;
+}
+.uilib-tooltip .arrow_box.left:before {
+    border-right-color: #d4d4d4;
+    margin-top: -9px;
+}
+
+.uilib-tooltip .arrow_box.right:after {
+    border-left-color: #ffffff;
+    margin-top: -8px;
+}
+.uilib-tooltip .arrow_box.right:before {
+    border-left-color: #d4d4d4;
+    margin-top: -9px;
+}

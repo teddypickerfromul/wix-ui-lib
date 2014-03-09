@@ -1,8 +1,13 @@
 body {
-  margin: 10px 0;
-  background: #FDFDFD;
-  font-family: "Arial", sans-serif;
+    margin: 10px 0;
+    background: #f5f5f5;
+    font-family: Helvetica Neue, Helvetica, Arial;
 }
+
+[wix-ctrl]{
+	font-family: Helvetica Neue, Helvetica, Arial;
+}
+
 p {
   line-height: 17px;
   color: #484848;
@@ -26,6 +31,24 @@ hr{
   visibility: hidden;
 }
 
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+
+.uilib-footer{
+    font-size: 14px;
+    display: block;
+    padding: 10px;
+    border-top: 1px solid #cccccc;
+    line-height: 16px;
+	overflow:hidden;
+}
+
 .disable {
     opacity: 0.35;
 }
@@ -42,13 +65,12 @@ hr{
 
 [wix-label]:before, [data-wix-label]:before{
 	content:attr(wix-label);
-	min-width: 160px;
+	min-width: 125px;
 	font-weight: bold;
 	color: #373737;
 	margin-right: 15px;
 	font-size: 12px;
 	display:inline-block;
-	vertical-align: top;
 }
 
 [data-wix-uilib],[wix-uilib],[wix-ui]{
@@ -57,6 +79,19 @@ hr{
 
 [data-wix-premium],[wix-premium]{
 	display:none;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.clearfix:after {
+    clear: both;
 }
 
 .uilib-spiner { 
@@ -76,6 +111,7 @@ hr{
   width: 10px;
   height: 10px; 
 }
+
 
 
  @keyframes loading {
@@ -106,4 +142,38 @@ hr{
     100% {
         -webkit-transform: rotate(360deg);
     };
+}
+
+
+
+.uilib-scrollbar::-webkit-scrollbar {
+	width: 10px;
+}
+.uilib-scrollbar::-webkit-scrollbar-track {
+	background-color: rgba(0,0,0,0.05);
+}
+.uilib-scrollbar::-webkit-scrollbar-thumb{
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+}
+
+.uilib-scrollbar::-webkit-scrollbar-thumb:vertical {
+
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(19%,rgba(1,153,255,0)), color-stop(20%,rgba(1,153,255,1)), color-stop(50%,rgba(1,153,255,1)), color-stop(80%,rgba(1,153,255,1)), color-stop(81%,rgba(14,158,255,0)), color-stop(100%,rgba(255,255,255,0)));
+	background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(1,153,255,0) 19%,rgba(1,153,255,1) 20%,rgba(1,153,255,1) 50%,rgba(1,153,255,1) 80%,rgba(14,158,255,0) 81%,rgba(255,255,255,0) 100%);
+	background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(1,153,255,0) 19%,rgba(1,153,255,1) 20%,rgba(1,153,255,1) 50%,rgba(1,153,255,1) 80%,rgba(14,158,255,0) 81%,rgba(255,255,255,0) 100%);
+
+}
+.uilib-scrollbar::-webkit-scrollbar-thumb:vertical:hover,
+.uilib-scrollbar::-webkit-scrollbar-thumb:horizontal:hover {
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(19%,rgba(141,209,255,0)), color-stop(20%,rgba(141,209,255,1)), color-stop(50%,rgba(141,209,255,1)), color-stop(80%,rgba(141,209,255,1)), color-stop(81%,rgba(147,211,255,0)), color-stop(100%,rgba(255,255,255,0)));
+	background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(141,209,255,0) 19%,rgba(141,209,255,1) 20%,rgba(141,209,255,1) 50%,rgba(141,209,255,1) 80%,rgba(147,211,255,0) 81%,rgba(255,255,255,0) 100%);
+	background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(141,209,255,0) 19%,rgba(141,209,255,1) 20%,rgba(141,209,255,1) 50%,rgba(141,209,255,1) 80%,rgba(147,211,255,0) 81%,rgba(255,255,255,0) 100%);
+
+}
+.uilib-scrollbar::-webkit-scrollbar-thumb:horizontal {
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(19%,rgba(1,153,255,0)), color-stop(20%,rgba(1,153,255,1)), color-stop(50%,rgba(1,153,255,1)), color-stop(80%,rgba(1,153,255,1)), color-stop(81%,rgba(14,158,255,0)), color-stop(100%,rgba(255,255,255,0)));
+	background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(1,153,255,0) 19%,rgba(1,153,255,1) 20%,rgba(1,153,255,1) 50%,rgba(1,153,255,1) 80%,rgba(14,158,255,0) 81%,rgba(255,255,255,0) 100%);
+	background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(1,153,255,0) 19%,rgba(1,153,255,1) 20%,rgba(1,153,255,1) 50%,rgba(1,153,255,1) 80%,rgba(14,158,255,0) 81%,rgba(255,255,255,0) 100%);
+
 }

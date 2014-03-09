@@ -1,0 +1,64 @@
+[class^="icon-"],
+[class*=" icon-"] {
+    display: inline-block;
+    vertical-align: text-top;
+    background-image: url("images/icon-sprite.png");
+    background-repeat: no-repeat;
+    margin-top: 1px;
+}
+.icon-watch {
+    background-position: -10px -11px;
+    width: 22px;
+    height: 13px;
+}
+.uilib-btn:hover .icon-watch {
+    background-position: -36px -11px;
+    width: 22px;
+    height: 13px;
+}
+.icon-unwatch {
+    background-position: -88px -11px;
+    width: 22px;
+    height: 19px;
+}
+.uilib-btn:hover .icon-unwatch {
+    background-position: -114px -11px;
+    width: 22px;
+    height: 19px;
+}
+.icon-refresh {
+    background-position: -186px -10px;
+    width: 22px;
+    height: 19px;
+}
+.uilib-btn:hover .icon-refresh {
+    background-position: -211px -10px;
+    width: 22px;
+    height: 19px;
+}
+.icon-download {
+    background-position: -447px -11px;
+    width: 20px;
+    height: 14px;
+}
+.uilib-btn:hover .icon-download {
+    background-position: -471px -11px;
+    width: 20px;
+    height: 14px;
+}
+.icon-edit {
+    background-position: -604px -9px;
+    width: 20px;
+    height: 16px;
+}
+.uilib-btn:hover .icon-edit {
+    background-position: -630px -9px;
+    width: 20px;
+    height: 16px;
+}
+
+.icon-close {
+    background-position: -167px -15px;
+    width: 10px;
+    height: 9px;
+}

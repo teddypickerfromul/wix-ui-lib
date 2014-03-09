@@ -1,0 +1,93 @@
+.uilib-input {
+    font-family: Helvetica Neue, Helvetica, Arial;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="text"]:before,
+input[type="password"]:before,
+input[type="text"]:after,
+input[type="password"]:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input[type="text"].uilib-input ,
+input[type="password"].uilib-input {
+    display: inline-block;
+    height: 25px;
+    padding: 4px 8px;
+    font-size: 12px;
+    width: 125px;
+    line-height: 14px;
+    color: #373737;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    vertical-align: middle;
+
+    background-color: #fff;
+    border: 1px solid #ccc;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+
+    -webkit-transition: border linear .2s, box-shadow linear .2s;
+    -moz-transition: border linear .2s, box-shadow linear .2s;
+    -o-transition: border linear .2s, box-shadow linear .2s;
+    transition: border linear .2s, box-shadow linear .2s;
+}
+
+input[type="text"]:focus.uilib-input,
+input[type="password"]:focus.uilib-input {
+    border-color: rgba(87, 188, 255, 0.83);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(87, 188, 255,.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(87, 188, 255,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(87, 188, 255,.6);
+}
+
+input[type="text"].uilib-input.invalid-input,
+input[type="password"].uilib-input.invalid-input {
+    border:1px solid rgb(253,123,123);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #fd7b7b;
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #fd7b7b;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #fd7b7b;
+}
+
+input[type="text"].uilib-input.valid-input
+input[type="password"].uilib-input.valid-input {
+    border: 1px solid #cccccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+input[type="text"].uilib-input.disabled,
+input[type="password"].uilib-input.disabled {
+    background-color: #f2f3f2;
+}
+
+input[type="text"].uilib-input.medium ,
+input[type="password"].uilib-input.medium {
+    width: 224px;
+}
+
+input[type="text"].uilib-input.large ,
+input[type="password"].uilib-input.large {
+    width: 314px;
+}
+
+input[type="text"].uilib-input.x-large ,
+input[type="password"].uilib-input.x-large {
+    width: 525px;
+}
+
+input[type="text"].uilib-input.big ,
+input[type="password"].uilib-input.big {
+    height: 34px;
+    width: 298px;
+}

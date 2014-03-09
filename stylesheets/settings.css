@@ -12,6 +12,10 @@
 	margin: 0 0 6px 0;
 }
 
+.acc-content.btn-demo > section {
+    margin-bottom: 10px;
+}
+
 /*deprecated*/
 .layouts {
   text-align: center;

@@ -5,3 +5,5 @@ desktop.ini
 *.iml
 node_modules/*
 .idea/
+dev/*
+dist/*
