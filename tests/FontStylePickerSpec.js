@@ -10,7 +10,7 @@ describe('FontStylePicker', function () {
         Wix.UI.destroy(element);
     })
 
-    it('should set the corect font class name for each item in the dropdown', function(){
+    it('should set the correct font class name for each item in the dropdown', function(){
         Wix.UI.initializePlugin(element);
         var $fontPicker = $(".font-style-picker");
         $fontPicker.find('.box-like-drop').click();
@@ -28,10 +28,12 @@ describe('FontStylePicker', function () {
             var $options = $style.find('.option');
             _.each($options, function(option){
                 var $option = $(option);
-                var font = $option.attr('data-value');
-                if(font !== 'Custom'){
-                    expect($option.hasClass(font)).toBeTruthy();
+                if (!$option.hasClass('current-item')){
+                    var font = $option.attr('data-value');
+                    var fontDisplayName = $option.find('.font').html();
+                    expect(fontDisplayName).toBe(givenFontName(font));
                 }
+
             });
         });
     });
@@ -39,4 +41,11 @@ describe('FontStylePicker', function () {
     it('should handle "Custom" per spec', function(){
 
     });
+
+    function givenFontName(preset){
+        if (preset == "Custom") {
+            return "Custom";
+        }
+        return preset.replace(/-/g,' ');
+    }
 });

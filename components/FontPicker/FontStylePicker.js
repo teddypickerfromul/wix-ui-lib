@@ -9,6 +9,10 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 		textStyleClass: 'font-style-picker-text-style' 
 	};
 
+    var defaultFontDisplayName = 'Arial';
+    var defaultFont = 'arial';
+    var customFont= 'Custom';
+
     var boxLikeDrop = '<div class="box-like-drop"><span class="box-like-drop-content">Font Picker</span><span class="box-like-arrow box-like-arrow-down"></span></div>';
 
 
@@ -97,12 +101,13 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
             Object.keys(presets).sort().forEach(function(presetName){
 
                 var styleFont = _this.getStyleFontByReference(presetName) ;
-                var font = (styleFont && styleFont.fontFamily) || 'arial';
+                var font = (styleFont && styleFont.fontFamily) || defaultFont;
                 var fontSize = (styleFont && styleFont.size) || '12px';
                 var styleCss = ' style="font-family:' + font +'"';
                 html += _this.createStyleHtmlMarkup(presetName, presetName.replace(/-/g,' '), font, fontSize, styleCss, "");
 			});
 
+            // Add the custom font
             html += this.createCustomMarkup();
 
 			this.presetSelectPicker = this.UI().create({
@@ -116,7 +121,7 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 					modifier: function($el, $original){
 
                         // Remove the description of the font style
-                        var modifierHtml = _this.createDisplayStyleHtmlMarkup($el);
+                        var modifierHtml = _this.createSelectedStyleHtmlMarkup($el);
                         $el.html(modifierHtml);
 						return $el;
 					}
@@ -125,17 +130,22 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 			
 		},
         createCustomMarkup: function(){
-            var fontFamily = (this.fontPicker && this.fontPicker.getValue() && this.fontPicker.getValue().value) || 'arial';
-            var customStyleCss = ' style="font-family:' + fontFamily +'"';
+            var fontFamily = (this.fontPicker && this.fontPicker.getValue() && this.fontPicker.getValue().value) || defaultFont;
+            var textStyle = (this.textStylePicker && this.textStylePicker.getValue() && this.textStylePicker.getValue()) || {bold : false, italic : false, underline: false};
             var fontSize = (this.fontSizePicker && this.fontSizePicker.getValue()) || 0;
-            var textStyle = (this.textStylePicker && this.textStylePicker.getValue()) || 'normal';
 
-            this.customVal = { size: fontSize, family: fontFamily, style: textStyle, preset: "Custom"};
+            var textStyleCss = textStyle.bold ? '; font-weight: bold': "";
+            textStyleCss += textStyle.italic ? '; font-style: italic': "";
+            textStyleCss += textStyle.underline ? '; text-decoration: underline' : "";
 
-            return this.createStyleHtmlMarkup("Custom", "Custom", fontFamily, fontSize, customStyleCss, " custom");
+            var customStyleCss = ' style="font-family: ' + fontFamily + textStyleCss + '"';
+
+            this.customVal = { size: fontSize, family: fontFamily, preset: customFont, style: textStyle};
+
+            return this.createStyleHtmlMarkup(customFont, customFont, fontFamily, fontSize, customStyleCss, " custom");
         },
         createStyleHtmlMarkup: function(styleName, styleDisplayName, fontFamily, fontSize, styleCss, customClass){
-            var fontDisplayName = this.getFontDisplayName(fontFamily) || 'Arial';
+            var fontDisplayName = this.getFontDisplayName(fontFamily) || defaultFontDisplayName;
 
             return  ('<div data-append-children="true" value="'+ styleName + '" class="font-style-option' + customClass +'" >' +
                         '<div' + styleCss + ' class="font">'+styleDisplayName+'</div>' +
@@ -145,9 +155,9 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
                         '</div>' +
                     '</div>');
         },
-        createDisplayStyleHtmlMarkup: function(el){
+        createSelectedStyleHtmlMarkup: function(el){
             var value = el.attr('data-value');
-            var displayName = (value == "Custom"? "Custom" : value.replace(/-/g,' '));
+            var displayName = (value == customFont? customFont : value.replace(/-/g,' '));
             return  ('<div value="' + value + '">' + displayName + '</div>');
         },
 		createPopup: function(){
@@ -226,21 +236,23 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 
         // Get font display name
         getFontDisplayName: function(fontFamily){
-            var textPresets = Wix.Styles.getSiteTextPresets();
-            var editorFonts = Wix.Styles.getEditorFonts();
+            var textPresets = Wix.Styles && Wix.Styles.getSiteTextPresets();
+            var editorFonts = Wix.Styles && Wix.Styles.getEditorFonts();
 
-            // Go over all editor fonts nad find the correct diaply name
-            for (var index = 0; index < editorFonts.length; ++index){
-                var fonts = editorFonts[index].fonts;
-                for (var index2 = 0; index2 < fonts.length; ++index2) {
-                    var findIndex = fonts[index2].cssFontFamily.indexOf(fontFamily);
-                    if (findIndex >= 0){
-                        return fonts[index2].displayName;
+            if (Wix.Styles && textPresets && editorFonts){
+                // Go over all editor fonts nad find the correct display name
+                for (var index = 0; index < editorFonts.length; ++index){
+                    var fonts = editorFonts[index].fonts;
+                    for (var index2 = 0; index2 < fonts.length; ++index2) {
+                        var findIndex = fonts[index2].cssFontFamily.indexOf(fontFamily);
+                        if (findIndex >= 0){
+                            return fonts[index2].displayName;
+                        }
                     }
                 }
             }
 
-            return 'Arial';
+            return defaultFontDisplayName;
         },
 
         getTextPreset:function(presetName){
@@ -299,12 +311,22 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 				this.presetSelectPicker.setValue(presetName);
 			} else {
 
-                // Update custom option in the dropdown list with the new selection of size' font family and text style
-                this.presetSelectPicker.$el.find('.options').find('.custom').html(this.createCustomMarkup());
-				this.presetSelectPicker.setValue('Custom');
+                // Update custom option in the dropdown list with the new selection of size, font family and text style
+                this.updateCustomOption();
+				this.presetSelectPicker.setValue(customFont);
 			}
             this.updateText();
 		},
+        updateCustomOption : function() {
+            if (this.presetSelectPicker){
+                var dropdown = this.presetSelectPicker.$el;
+                var dropdownOption = dropdown && this.presetSelectPicker.$el.find('.options');
+                var customOption = dropdownOption  && dropdownOption.find('.custom');
+                if (customOption){
+                    customOption.html(this.createCustomMarkup());
+                }
+            }
+        },
 		innerChangeHandler: function(plugin, evt){
 			if(plugin.$el.hasClass(names.presetSelectClass)){
 				this.handlePluginPresetSelectChange(plugin, evt);
