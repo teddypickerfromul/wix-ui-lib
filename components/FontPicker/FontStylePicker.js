@@ -116,7 +116,7 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 				html: html,
 				options:{
 					width : 265,
-					height : 180,
+					height : 260,
 					value: 1,
 					modifier: function($el, $original){
 
