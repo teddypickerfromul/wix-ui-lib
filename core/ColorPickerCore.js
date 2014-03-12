@@ -905,6 +905,7 @@ var createColorBox = (function (){
 				buttonSet: 'okCancel',
 				height : 'auto',
 				width : 'auto',
+                fixed: true,
 				onclose : function () {
 					pickerInstance.hidePickers();
 				},
