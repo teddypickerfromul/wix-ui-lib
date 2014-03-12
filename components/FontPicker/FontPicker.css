@@ -17,6 +17,10 @@
     font-family: 'Helvetica Neue', Helvetica, Arial;
 }
 
+.font-style-picker .popup-arrow.popup-arrow-right {
+    margin-right: -3px;
+}
+
 .font-style-picker  .uilib-divider-row{
 	margin: 0 0 6px 0;
 }
