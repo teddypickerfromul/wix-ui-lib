@@ -11,11 +11,16 @@ jQuery.fn.definePlugin('Accordion', function($){
 			if(!this.$el.hasClass('accordion')){
 				this.$el.addClass('accordion');
 			}
+            if(this.options.border){
+                this.$el.find('.' + this.options.triggerClass).addClass(this.options.borderClass);
+            }
+
 		},
 		getDefaults: function(){
 			return {
 				triggerClass : "acc-pane",
 				triggerCSS : {},
+                borderClass: 'border',
 				contentClass : "acc-content",
 				contentCSS : {},
 				animationTime : 150,
@@ -23,7 +28,8 @@ jQuery.fn.definePlugin('Accordion', function($){
 				ease : 'linear',
 				openByDeafult:'acc-open',
 				value : 0,
-				toggleOpen: true
+				toggleOpen: true,
+                border: true
 			};
 		},
 		showFirst: function () {

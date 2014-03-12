@@ -1,0 +1,80 @@
+.uilib-tabs > ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.uilib-tabs > ul:before{
+    display: table;
+    content: "";
+}
+
+.uilib-tabs > ul:after, .uilib-tabs .tab-content:after {
+    display: table;
+    content: "";
+    clear: both;
+}
+
+.uilib-tabs ul > li.ui-lib-tab {
+    float: left;
+    margin-bottom: -1px;
+    position: relative;
+    z-index: 1;
+}
+
+.uilib-tabs ul > li.ui-lib-tab > div{
+    margin-right: 5px;
+    font-size: 13px;
+    font-family: Helvetica-W01-Light, Helvetica Neue, Helvetica, Arial;
+    padding: 3px 22px;
+    margin-bottom: 0;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    text-shadow: none;
+
+    -webkit-box-shadow: inset 1px 2px rgba(255,255,255,.21);
+    -moz-box-shadow: inset 1px 2px rgba(255,255,255,.21);
+    box-shadow: inset 1px 2px rgba(255,255,255,.21);
+
+    /* fallback */
+    background-image: url('../../images/bg-gradient.png');
+    background-repeat: repeat-x;
+    background-position: 0 50%;
+
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(37%,rgba(255,255,255,0.07)), color-stop(56%,rgba(0,0,0,.07)));
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.07) 37%,rgba(0,0,0,.07) 56%);
+    background-image: -moz-linear-gradient(top, rgba(255,255,255,0.07) 37%,rgba(0,0,0,.07) 56%);
+    background-image: -ms-linear-gradient(top, rgba(255,255,255,0.07) 37%,rgba(0,0,0,.07) 56%);
+    background-image: -o-linear-gradient(top, rgba(255,255,255,0.07) 37%,rgba(0,0,0,.07) 56%);
+
+
+
+    color: #0099ff;
+    border: 1px solid rgba(196, 196, 196, 0.78);
+    background-color: #fff;
+
+
+}
+
+.uilib-tabs ul > li.ui-lib-tab.selected > div{
+    background: #fff;
+    border-bottom-color: transparent;
+    color: #000;
+}
+
+
+.uilib-tabs .tab-content > div.tab-pane {
+    background: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 20px 10px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}

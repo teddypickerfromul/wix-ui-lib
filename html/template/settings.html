@@ -6,106 +6,133 @@
 	<link rel="stylesheet" href="<%= css %>"/>
 </head>
 <body>
-<div wix-scroll="{height:636}">
-    <header class="box">
-        <div class="logo">
-            <img width="86" src="images/wix_icon.png" alt="logo"/>
+
+<header class="box">
+    <div class="logo">
+        <img width="86" src="images/wix_icon.png" alt="logo"/>
+    </div>
+    <div class="loggedOut">
+        <p>
+            This is a sample Settings view for widgets and pages created with <a href="http://dev.wix.com"
+                                                                                 target="_blank">Wix's 3rd Party SDK</a>,
+            compatible with Wix's product requirements.
+            This boilerplate is aimed at saving time for developing the UI of your apps, and let the
+            developer focus on developing logic.
+        </p>
+
+        <div class="login-panel">
+            <p class="create-account">Don't have an<br/>account? <strong><a href="#" target="_blank">Create
+                one</a></strong></p>
+            <button class="submit uilib-btn connect">Connect account</button>
         </div>
-        <div class="loggedOut">
-            <p>
-                This is a sample Settings view for widgets and pages created with <a href="http://dev.wix.com"
-                                                                                     target="_blank">Wix's 3rd Party SDK</a>,
-                compatible with Wix's product requirements.
-                This boilerplate is aimed at saving time for developing the UI of your apps, and let the
-                developer focus on developing logic.
-            </p>
+    </div>
+    <div class="loggedIn hidden">
+        <p>You are now connected to <strong>John Doe (john@doe.com)</strong> account<br/>
+            <a class="disconnect-account">Disconnect account</a></p>
 
-            <div class="login-panel">
-                <p class="create-account">Don't have an<br/>account? <strong><a href="#" target="_blank">Create
-                    one</a></strong></p>
-                <button class="submit uilib-btn connect">Connect account</button>
-            </div>
+        <div class="premium-panel">
+            <p class="premium-features ">Premium features</p>
+            <button class="submit btn upgrade">Upgrade</button>
         </div>
-        <div class="loggedIn hidden">
-            <p>You are now connected to <strong>John Doe (john@doe.com)</strong> account<br/>
-                <a class="disconnect-account">Disconnect account</a></p>
+    </div>
+</header>
 
-            <div class="premium-panel">
-                <p class="premium-features ">Premium features</p>
-                <button class="submit btn upgrade">Upgrade</button>
-            </div>
-        </div>
-    </header>
 
-    <div class="accordion" wix-ctrl="Accordion">
 
-        <div class="acc-pane">
-            <h3>General Settings: </h3>
+<div wix-ctrl="Tabs" wix-options="{value:0}"  style="margin: 0px">
+    <ul>
+        <li data-tab="tab0"><div>Settings</div></li>
+        <li data-tab="tab1"><div>Layout</div></li>
+        <li data-tab="tab2"><div>Design</div></li>
+    </ul>
+    <div wix-scroll="{height:336}">
+        <div class="tab-content">
+            <div data-tab="tab0" class="tab-pane">
+                <div class="accordion" wix-ctrl="Accordion" wix-options="{border: false, toggleOpen: false}">
 
-            <div class="acc-content">
-                <ul class="list">
-                    <li wix-label="Image Visibility:">
-                        <div wix-model="imageVisibility" wix-ctrl="Dropdown" wix-options="{width:150}">
-                            <div value="show">Show Images</div>
-                            <div value="hide">Hide Images</div>
-                            <div value="showhover">Show Images on Hover</div>
+                    <div class="acc-pane">
+                        <h3>General Settings: </h3>
+
+                        <div class="acc-content">
+                            <ul class="list">
+                                <li wix-label="Fonts:">
+                                    <div wix-param="myFont" wix-ctrl="FontStylePicker"></div>
+                                    <div wix-param="myFont1" wix-ctrl="FontStylePicker"></div>
+                                    <div wix-param="myFont2" wix-ctrl="FontStylePicker"></div>
+                                </li>
+                                <li wix-label="Image Visibility:">
+                                    <div wix-model="imageVisibility" wix-ctrl="Dropdown" wix-options="{width:150}">
+                                        <div value="show">Show Images</div>
+                                        <div value="hide">Hide Images</div>
+                                        <div value="showhover">Show Images on Hover</div>
+                                    </div>
+                                </li>
+                                <li wix-label="Fixed Position:">
+                                    <div wix-ctrl="FixedPositionControl"></div>
+                                </li>
+                                <li wix-label="Number of images:">
+                                    <div wix-model="numOfImages" wix-ctrl="Slider" wix-options="{ maxValue:500, preLabel:'0', postLabel:'500', toolTip:true}"></div>
+                                    <div wix-model="numOfImages" wix-ctrl="Spinner" wix-options="{ maxValue:500 }"></div>
+                                </li>
+                                <li wix-label="Language Picker:">
+                                    <div wix-model="lang" wix-ctrl="LanguagePicker" wix-tooltip=" {placement:'top', text:'Pick Language'}"></div>
+                                </li>
+                                <li wix-label="Email address:">
+                                    <div id= "email" wix-ctrl="Input" wix-options="{ placeholder: 'john@doe.com' }"></div>
+                                </li>
+                            </ul>
                         </div>
-                    </li>
-                    <li wix-label="Fixed Position:">
-                        <div wix-ctrl="FixedPositionControl"></div>
-                    </li>
-                    <li wix-label="Number of images:">
-                        <div wix-model="numOfImages" wix-ctrl="Slider" wix-options="{ maxValue:500, preLabel:'0', postLabel:'500', toolTip:true}"></div>
-                        <div wix-model="numOfImages" wix-ctrl="Spinner" wix-options="{ maxValue:500 }"></div>
-                    </li>
-                    <li wix-label="Fonts:">
-                        <div wix-param="myFont" wix-ctrl="FontStylePicker"></div>
-                    </li>
-                    <li wix-label="Language Picker:">
-                        <div wix-model="lang" wix-ctrl="LanguagePicker" wix-tooltip=" {placement:'top', text:'Pick Language'}"></div>
-                    </li>
-                    <li wix-label="Email address:">
-                        <div id= "email" wix-ctrl="Input" wix-options="{ placeholder: 'john@doe.com' }"></div>
-                    </li>
-                </ul>
+                    </div>
+
+                    <div class="acc-pane">
+                        <h3>Color Settings: </h3>
+
+                        <div class="acc-content">
+                            <ul class="list">
+                                <li wix-label="Text Color:">
+                                    <div wix-param="textColor" wix-ctrl="ColorPicker" wix-options="{startWithColor:'color-5'}"></div>
+                                </li>
+                                <li wix-label="Background Color:">
+                                    <div wix-param="backgroundColor" wix-ctrl="ColorPickerWithOpacity" wix-options="{startWithColor:'color-1'}"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="acc-pane">
+                        <h3>Sync Options</h3>
+
+                        <div class="acc-content">
+                            <p>How many images to sync ?</p>
+
+                            <div wix-model="imagesToSync" wix-ctrl="Radio">
+                                <div data-radio-value="sync10">Sync 10 images</div>
+                                <div data-radio-value="sync25">Sync 25 images</div>
+                                <div data-radio-value="sync50">Sync 50 images</div>
+                            </div>
+                            <p>Sync Meta Data ?</p>
+
+                            <div wix-model="imageMeta" wix-ctrl="Checkbox:{ postLabel:'Image Meta'}"></div>
+                            <div wix-model="imageAlt" wix-ctrl="Checkbox" wix-options="{ postLabel:'Image Alt', checked:true}"></div>
+                            <div wix-model="imageLink" wix-ctrl="Checkbox:{ postLabel:'Image Link'}"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="acc-pane">
-            <h3>Color Settings: </h3>
-
-            <div class="acc-content">
-                <ul class="list">
-                    <li wix-label="Text Color:">
-                        <div wix-param="textColor" wix-ctrl="ColorPicker" wix-options="{startWithColor:'color-5'}"></div>
-                    </li>
-                    <li wix-label="Background Color:">
-                        <div wix-param="backgroundColor" wix-ctrl="ColorPickerWithOpacity" wix-options="{startWithColor:'color-1'}"></div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="acc-pane">
-            <h3>Sync Options</h3>
-
-            <div class="acc-content">
-                <p>How many images to sync ?</p>
-
-                <div wix-model="imagesToSync" wix-ctrl="Radio">
+            <div data-tab="tab1" class="tab-pane">
+                <div wix-model="imagesToSync1" wix-ctrl="Radio">
                     <div data-radio-value="sync10">Sync 10 images</div>
                     <div data-radio-value="sync25">Sync 25 images</div>
                     <div data-radio-value="sync50">Sync 50 images</div>
                 </div>
-                <p>Sync Meta Data ?</p>
-
-                <div wix-model="imageMeta" wix-ctrl="Checkbox:{ postLabel:'Image Meta'}"></div>
-                <div wix-model="imageAlt" wix-ctrl="Checkbox" wix-options="{ postLabel:'Image Alt', checked:true}"></div>
-                <div wix-model="imageLink" wix-ctrl="Checkbox:{ postLabel:'Image Link'}"></div>
+            </div>
+            <div data-tab="tab2" class="tab-pane">
+                <div wix-param="backgroundColor1" wix-ctrl="ColorPickerWithOpacity" wix-options="{startWithColor:'color-1'}"></div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 

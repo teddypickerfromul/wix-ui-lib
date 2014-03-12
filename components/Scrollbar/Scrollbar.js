@@ -20,7 +20,7 @@
             // scrollbar position - left/right
             position : 'right',
             // distance in pixels between the side edge and the scrollbar
-            distance : '1px',
+            distance : '4px',
             // sets scrollbar opacity
             opacity : 1,
             // sets visibility of The rail
@@ -144,6 +144,7 @@
                 width: this.options.size,
                 position: 'absolute',
                 top: 0,
+                marginTop: '2px',
                 opacity: this.options.opacity,
                 display: 'block',
                 'border-radius' : this.options.radius,
@@ -162,7 +163,7 @@
         });
 
         // set position
-        var posCss = (this.options.position == 'right') ? { right: 0 } : { left: this.options.distance };
+        var posCss = (this.options.position == 'right') ? { right: this.options.distance } : { left: this.options.distance };
         this.$rail.css(posCss);
         this.$bar.css(posCss);
 
@@ -185,8 +186,11 @@
             display =  'block';
         }
 
+        barHeight = '100px';
+
         this.$bar.css({height:barHeight, display: display});
-        this.$rail.css({display: display})
+        this.$rail.css({height:'100%', display: display})
+
     };
 
     Plugin.prototype.registerEvents = function(){
