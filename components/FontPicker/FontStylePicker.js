@@ -174,6 +174,7 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 					modalBackground : 'rgba(0,0,0,0.5)',
 					height : 'auto',
 					width : 287,
+                    fixed: true,
 					onopen: function(){
 						that.$el.append(this.arrow);
 						that.currentValue = that.getValue();
