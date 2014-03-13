@@ -305,7 +305,7 @@ jQuery.fn.definePlugin('Popup', function ($) {
 		var relativeToWidth = relativeTo.clientWidth;
 		var relativeToHeight = relativeTo.clientHeight;
 
-		var relativeToOffset = getOffset(relativeTo);
+		var relativeToOffset = getFixedOffset(relativeTo);
 
         // popup will be opened on the right side - default
         var top = relativeToOffset.top + relativeToHeight/2 - halfPopupHeight;
@@ -338,6 +338,12 @@ jQuery.fn.definePlugin('Popup', function ($) {
 		popup.style.margin = '';
 		return side;
 	}
+
+    function getFixedOffset(el) {
+        return { top: el.getBoundingClientRect().top,
+            left: el.getBoundingClientRect().left };
+
+    }
 
 	function getOffset(el) {
 		var _x = 0;

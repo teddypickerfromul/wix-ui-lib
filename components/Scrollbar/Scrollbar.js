@@ -126,8 +126,8 @@
             .addClass(this.options.railClass)
             .css({
                 width: this.options.size,
-                height: '100%',
                 position: 'absolute',
+                height: '98%',
                 top: 0,
                 display: 'block',
                 'border-radius': this.options.radius,
@@ -144,7 +144,7 @@
                 width: this.options.size,
                 position: 'absolute',
                 top: 0,
-                marginTop: '2px',
+                marginTop: '4px',
                 opacity: this.options.opacity,
                 display: 'block',
                 'border-radius' : this.options.radius,
@@ -186,10 +186,8 @@
             display =  'block';
         }
 
-        barHeight = '100px';
-
         this.$bar.css({height:barHeight, display: display});
-        this.$rail.css({height:'100%', display: display})
+        this.$rail.css({height:'98%', display: display})
 
     };
 
