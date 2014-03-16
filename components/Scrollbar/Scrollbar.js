@@ -41,7 +41,8 @@
             wheelStep : 20,
             // scroll amount applied when user is using gestures
             touchScrollStep : 200,
-            minBarHeight: 30
+            minBarHeight: 30,
+            padding: '0 0 2px 0'
     };
 
     // The actual plugin constructor
@@ -111,7 +112,7 @@
                 overflow: 'hidden',
                 width: this.options.width,
                 height: this.options.height,
-				padding: '0 0 2px 0'
+				padding: this.options.padding
             });
 
         // update style for the div
