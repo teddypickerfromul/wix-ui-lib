@@ -71,10 +71,14 @@
 
 .uilib-tabs .tab-content > div.tab-pane {
     background: #fff;
-    border: 1px solid #ccc;
     margin:0;
     padding: 20px 10px;
+}
+
+.uilib-tabs .uilib-scrollDiv {
     -webkit-border-radius: 0 6px 6px 6px;
     -moz-border-radius: 0 6px 6px 6px;
     border-radius: 0 6px 6px 6px;
+    border: 1px solid #ccc;
 }
+

@@ -13,6 +13,7 @@ jQuery.fn.definePlugin('Accordion', function($){
 			}
             if(this.options.border){
                 this.$el.find('.' + this.options.triggerClass).addClass(this.options.borderClass);
+                this.$el.find('.' + this.options.triggerClass).find('li:nth-last-child(1)').addClass('last-child');
             }
 
 		},

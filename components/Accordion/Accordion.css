@@ -93,9 +93,10 @@
   /* margin-right: 15px;
   color: #373737; */
 }
-.acc-pane .list li:nth-last-child(1) {
-  border-bottom: none;
-  padding-bottom: 0;
+
+.acc-pane .list > li.last-child {
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 /*.acc-pane .list li .option {
