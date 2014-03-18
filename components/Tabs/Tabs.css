@@ -90,7 +90,7 @@
     background-repeat: no-repeat;
     background-position: 0 -32px;
     width: 16px;
-    height: 19px;
+    height: 18px;
     display: inline-block;
     margin-right: 0px;
     vertical-align: middle;
@@ -98,21 +98,21 @@
 }
 
 .uilib-tabs .acc-pane > h3:hover:before {
-    background-position: 0 -46px;
-}
-.uilib-tabs .acc-pane > h3:acc-active:before {
-    background-position: 0 -8px;
+background-position: 0 -46px;
 }
 
-.acc-pane.acc-active h3:before {
-    background-position: 0 4px;
+.uilib-tabs .acc-pane.acc-active h3:before {
+    background-position: 0 3px;
 }
 
-.acc-pane.acc-active h3 {
-    color: #373737;
+.uilib-tabs .acc-pane.acc-active h3:hover:before {
+    background-position: 0 3px;
 }
 
-.acc-pane.acc-active h3:hover.acc-active:before {
-    background-position: 0 -7px;
-}
+
+
+
+
+
+
 
