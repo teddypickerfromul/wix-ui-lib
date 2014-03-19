@@ -43,7 +43,7 @@ An accordion is divided to a vertical set of panes. By default only a single pan
 
 Name            | Default   | Description
 ----------------|-----------|------------
-animationTime   | `150`     | expand/collase animation time in ms
+animationTime   | `150`     | expand/collapse animation time in ms
 ease            | `linear`  | easing function
 toggleOpen      | `true`    | allow active pane to be toggled
 value           | `0`       | opened pane at index

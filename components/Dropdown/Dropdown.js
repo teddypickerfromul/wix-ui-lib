@@ -14,7 +14,8 @@
 		selectedOptionsClassName : 'option-selected',
 		highlightClassName : 'dropdown-highlight',
 		iconClassName: 'dropdown-icon',
-		hideTextClass: 'dropdown-hideText'
+		hideTextClass: 'dropdown-hideText',
+        appendChildren:'data-append-children'
 	};
 
 	var optionsCSS = {
@@ -62,7 +63,7 @@
 				height:'',
 				//arrow:'down',
 				style: 'dropdown-style-1',
-                modifier: function($el){return $el;}
+                modifier: function($clone, $original){return $clone;}
 			};
 		},
 		markup: function () {
@@ -71,14 +72,20 @@
 			var $options = this.$el.find(this.options.optionSelector).map(function (index) {
 					var style = this.getAttribute('style');
 					var extended = this.getAttribute(names.extendedValueName);
+                    var appendChildren = this.getAttribute(names.appendChildren);
 					var $option = $('<div>')
 						.attr(names.valueAttrName, this.getAttribute(names.optionInitValueAttrName))
 						.attr(names.indexAttrName, index)
 						.addClass(names.optionClassName)
 						.addClass(this.className)
-						.text(this.textContent);
+
 					
-					
+					if(appendChildren){
+                        $option.append(this.children);
+                    } else {
+                        $option.text(this.textContent);
+                    }
+
 					if(extended){
 						$option.attr(names.extendedValueName, extended);
 					}
@@ -131,7 +138,7 @@
 			if ($option.length && this.getIndex() !== $option.attr(names.indexAttrName)) {
 				this.$options.find('.'+names.selectedOptionsClassName).removeClass(names.selectedOptionsClassName);
 				this.$selected.empty();
-                this.$selected.append(this.options.modifier($option.clone(true).addClass('current-item').removeClass(names.highlightClassName)));
+                this.$selected.append(this.options.modifier($option.clone(true).addClass('current-item').removeClass(names.highlightClassName), $option));
 				$option.addClass(names.selectedOptionsClassName);
 				return true;
 			}

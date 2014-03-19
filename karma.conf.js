@@ -24,7 +24,6 @@ module.exports = function(config) {
 		'components/Spinner/spinner.css',
 				
 		'components/ColorPicker/ColorPicker.css',
-		'components/AdvancedDropdown/css/dd.css',
 		'components/Slider/slider.css',
 		'components/FixedPositionControl/FixedPositionControl.css',
 
