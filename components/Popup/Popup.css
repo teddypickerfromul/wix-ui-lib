@@ -8,9 +8,9 @@
 	border-radius: 4px;
 	overflow: hidden;
 	background: #fdfdfd;
-  font-size:14px;
+    font-size:14px;
 	box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    z-index: 12;
+    z-index: 1111111;
 }
 
 .popup-header{
@@ -103,7 +103,7 @@
     height: 0px;
 	position:absolute;
 	top: 0;
-	z-index:13;
+    z-index: 1111113;
 }
 
 

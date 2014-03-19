@@ -20,7 +20,7 @@
             // scrollbar position - left/right
             position : 'right',
             // distance in pixels between the side edge and the scrollbar
-            distance : '1px',
+            distance : '4px',
             // sets scrollbar opacity
             opacity : 1,
             // sets visibility of The rail
@@ -41,7 +41,8 @@
             wheelStep : 20,
             // scroll amount applied when user is using gestures
             touchScrollStep : 200,
-            minBarHeight: 30
+            minBarHeight: 30,
+            padding: '0 0 2px 0'
     };
 
     // The actual plugin constructor
@@ -111,7 +112,7 @@
                 overflow: 'hidden',
                 width: this.options.width,
                 height: this.options.height,
-				padding: '0 0 2px 0'
+				padding: this.options.padding
             });
 
         // update style for the div
@@ -126,8 +127,8 @@
             .addClass(this.options.railClass)
             .css({
                 width: this.options.size,
-                height: '100%',
                 position: 'absolute',
+                height: '98%',
                 top: 0,
                 display: 'block',
                 'border-radius': this.options.radius,
@@ -144,6 +145,7 @@
                 width: this.options.size,
                 position: 'absolute',
                 top: 0,
+                marginTop: '4px',
                 opacity: this.options.opacity,
                 display: 'block',
                 'border-radius' : this.options.radius,
@@ -162,7 +164,7 @@
         });
 
         // set position
-        var posCss = (this.options.position == 'right') ? { right: 0 } : { left: this.options.distance };
+        var posCss = (this.options.position == 'right') ? { right: this.options.distance } : { left: this.options.distance };
         this.$rail.css(posCss);
         this.$bar.css(posCss);
 
@@ -186,7 +188,8 @@
         }
 
         this.$bar.css({height:barHeight, display: display});
-        this.$rail.css({display: display})
+        this.$rail.css({height:'98%', display: display})
+
     };
 
     Plugin.prototype.registerEvents = function(){

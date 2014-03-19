@@ -148,9 +148,9 @@ jQuery.fn.definePlugin('Popup', function ($) {
 				marginLeft : 0 - this.options.width / 2,
 				marginTop : 0 - this.$el.height() / 2
 			});
-			if(this.relativeElement){
-				this.setBestPosition(this.relativeElement);
-			}
+            if(this.relativeElement){
+                this.setBestPosition(this.relativeElement);
+            }
 			if(typeof this.options.onposition === 'function'){
 				return this.options.onposition.call(this);
 			}
@@ -159,7 +159,12 @@ jQuery.fn.definePlugin('Popup', function ($) {
 			if(relativeTo instanceof jQuery){
 				relativeTo = relativeTo[0];
 			}
-			var dir = setBestPosition(this.$el[0], relativeTo);
+            var dir;
+            if (this.options.fixed){
+                dir = setFixedPosition(this.$el[0], relativeTo);
+            }else{
+                dir = setAbsolutePosition(this.$el[0], relativeTo);
+            }
 			this.setArrowDir(dir);
 			return dir;
 		},
@@ -226,61 +231,120 @@ jQuery.fn.definePlugin('Popup', function ($) {
 		wrapperArrow.appendChild(a2);	
 		return wrapperArrow;
 	}
-	
-	function setBestPosition(targetNode, relativeTo){
+
+    function setAbsolutePosition(targetNode, relativeTo){
+        var side = 'left';
+        var right = 'auto';
+        var distanceFromBox = 15;
+        var topMoveTranslate = 0;
+
+        targetNode.style.top = '0px';
+        targetNode.style.bottom = 'auto';
+        targetNode.style.left = '0px';
+        targetNode.style.right = 'auto';
+        targetNode.style.margin = '0';
+
+        var targetNodeWidth = targetNode.clientWidth;
+        var targetNodeHeight = targetNode.clientHeight;
+        var halfTargetNodeHeight = targetNodeHeight/2;
+
+        var elmWidth = relativeTo.clientWidth;
+        var elmHeight = relativeTo.clientHeight;
+
+        var top = (elmHeight/2 - halfTargetNodeHeight);
+        var left = elmWidth + distanceFromBox;
+
+
+        var offset = getOffset(relativeTo);
+
+        if((elmWidth + targetNodeWidth + offset.left + distanceFromBox + 1) > window.innerWidth){
+            right = elmWidth + distanceFromBox + 1;
+            side = 'right';
+        }
+
+        var rightOver = (offset.left - (targetNodeWidth + distanceFromBox + 1));
+        if(side === 'right' && rightOver < 0){
+            top = 0 - (targetNodeHeight + distanceFromBox);
+            right = elmWidth/2 - targetNodeWidth/2;
+            side = 'top';
+        }
+
+
+        if((offset.top - halfTargetNodeHeight) < 0){
+            top -= offset.top - halfTargetNodeHeight - topMoveTranslate;
+        }
+
+        if(side !== 'top' && (elmHeight + offset.top + halfTargetNodeHeight) > window.innerHeight){
+            top -= (elmHeight + offset.top + halfTargetNodeHeight) - window.innerHeight;
+        }
+
+        targetNode.style.top = top + 'px';
+        targetNode.style.left = (side === 'right' || side === 'top') ? 'auto' : left + 'px';
+        targetNode.style.right = (side === 'right' || side === 'top') ? right + 'px' : 'auto';
+        targetNode.style.margin = '';
+        return side;
+
+    }
+
+    function setFixedPosition(popup, relativeTo){
 		var side = 'left';
 		var right = 'auto';
-		var distanceFromBox = 15;
-		var topMoveTranslate = 0;
-		
-		targetNode.style.top = '0px';
-		targetNode.style.bottom = 'auto';
- 		targetNode.style.left = '0px';
-		targetNode.style.right = 'auto';
-		targetNode.style.margin = '0';
+		var arrowWidth = 15;
+        var containerWidth = window.innerWidth;
+
+        popup.style.top = '0px';
+        popup.style.bottom = 'auto';
+        popup.style.left = '0px';
+        popup.style.right = 'auto';
+        popup.style.margin = '0';
 	
-		var targetNodeWidth = targetNode.clientWidth;
-		var targetNodeHeight = targetNode.clientHeight;
-		var halfTargetNodeHeight = targetNodeHeight/2;
+		var popupWidth = popup.clientWidth;
+		var popupHeight = popup.clientHeight;
+		var halfPopupHeight = popupHeight/2;
 		
-		var elmWidth = relativeTo.clientWidth;
-		var elmHeight = relativeTo.clientHeight;
+		var relativeToWidth = relativeTo.clientWidth;
+		var relativeToHeight = relativeTo.clientHeight;
 
-		var top = (elmHeight/2 - halfTargetNodeHeight);
-		var left = elmWidth + distanceFromBox;
-		
+		var relativeToOffset = getFixedOffset(relativeTo);
 
-		var offset = getOffset(relativeTo);
-		
-		if((elmWidth + targetNodeWidth + offset.left + distanceFromBox + 1) > window.innerWidth){
-			right = elmWidth + distanceFromBox + 1;
+        // popup will be opened on the right side - default
+        var top = relativeToOffset.top + relativeToHeight/2 - halfPopupHeight;
+        var left = relativeToOffset.left + relativeToWidth + arrowWidth;
+
+        // popup will be opened on the left side
+		if((relativeToOffset.left + relativeToWidth + arrowWidth + popupWidth + 1) > containerWidth){
+            right = containerWidth - relativeToOffset.left + arrowWidth + 1;
 			side = 'right';
 		}
 
-			
-		var rightOver = (offset.left - (targetNodeWidth + distanceFromBox + 1));
+        // popup will be opened on top of the control
+		var rightOver = (relativeToOffset.left - (popupWidth + arrowWidth + 1));
 		if(side === 'right' && rightOver < 0){
-			top = 0 - (targetNodeHeight + distanceFromBox);
-			right = elmWidth/2 - targetNodeWidth/2;
+			top = relativeToOffset.top - arrowWidth - popupHeight;
+			left = relativeToOffset.left + relativeToWidth/2 - popupWidth/2;
 			side = 'top';
 		}
 
-	
-		if((offset.top - halfTargetNodeHeight) < 0){
-			top -= offset.top - halfTargetNodeHeight - topMoveTranslate;
+        // popup will be opened on the bottom of the control
+		if(top  < 0){
+			top = relativeToOffset.top + (relativeToHeight + arrowWidth);
+            side = 'bottom';
 		}
-		
-		if(side !== 'top' && (elmHeight + offset.top + halfTargetNodeHeight) > window.innerHeight){
-			top -= (elmHeight + offset.top + halfTargetNodeHeight) - window.innerHeight;
-		}
-		
-		targetNode.style.top = top + 'px';
-		targetNode.style.left = (side === 'right' || side === 'top') ? 'auto' : left + 'px';
-		targetNode.style.right = (side === 'right' || side === 'top') ? right + 'px' : 'auto';
-		targetNode.style.margin = '';
-		return side;
 
-	}			
+		popup.style.top = top + 'px';
+        popup.style.left = (side === 'right') ? 'auto' : left + 'px';
+        popup.style.right = (side === 'right') ? right + 'px' : 'auto';
+
+		popup.style.margin = '';
+		return side;
+	}
+
+    function getFixedOffset(el) {
+        return { top: el.getBoundingClientRect().top,
+            left: el.getBoundingClientRect().left };
+
+    }
+
 	function getOffset(el) {
 		var _x = 0;
 		var _y = 0;

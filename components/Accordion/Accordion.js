@@ -11,11 +11,17 @@ jQuery.fn.definePlugin('Accordion', function($){
 			if(!this.$el.hasClass('accordion')){
 				this.$el.addClass('accordion');
 			}
+            if(this.options.border){
+                this.$el.find('.' + this.options.triggerClass).addClass(this.options.borderClass);
+                this.$el.find('.' + this.options.triggerClass).find('li:nth-last-child(1)').addClass('last-child');
+            }
+
 		},
 		getDefaults: function(){
 			return {
 				triggerClass : "acc-pane",
 				triggerCSS : {},
+                borderClass: 'border',
 				contentClass : "acc-content",
 				contentCSS : {},
 				animationTime : 150,
@@ -23,7 +29,8 @@ jQuery.fn.definePlugin('Accordion', function($){
 				ease : 'linear',
 				openByDeafult:'acc-open',
 				value : 0,
-				toggleOpen: true
+				toggleOpen: true,
+                border: true
 			};
 		},
 		showFirst: function () {
@@ -70,8 +77,10 @@ jQuery.fn.definePlugin('Accordion', function($){
 				.removeClass(opt.openByDeafult)
 				.removeClass(opt.activeClass)
 				.find('.' + opt.contentClass)
-				.slideUp(opt.animationTime, opt.ease);
-		},
+				.slideUp(opt.animationTime, opt.ease, function(){
+                    $(document.body).trigger('uilib-update-scroll-bars');
+                });
+        },
 		openElementContent: function ($el) {
 			var opt = this.options;
 			this.closeElementContent($el);

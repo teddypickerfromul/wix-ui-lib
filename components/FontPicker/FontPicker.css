@@ -8,13 +8,16 @@
 }
 
 .font-style-picker .popup-header {
-    font-weight: bold;
     font-size: 16px;
 }
 
 .font-style-picker .popup{
 	overflow:visible;
     font-family: 'Helvetica Neue', Helvetica, Arial;
+}
+
+.font-style-picker .popup-arrow.popup-arrow-right {
+    margin-right: -3px;
 }
 
 .font-style-picker  .uilib-divider-row{
