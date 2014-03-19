@@ -25,7 +25,7 @@ To get started, include the minified ui lib JS and CSS files in your App Setting
         </header>
         <!-- your settings -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-        <script src="http://sslstatic.wix.com/services/js-sdk/1.26.0/js/Wix.js"></script>
+        <script src="http://sslstatic.wix.com/services/js-sdk/1.28.0/js/Wix.js"></script>
         <script src="ui-lib.min.js"></script>
     </body>
 </html>

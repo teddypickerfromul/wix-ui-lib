@@ -95,16 +95,16 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 		},
 		createPresetPicker: function(){
 			var html = '';
-			var _this = this;
+			var that = this;
 			var presets = this.getSiteTextPresets();
 
             Object.keys(presets).sort().forEach(function(presetName){
 
-                var styleFont = _this.getStyleFontByReference(presetName) ;
+                var styleFont = that.getStyleFontByReference(presetName) ;
                 var font = (styleFont && styleFont.fontFamily) || defaultFont;
                 var fontSize = (styleFont && styleFont.size) || '12px';
                 var styleCss = ' style="font-family:' + font +'"';
-                html += _this.createStyleHtmlMarkup(presetName, presetName.replace(/-/g,' '), font, fontSize, styleCss, "");
+                html += that.createStyleHtmlMarkup(presetName, presetName.replace(/-/g,' '), font, fontSize, styleCss, "");
 			});
 
             // Add the custom font
@@ -121,7 +121,7 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
 					modifier: function($el, $original){
 
                         // Remove the description of the font style
-                        var modifierHtml = _this.createSelectedStyleHtmlMarkup($el);
+                        var modifierHtml = that.createSelectedStyleHtmlMarkup($el);
                         $el.html(modifierHtml);
 						return $el;
 					}
@@ -132,7 +132,7 @@ jQuery.fn.definePlugin('FontStylePicker', function () {
         createCustomMarkup: function(){
             var fontFamily = (this.fontPicker && this.fontPicker.getValue() && this.fontPicker.getValue().value) || defaultFont;
             var textStyle = (this.textStylePicker && this.textStylePicker.getValue() && this.textStylePicker.getValue()) || {bold : false, italic : false, underline: false};
-            var fontSize = (this.fontSizePicker && this.fontSizePicker.getValue()) || 0;
+            var fontSize = (this.fontSizePicker && this.fontSizePicker.getValue()) || 12;
 
             var textStyleCss = textStyle.bold ? '; font-weight: bold': "";
             textStyleCss += textStyle.italic ? '; font-style: italic': "";
