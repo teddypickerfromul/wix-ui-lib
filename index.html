@@ -11,7 +11,7 @@
 	<!-- jQuery Dependency -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<!-- Wix SDK -->
-	<script src="http://sslstatic.wix.com/services/js-sdk/1.26.0/js/Wix.js"></script>
+	<script src="http://sslstatic.wix.com/services/js-sdk/1.28.0/js/Wix.js"></script>
 	<!-- Wix UI -->
 	<script type="text/javascript" src="dist/ui-lib.min.js"></script>
     <!-- Vendor Js -->
@@ -93,7 +93,7 @@ Download the latest release of the ui lib from <a href="https://github.com/wix/w
 <h2 id="dependencies">Dependencies</h2>
 <!-- Dependencies -->
 
-<p>Wix UI lib dependencies are jQuery from version 1.9.0 and Wix SDK from version 1.26.0 make sure you include them in your HTML.</p>
+<p>Wix UI lib dependencies are jQuery from version 1.9.0 and Wix SDK version 1.28.0 make sure you include them in your HTML.</p>
 
 </div>
 
@@ -125,7 +125,7 @@ Download the latest release of the ui lib from <a href="https://github.com/wix/w
         &lt;/header&gt;
         &lt;!-- your settings --&gt;
         &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js&quot;&gt;&lt;/script&gt;
-        &lt;script src=&quot;http://sslstatic.wix.com/services/js-sdk/1.26.0/js/Wix.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;http://sslstatic.wix.com/services/js-sdk/1.28.0/js/Wix.js&quot;&gt;&lt;/script&gt;
         &lt;script src=&quot;ui-lib.min.js&quot;&gt;&lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -542,7 +542,7 @@ An accordion is divided to a vertical set of panes. By default only a single pan
 <tr>
 <td>animationTime</td>
 <td><code>150</code></td>
-<td>expand/collase animation time in ms</td>
+<td>expand/collapse animation time in ms</td>
 </tr>
 <tr>
 <td>ease</td>
@@ -1386,6 +1386,117 @@ $(&#39;#modalAnchorBtn&#39;).on(&#39;click&#39;, function(evt){
 <td>size</td>
 <td><code>default</code></td>
 <td>spinner size options are <code>default</code>, <code>medium</code> or <code>large</code></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+<div data-scroll-target data-name="Tabs"id="Tabs-entry" class="cmp-plugin-decs-entry">
+<h1 id="tabs">Tabs</h1>
+<!-- Tabs -->
+
+<p>Tabs component, dynamic tab functionality to transition through local content.</p>
+<h3 id="example">Example</h3>
+<div wix-ctrl="Tabs" wix-options="{value:0}"  style="margin: 0px">
+    <ul>
+        <li data-tab="tab0"><div>Tab 1</div></li>
+        <li data-tab="tab1"><div>Tab 2</div></li>
+        <li data-tab="tab2"><div>Tab 3</div></li>
+    </ul>
+    <div class="tab-content">
+        <div data-tab="tab0" class="tab-pane">
+            Tab content 1
+        </div>
+        <div data-tab="tab1" class="tab-pane">
+            Tab content 2
+        </div>
+        <div data-tab="tab2" class="tab-pane">
+            Tab content 3
+        </div>
+    </div>
+</div>
+
+<h3 id="markup">Markup</h3>
+<pre><code class="lang-html">&lt;div wix-ctrl=&quot;Tabs&quot; wix-options=&quot;{value:0}&quot;  style=&quot;margin: 0px&quot;&gt;
+    &lt;ul&gt;
+        &lt;li data-tab=&quot;tab0&quot;&gt;&lt;div&gt;Tab 1&lt;/div&gt;&lt;/li&gt;
+        &lt;li data-tab=&quot;tab1&quot;&gt;&lt;div&gt;Tab 2&lt;/div&gt;&lt;/li&gt;
+        &lt;li data-tab=&quot;tab2&quot;&gt;&lt;div&gt;Tab 3&lt;/div&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class=&quot;tab-content&quot;&gt;
+        &lt;div data-tab=&quot;tab0&quot; class=&quot;tab-pane&quot;&gt;
+            Tab content 1
+        &lt;/div&gt;
+        &lt;div data-tab=&quot;tab1&quot; class=&quot;tab-pane&quot;&gt;
+            Tab content 2
+        &lt;/div&gt;
+        &lt;div data-tab=&quot;tab2&quot; class=&quot;tab-pane&quot;&gt;
+            Tab content 3
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="example-with-wix-scrollbar">Example with Wix Scrollbar</h3>
+<div wix-ctrl="Tabs" wix-options="{value:0}"  style="margin: 0px">
+    <ul>
+        <li data-tab="tab0"><div>Tab 1</div></li>
+        <li data-tab="tab1"><div>Tab 2</div></li>
+        <li data-tab="tab2"><div>Tab 3</div></li>
+    </ul>
+    <div wix-scroll="{height:200}">
+        <div class="tab-content">
+            <div data-tab="tab0" class="tab-pane" style="height:300px">
+                Tab content with scroll
+            </div>
+            <div data-tab="tab1" class="tab-pane">
+                Tab content 2
+            </div>
+            <div data-tab="tab2" class="tab-pane">
+                Tab content 3
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 id="markup">Markup</h3>
+<pre><code class="lang-html">&lt;div wix-ctrl=&quot;Tabs&quot; wix-options=&quot;{value:0}&quot;  style=&quot;margin: 0px&quot;&gt;
+    &lt;ul&gt;
+        &lt;li data-tab=&quot;tab0&quot;&gt;&lt;div&gt;Tab 1&lt;/div&gt;&lt;/li&gt;
+        &lt;li data-tab=&quot;tab1&quot;&gt;&lt;div&gt;Tab 2&lt;/div&gt;&lt;/li&gt;
+        &lt;li data-tab=&quot;tab2&quot;&gt;&lt;div&gt;Tab 3&lt;/div&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div wix-scroll=&quot;{height:200}&quot;&gt;
+        &lt;div class=&quot;tab-content&quot;&gt;
+            &lt;div data-tab=&quot;tab0&quot; class=&quot;tab-pane&quot; style=&quot;height:300px&quot;&gt;
+                Tab content with scroll
+            &lt;/div&gt;
+            &lt;div data-tab=&quot;tab1&quot; class=&quot;tab-pane&quot;&gt;
+                Tab content 2
+            &lt;/div&gt;
+            &lt;div data-tab=&quot;tab2&quot; class=&quot;tab-pane&quot;&gt;
+                Tab content 3
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="options">Options</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td><code>0</code></td>
+<td>opened pane at index</td>
 </tr>
 </tbody>
 </table>

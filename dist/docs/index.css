@@ -410,7 +410,6 @@ li.cmp-plugin-entry.current-viewed{
 .page-getting-started .content ul,
 .page-components .content ul {
     margin-left: 16px;
-    list-style: inherit;
     font-size: 12px;
 }
 
