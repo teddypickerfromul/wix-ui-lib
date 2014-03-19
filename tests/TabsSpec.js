@@ -3,29 +3,26 @@ describe('Tabs', function () {
 
     var element;
 	var $element;
-    beforeEach(function () {
-        this.addMatchers({
-            toBeWixed: function() {
-                var $input = this.actual.find('input');
-                var $upArrow = this.actual.find('.up-arrow');
-                var $downArrow = this.actual.find('.down-arrow');
-                return $input.length && $upArrow.length && $downArrow.length;
-            }
-        });
-    });
     beforeEach(function(){
 
-       var markup = '<div wix-ctrl="Tabs">'+
-           '<div class="tabs-pane">'+
-           '<h3>Tabs Pane</h3>'+
-           '<div class="tabs-content">Tabs Content</div>'+
-           '</div>' +
-           '<div class="tabs-pane">'+
-           '<h3>Tabs Pane</h3>'+
-           '<div class="tabs-content">Tabs Content</div>'+
-           '</div>'+
-           '</div>';
-
+        var markup = '<div wix-ctrl="Tabs">' +
+            '<ul>' +
+            '<li data-tab="tab0"><div>Tab 1</div></li>' +
+            '<li data-tab="tab1"><div>Tab 2</div></li>' +
+            '<li data-tab="tab2"><div>Tab 3</div></li>' +
+            '</ul>' +
+            '<div class="tab-content">' +
+            '<div data-tab="tab0" class="tab-pane">' +
+            'Tab content 1' +
+            '</div>' +
+            '<div data-tab="tab1" class="tab-pane">' +
+            'Tab content 2' +
+            '</div>' +
+            '<div data-tab="tab2" class="tab-pane">' +
+            'Tab content 3' +
+            '</div>' +
+            '</div>' +
+            '</div>';
 
         element = $(markup).appendTo('body')[0];
 		$element = $(element);
@@ -35,31 +32,13 @@ describe('Tabs', function () {
         Wix.UI.destroy(element, true);
     });
 
-    it('should apply wix markup to given wix-ctrl', function(){
+    it('should add border to pane when tabs have no scroll widget', function(){
         Wix.UI.initializePlugin(element);
-        var $spinner = $(".uilib-spinner");
-        expect($spinner).toBeWixed();
-    });
-
-    describe('Default Options', function () {
-        beforeEach(function(){
-            Wix.UI.initializePlugin(element);
+        var $tabs = $(".uilib-tabs");
+        var panes = $tabs.find(".tab-pane");
+        _.each(panes, function(pane){
+            expect($(pane).hasClass("border")).toBeTruthy();
         });
-
     });
 
-   
-
-	function givenSpinner(options){
-		options = options || {};
-		$element.attr('wix-options', JSON.stringify(options));
-		Wix.UI.initializePlugin(element);
-		return $element.getCtrl();
-	}
-
-    function givenEnterPressedEvent() {
-        var event = jQuery.Event("keypress");
-        event.which = 13;
-        return event;
-    }
 });
