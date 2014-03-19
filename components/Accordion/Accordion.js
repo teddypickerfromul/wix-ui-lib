@@ -77,8 +77,10 @@ jQuery.fn.definePlugin('Accordion', function($){
 				.removeClass(opt.openByDeafult)
 				.removeClass(opt.activeClass)
 				.find('.' + opt.contentClass)
-				.slideUp(opt.animationTime, opt.ease);
-		},
+				.slideUp(opt.animationTime, opt.ease, function(){
+                    $(document.body).trigger('uilib-update-scroll-bars');
+                });
+        },
 		openElementContent: function ($el) {
 			var opt = this.options;
 			this.closeElementContent($el);
