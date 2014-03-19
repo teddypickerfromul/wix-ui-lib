@@ -29,6 +29,12 @@ jQuery.fn.definePlugin('Tabs', function ($) {
             this.tabs = this.$el.find('li['+this.options.tabValueAttrName+']')
                 .addClass(this.options.tabClassName);
             this.tabsContent = this.$el.find('.tab-content > div['+this.options.tabValueAttrName+']');
+
+            // Check if need  to add scroll to tab element
+            // If there is a scroll on the tabs, the border will be on the scroll div, otherwise on each tab
+            if (this.$el.find('div[wix-scroll]').length === 0){
+                this.$el.find('.tab-pane').addClass('border');
+            }
         },
         bindEvents: function () {
             var tabs = this;
