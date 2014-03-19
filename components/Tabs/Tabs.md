@@ -13,13 +13,13 @@ Tabs component, dynamic tab functionality to transition through local content.
     </ul>
     <div class="tab-content">
         <div data-tab="tab0" class="tab-pane">
-               Tab  content
+            Tab content 1
         </div>
         <div data-tab="tab1" class="tab-pane">
-                Tab  content
+            Tab content 2
         </div>
         <div data-tab="tab2" class="tab-pane">
-                Tab  content
+            Tab content 3
         </div>
     </div>
 </div>
@@ -34,13 +34,13 @@ Tabs component, dynamic tab functionality to transition through local content.
     </ul>
     <div class="tab-content">
         <div data-tab="tab0" class="tab-pane">
-               Tab  content
+            Tab content 1
         </div>
         <div data-tab="tab1" class="tab-pane">
-                Tab  content
+            Tab content 2
         </div>
         <div data-tab="tab2" class="tab-pane">
-                Tab  content
+            Tab content 3
         </div>
     </div>
 </div>
