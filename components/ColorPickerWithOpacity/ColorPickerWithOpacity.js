@@ -35,7 +35,7 @@ jQuery.fn.definePlugin('ColorPickerWithOpacity', function ($) {
 			var rgbString = plugs.colorPicker.getValue();
 			var sliderValue = plugs.slider.getValue() / 100;
 			
-			if(rgbString.indexOf('rgba')===0 || rgbString.indexOf('hsla')===0){
+			if(rgbString.indexOf('rgba') === 0 || rgbString.indexOf('hsla') === 0){
 				return rgbString.replace(/,\s*([\d\.]+)\s*\)/, ','+ sliderValue + ')');
 			} else {
 				return rgbString.replace(/rgb/, 'rgba').replace(')', ',' + sliderValue + ')');
