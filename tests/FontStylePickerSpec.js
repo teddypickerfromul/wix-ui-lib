@@ -2,13 +2,15 @@ describe('FontStylePicker', function () {
     'use strict';
 
     var element;
+    var $element;
     beforeEach(function(){
-        element = $('<div wix-param="fontStyle" wix-ctrl="FontStylePicker"></div>').appendTo('body')[0];
+        $element = $('<div id="fontPicker1" wix-param="fontStyle" wix-ctrl="FontStylePicker"></div>');
+        element = $element.appendTo('body')[0];
     });
 
     afterEach(function(){
         Wix.UI.destroy(element);
-    })
+    });
 
     it('should set the correct font style name for each item in the dropdown', function(){
         Wix.UI.initializePlugin(element);
@@ -73,6 +75,27 @@ describe('FontStylePicker', function () {
         var styleDisplayName = customEl.find('.font').html();
         expect(styleDisplayName).toBe("Custom");
 
+    });
+
+    it('should have only one color picker popup open at a time', function() {
+        var oldPopups = $(".uilib-popup");
+
+        Wix.UI.initializePlugin(element);
+
+        $element.find('.box-like-drop').click();
+
+        waitsFor(function () {
+            return $element.find(".uilib-popup").length > 0;
+        }, "The popup is not shown", 500);
+
+        runs(function () {
+            //make sure all old popups are hidden
+            _.each(oldPopups, function (popup) {
+                expect($(popup).css('display')).toBe('none');
+            });
+
+            expect($element.find(".uilib-popup").css('display')).toBe('block');
+        });
     });
 
     function givenFontName(preset){
