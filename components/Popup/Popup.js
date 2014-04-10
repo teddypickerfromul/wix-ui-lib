@@ -318,8 +318,9 @@ jQuery.fn.definePlugin('Popup', function ($) {
 		}
 
         // popup will be opened on top of the control
+        // If there is no enough space for the height of the popup
 		var rightOver = (relativeToOffset.left - (popupWidth + arrowWidth + 1));
-		if(side === 'right' && rightOver < 0){
+		if((side === 'right' && rightOver < 0) || ((popupHeight + top) > window.innerHeight) ){
 			top = relativeToOffset.top - arrowWidth - popupHeight;
 			left = relativeToOffset.left + relativeToWidth/2 - popupWidth/2;
 			side = 'top';
