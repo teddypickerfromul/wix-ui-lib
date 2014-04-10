@@ -1,8 +1,4 @@
-.popup{
-   background:red;  
-}
-
-.popup{
+.uilib-popup {
     font-family: Arial,sans-serif;
 	border: 1px solid #d4d4d4;
 	border-radius: 4px;

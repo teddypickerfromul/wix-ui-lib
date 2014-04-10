@@ -53,7 +53,7 @@ jQuery.fn.definePlugin('Popup', function ($) {
 			this.modal.className = 'popup-modal';
 
 			this.closeBtn.className = 'popup-close-btn x-close-popup';
-			this.popup.className = 'popup';
+			this.popup.className = 'uilib-popup';
 			this.header.className = 'popup-header';
 			this.content.className = 'popup-content';
 			this.footer.className = 'popup-footer';
@@ -95,7 +95,7 @@ jQuery.fn.definePlugin('Popup', function ($) {
 				}			
 			}
 			var globalCloseHandler = function(evt){
-				var popupEl = $(evt.target).parents('.popup')[0];
+                var popupEl = $(evt.target).parents('.' + popup.popup.className)[0];
 				if(popupEl && popupEl === popup.popup || !popup.isOpen()){
 					return ;
 				}else if(!popup.options.modal){
@@ -192,6 +192,7 @@ jQuery.fn.definePlugin('Popup', function ($) {
 		},
 		open: function () {
 			if(this.isOpen()){return;}
+            this.closeAllPopups();
 			this.state = 'open';
 			setTimeout(function(){
 				if(this.options.modal){
@@ -216,7 +217,16 @@ jQuery.fn.definePlugin('Popup', function ($) {
 				this.popup.style.display = 'none';
 				this.arrow.style.display = 'none';
 			}.bind(this),0);
-		}
+		},
+        closeAllPopups: function(){
+            var $popups = $("." + this.popup.className);
+            $popups.each(function(index, popup){
+                var ctrl = $(popup).getCtrl();
+                if(ctrl) {
+                    ctrl.close();
+                }
+            });
+        }
 	};
 	
 	function createArrowElement(side){

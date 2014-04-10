@@ -11,7 +11,7 @@
     font-size: 16px;
 }
 
-.font-style-picker .popup{
+.font-style-picker .uilib-popup{
 	overflow:visible;
     font-family: 'Helvetica Neue', Helvetica, Arial;
 }

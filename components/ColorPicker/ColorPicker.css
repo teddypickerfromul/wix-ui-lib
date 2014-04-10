@@ -141,7 +141,7 @@ label.deg-label{
 }
 
 
-.color-box{
+.uilib-color-box{
 	cursor:pointer;
 	width :44px; 
 	height: 21px; 
@@ -165,15 +165,15 @@ label.deg-label{
 
 }
 
-.color-box .popup{
+.uilib-color-box .popup{
 	cursor:auto;
 }
 
-.color-box:hover{
+.uilib-color-box:hover{
 	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
-	
-.color-box-inner{
+
+.uilib-color-box .color-box-inner{
 	width:26px;
 	height:15px;
 	background: #000;
@@ -184,18 +184,15 @@ label.deg-label{
 }
 
 /* fix arrow position */
-.color-box .popup-arrow.popup-arrow-left{
+.uilib-color-box .popup-arrow.popup-arrow-left{
 	margin-left: -4px;
 }
 
-.color-box .popup-arrow.popup-arrow-right{
+.uilib-color-box .popup-arrow.popup-arrow-right{
 	margin-right: -3px;
 }
 
-
-
-
-.color-box-inner-arrow{
+.uilib-color-box .color-box-inner-arrow{
 	width: 9px;
 	height: 7px;
 	position: absolute;

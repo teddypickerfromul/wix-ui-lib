@@ -257,12 +257,11 @@ var createColorBox = (function (){
 				  '<div class="colorpicker-priveuse colorpicker-opacity-back"></div>'+
 				  '<div class="colorpicker-current colorpicker-opacity-back"></div>' + 
 				'</div>';
-			
-			if(element.className.indexOf('colorpicker') === -1){
+			if(element.className.indexOf('uilib-colorpicker') === -1){
 				if(element.className.length===0){
-					element.className = 'colorpicker';
+					element.className = 'uilib-colorpicker';
 				} else{
-					element.className += ' colorpicker';
+					element.className += ' uilib-colorpicker';
 				}
 			}
 			
@@ -828,8 +827,6 @@ var createColorBox = (function (){
 
 	function createColorBox(options){
 		var cb = {};
-		createColorBox.instances = createColorBox.instances || [];
-		
 		var pickerInstance = {
 			showSimplePicker:showSimplePicker,
 			showAdvancePicker:showAdvancePicker,
@@ -891,7 +888,6 @@ var createColorBox = (function (){
 			hidePickers();	
 			bindEvents();
 
-			createColorBox.instances.push(pickerInstance);
 			return pickerInstance;
 		}
 
@@ -930,7 +926,7 @@ var createColorBox = (function (){
 			cb.colorBoxInnerArrow = document.createElement('div');
 
 			cb.colorBoxPicker.className = 'colorpicker';
-			cb.colorBox.className = 'color-box';
+			cb.colorBox.className = 'uilib-color-box';
 			cb.colorBoxInner.className = 'color-box-inner';
 			cb.colorBoxInnerArrow.className = 'color-box-inner-arrow';
 			
@@ -961,29 +957,20 @@ var createColorBox = (function (){
 		}
 		
 		function bindEvents(){
-					
-			window.addEventListener('click', function(){
-				hidePickers();
-			}, false);
-			
 			cb.colorBox.onclick = function(evt){
 				evt.stopPropagation && evt.stopPropagation();
 				evt.prevetDefault && evt.prevetDefault();		
 		
 				if(evt.target === cb.colorBox || evt.target === cb.colorBoxInner || evt.target === cb.colorBoxInnerArrow){
-					cb.popup.isOpen() ? hidePickers() : showPickers();
+                    if(!cb.popup.isOpen()){
+                        showPickers();
+                    }
 				}
 				return false;
 			}
 		
 		}
-		
-		function hideAllOpenPickers(){
-			createColorBox.instances.forEach(function(colorPicker){
-				colorPicker.hidePickers();
-			});
-		}
-		
+
 		function saveOpendColor(){			
 			cb.openedColor = options.isParamConected ? (pickerInstance.getColorObject() || pickerInstance.getColor()) : pickerInstance.getColor();
 		}
@@ -1007,7 +994,6 @@ var createColorBox = (function (){
 		
 		function showPickers(){
 			saveOpendColor();
-			hideAllOpenPickers();
 			disableTextSelection();
 			cb.popup.open();
 		}

@@ -65,6 +65,35 @@ describe('ColorPickers', function () {
 			
 		},50000000);
 
+        it('should have only one color picker popup open at a time', function() {
+            var oldPopups = $(".uilib-popup");
+
+            var $el = createPlugin({
+                ctrl : 'ColorPicker',
+                model : 'color',
+                options : {
+                    value : '#000'
+                }
+            });
+
+            $el.appendTo('body');
+            $el.click();
+
+            waitsFor(function () {
+                return $el.find(".uilib-popup").length > 0;
+            }, "The popup is not shown", 500);
+
+            runs(function () {
+                //make sure all old popups are hidden
+                _.each(oldPopups, function (popup) {
+                    expect($(popup).css('display')).toBe('none');
+                });
+
+                expect($el.find(".uilib-popup").css('display')).toBe('block');
+            });
+
+            Wix.UI.destroy($el, true);
+        });
 	});
 	
 	describe('ColorPickerWithOpacity', function () {
