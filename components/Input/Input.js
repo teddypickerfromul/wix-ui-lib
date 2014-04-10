@@ -84,7 +84,6 @@ jQuery.fn.definePlugin('Input', function ($) {
 					value = Math.round(value);
 				}
 				this.lastValue = this.getValue();
-				this.$input.val(value);
 				this.value = value;
 				if(this.options.validate){
 					this.$input.removeClass(classNames.invalidInputClass).addClass(classNames.validInputClass);
