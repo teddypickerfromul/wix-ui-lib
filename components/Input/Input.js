@@ -65,7 +65,7 @@ jQuery.fn.definePlugin('Input', function ($) {
 		},
 		bindEvents: function () {
 			var input = this;
-			input.$input.change(function(){
+			input.$input.on('blur', function(){
 				input.setValue(input.$input.val());
 				input.triggerChangeEvent(input.getValue());
 			});
