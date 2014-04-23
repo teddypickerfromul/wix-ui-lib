@@ -16,7 +16,7 @@ jQuery.fn.definePlugin('ColorPickerWithOpacity', function ($) {
 			this.$Slider = $('<div>').Slider({
 				preLabel: '0',
 				postLabel: '100',
-				value: 100,
+				value: this.options.startWithOpacity,
 				toolTip: false
 			});
 			if(this.options.divider){
@@ -64,7 +64,7 @@ jQuery.fn.definePlugin('ColorPickerWithOpacity', function ($) {
 		},
 		setOpacity: function (opacity) {
 			if(!opacity && opacity!==0){return;}
-			this.getPlugins().slider.setValue(opacity*100);
+			this.getPlugins().slider.setValue(opacity);
 		},
 		getPlugins: function () {
 			return {
@@ -82,7 +82,8 @@ jQuery.fn.definePlugin('ColorPickerWithOpacity', function ($) {
 		},
 		getDefaults: function(){
 			return {
-				startWithColor: 'rgba(255,0,0,1)'
+				startWithColor: 'rgba(255,0,0,1)',
+                startWithOpacity: 100
 				//value:'rgba(255,0,0,1)'
 			}
 		}

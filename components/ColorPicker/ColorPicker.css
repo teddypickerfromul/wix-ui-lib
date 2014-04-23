@@ -250,11 +250,11 @@ label.deg-label{
 	cursor: pointer;
 }
 
-.picker-with-opacity .color-box, .picker-with-opacity .uilib-slider{
+.picker-with-opacity .uilib-color-box, .picker-with-opacity .uilib-slider{
 	display:inline-block;
 }
 
-.picker-with-opacity .color-box{
+.picker-with-opacity .uilib-color-box{
 	margin:0;
 }
 .picker-with-opacity .uilib-slider{
