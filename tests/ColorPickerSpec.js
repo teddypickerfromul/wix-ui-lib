@@ -126,7 +126,7 @@ describe('ColorPickers', function () {
 					model : 'color',
 					options : {
 						value : '#000',
-						startWithOpacity: 0.5
+						startWithOpacity: 50
 					}
 				});
 
@@ -169,7 +169,7 @@ describe('ColorPickers', function () {
 					model : 'color',
 					options : {
 						value : 'rgba(1,2,3,0.4)',
-						startWithOpacity: 1
+						startWithOpacity: 100
 					}
 				});
 

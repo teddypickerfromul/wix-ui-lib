@@ -82,9 +82,8 @@ jQuery.fn.definePlugin('ColorPickerWithOpacity', function ($) {
 		},
 		getDefaults: function(){
 			return {
-				startWithColor: 'rgba(255,0,0,1)',
-                startWithOpacity: 100
-				//value:'rgba(255,0,0,1)'
+				startWithColor: 'rgba(255,0,0,1)'
+			    //value:'rgba(255,0,0,1)'
 			}
 		}
 	};
