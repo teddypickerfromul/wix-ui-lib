@@ -9,15 +9,16 @@ For an explanation on how to choose the default color and how the Wix color Pale
 
 ### Example
 
-<div wix-param="colorWOpacity" wix-ctrl="ColorPickerWithOpacity" wix-options="{startWithColor: 'color-3'}"></div>
+<div wix-param="colorWOpacity" wix-ctrl="ColorPickerWithOpacity" wix-options="{startWithColor: 'color-3', startWithOpacity:90}"></div>
 
 ### Markup
 ```html
-<div wix-param="colorWOpacity" wix-ctrl="ColorPickerWithOpacity" wix-options="{startWithColor: 'color-3'}"></div>
+<div wix-param="colorWOpacity" wix-ctrl="ColorPickerWithOpacity" wix-options="{startWithColor: 'color-3', startWithOpacity:90}"></div>
 ```
 
 ### Options
 
-Name           | Default   | Description
--------------  |---------- |------------
-startWithColor | `color-1` | initial color to show
+Name             | Default   | Description
+-------------    |---------- |------------
+startWithColor   | `color-1` | initial color to show
+startWithOpacity |    100    | initial opacity to show
