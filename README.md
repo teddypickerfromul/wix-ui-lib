@@ -1,4 +1,4 @@
-# UI Library 2 [![Build Status](https://travis-ci.org/wix/wix-ui-lib.png?branch=master)](https://travis-ci.org/wix/wix-ui-lib) [![Bower version](https://badge.fury.io/bo/wix-ui-lib.png)](http://badge.fury.io/bo/wix-ui-lib)
+# UI Library 2 [![Build Status](https://travis-ci.org/wix/wix-ui-lib.png?branch=master)](https://travis-ci.org/wix/wix-ui-lib) [![Bower version](https://badge.fury.io/bo/wix-ui-lib.png)](http://badge.fury.io/bo/wix-ui-lib2)
 > Starter Kit for Wix 3rd Party Apps
 
 ## About
