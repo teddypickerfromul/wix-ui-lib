@@ -65,9 +65,9 @@ jQuery.fn.definePlugin('Slider', function ($) {
 			}
 		},
 		getXFromEvent: function(event){
-			var x = event.hasOwnProperty('offsetX') ?
-					event.offsetX :
-					event.clientX - event.target.getBoundingClientRect().left;
+			var x = event.offsetX !== undefined
+					? event.offsetX
+					: event.clientX - event.target.getBoundingClientRect().left;
 			return x / this.$el.width();
 		},
 		bindEvents: function () {
