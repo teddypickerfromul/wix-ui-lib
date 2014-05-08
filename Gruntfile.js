@@ -32,6 +32,10 @@ module.exports = function (grunt) {
 				dest: dev + '/ui-lib.css'
 			},
 
+      dashboard:{
+        src: ['stylesheets/common.css', 'stylesheets/buttons.css'],
+        dest: dev + '/ui-lib-dashboard.css'
+      },
 
 			docsJs: {
 				src: [
@@ -55,14 +59,15 @@ module.exports = function (grunt) {
 			}
 		},
 
-		cssmin : {
+    cssmin : {
 			options : {
 				banner : '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
 			},
 			compress: {
 				files: {
 					"dist/ui-lib.min.css" : "<%= concat.css.dest %>",
-					"dist/docs/docs.min.css" : "<%= concat.docsCss.dest %>"
+					"dist/docs/docs.min.css" : "<%= concat.docsCss.dest %>",
+                    "dist/ui-lib-dashboard.min.css" : "<%= concat.dashboard.dest %>"
 				}
 			}
 		},
@@ -296,7 +301,7 @@ module.exports = function (grunt) {
 				files: [
 					{src: ['dist/images/**', 'dist/settings.html', 'dist/ui-lib**'], dest: '/'}
 				]
-			}
+      }
 		},
 
 		server: {
