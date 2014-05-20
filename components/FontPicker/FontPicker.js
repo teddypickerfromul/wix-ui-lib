@@ -71,6 +71,7 @@ jQuery.fn.definePlugin('FontPicker', function () {
 				var font = fontsMeta[f];
 				var offsetIndex = font.characterSets.indexOf(fontsMetaLang.lang);
 				var spriteIndex = font.spriteIndex + offsetIndex;
+                font.cssFontFamily = font.cssFontFamily.replace(/\"/g, '\'');
 				var el = $('<div data-value-extended="'+font.cssFontFamily+'" value="' + font.fontFamily + '">' + font.displayName + '</div>').css({
 					backgroundImage: 'url("'+spriteUrl+'")',
 					backgroundRepeat: 'no-repeat',
