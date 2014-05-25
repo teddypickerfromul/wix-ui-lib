@@ -53,10 +53,34 @@ describe('FontStylePicker', function () {
             var $option = $(option);
             if (!$option.hasClass('current-item')){
                 var style = $option.attr('data-value');
-                var font = Wix.Styles.getStyleFontByReference(style);
+                var font = Wix.Styles.getStyleFontByReference();
                 var fontEl = $option.find('.font');
                 var fontFamily = fontEl.css('font-family');
                 expect(fontFamily).toBe('arial');
+            }
+
+        });
+    });
+
+    it('should set the correct font family for each item in the dropdown', function(){
+        var fontsMeta = Wix.Styles.getEditorFonts();
+
+        Wix.UI.initializePlugin(element);
+        var $fontPicker = $(".font-style-picker");
+        var $popup = $fontPicker.find("[wix-ctrl='FontPicker']");
+        expect($popup.length).toBe(1);
+        var $font = $popup.find(".dropdown");
+        expect($font.length).toBe(1);
+        var $options = $font.find('.option');
+
+        _.each($options, function(option){
+            var $option = $(option);
+            if (!$option.hasClass('current-item')){
+                var cssFontFamily = $option.attr('data-value-extended');
+                var fontFamily = $option.attr('data-value');
+                var origCssFontFamily = $.grep(fontsMeta[0].fonts, function(font){ return font.fontFamily == fontFamily; });
+                var cssFontFamilies = origCssFontFamily[0].cssFontFamily.replace(/\"/g, '\'');
+                expect(cssFontFamily).toBe(cssFontFamilies);
             }
 
         });
