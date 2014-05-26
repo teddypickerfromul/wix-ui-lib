@@ -179,18 +179,16 @@
         var wixModel = getAttribute(element, 'wix-model');
 		var $el = $(element);
 		var plugin = $el.data('plugin_'+pluginName);
-		
-        if(wixModel){		
-			if(plugin.destroy){
-				plugin.destroy();
-			} else {
-				$el.off();
-				$el.find('*').off();
-				$el.remove();
-			}
-			if(removeModel){
-				model.removeKey(wixModel);            
-			}
+
+        if(plugin && plugin.destroy){
+            plugin.destroy();
+        } else {
+            $el.off();
+            $el.find('*').off();
+            $el.remove();
+        }
+        if(removeModel){
+            model.removeKey(wixModel);
         }
     }
 	
