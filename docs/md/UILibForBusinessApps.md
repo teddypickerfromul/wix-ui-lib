@@ -14,7 +14,6 @@ To get started, include the minified ui lib dashboard CSS file in your widget HT
         <link rel="stylesheet" href="./ui-lib-dashboard.min.css"></link>
     </head>
     <body>
-        <!-- your settings -->
         <script src="http://sslstatic.wix.com/services/js-sdk/1.29.0/js/Wix.js"></script>
     </body>
 </html>
