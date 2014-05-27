@@ -1,7 +1,7 @@
 ## UI Lib for Business Apps
 <!-- UILibForBusinessApps -->
 
-The Wix UI Lib for Business App include buttons components of css type.
+The Wix UI Lib for Business App include customized css components.
 
 ### HTML file setup
 
@@ -15,12 +15,11 @@ To get started, include the minified ui lib dashboard CSS file in your widget HT
     </head>
     <body>
         <!-- your settings -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-        <script src="http://sslstatic.wix.com/services/js-sdk/1.28.0/js/Wix.js"></script>
+        <script src="http://sslstatic.wix.com/services/js-sdk/1.29.0/js/Wix.js"></script>
     </body>
 </html>
 ```
 
-### Using Components
+### CSS Components
 
-For creating components please go to [CSS Components Setup](#Buttons-entry)
+For creating css components please go to [CSS Setup](#Buttons-entry)
