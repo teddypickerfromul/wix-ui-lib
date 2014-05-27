@@ -253,7 +253,8 @@ module.exports = function (grunt) {
                         'docs/md/WixCustomHtmlAttributes/StyleParametersInCssStylesheet.md',
                         'docs/md/WixCustomHtmlAttributes/AdvanceUsage.md',
                         'docs/md/WixCustomHtmlAttributes/DynamicCreationOfjavascriptComponents.md',
-                        'docs/md/WixCustomHtmlAttributes/GetComponentControllerInstanceDynamically.md'],
+                        'docs/md/WixCustomHtmlAttributes/GetComponentControllerInstanceDynamically.md',
+                        'docs/md/UILibForBusinessApps.md'],
                     inject: dev + '/docs/index.html'
                 }
             },
@@ -270,7 +271,8 @@ module.exports = function (grunt) {
                         'docs/md/WixCustomHtmlAttributes/StyleParametersInCssStylesheet.md',
                         'docs/md/WixCustomHtmlAttributes/AdvanceUsage.md',
                         'docs/md/WixCustomHtmlAttributes/DynamicCreationOfjavascriptComponents.md',
-                        'docs/md/WixCustomHtmlAttributes/GetComponentControllerInstanceDynamically.md'],
+                        'docs/md/WixCustomHtmlAttributes/GetComponentControllerInstanceDynamically.md',
+                        'docs/md/UILibForBusinessApps.md'],
                     inject: dist + '/docs/index.html'
                 }
             }
