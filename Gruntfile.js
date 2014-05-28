@@ -243,7 +243,7 @@ module.exports = function (grunt) {
             dev: {
                 options: {
                     template: '${{getting-started}}',
-                    files:['docs/md/GetTheCode.md','docs/md/Dependencies.md', 'docs/md/HtmlFileSetup.md',
+                    files:['docs/md/GetTheCode.md','docs/md/BowerInstall.md', 'docs/md/Dependencies.md', 'docs/md/HtmlFileSetup.md',
                         'docs/md/NamespaceAndProgramming.md',
                         'docs/md/UsingComponents.md',
                         'docs/md/WixCustomHtmlAttributes.md',
@@ -260,7 +260,7 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     template: '${{getting-started}}',
-                    files:['docs/md/GetTheCode.md','docs/md/Dependencies.md', 'docs/md/HtmlFileSetup.md',
+                    files:['docs/md/GetTheCode.md','docs/md/BowerInstall.md', 'docs/md/Dependencies.md', 'docs/md/HtmlFileSetup.md',
                         'docs/md/NamespaceAndProgramming.md',
                         'docs/md/UsingComponents.md',
                         'docs/md/WixCustomHtmlAttributes.md',
