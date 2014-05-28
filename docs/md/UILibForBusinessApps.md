@@ -1,11 +1,15 @@
 ## UI Lib for Business Apps
 <!-- UILibForBusinessApps -->
 
-The Wix UI Lib for Business App include customized css components.
+The Wix UI Lib for Business Apps includes customized CSS components to be used in the Dashboard context of the app.
+A Business App is part of the “My Account” area of the Wix user’s site, where they can manage their site as well as grow and manage his business. 
 
-### HTML file setup
+This library is a part of the Starter Kit for Wix 3rd Party Applications. 
 
-To get started, include the minified ui lib dashboard CSS file in your widget HTML.
+
+### Getting Started
+
+Include the minified UI-Lib Dashboard CSS file in your application's HTML along with the Wix SDK.
 
 ```html
 <!doctype html>
@@ -19,6 +23,10 @@ To get started, include the minified ui lib dashboard CSS file in your widget HT
 </html>
 ```
 
-### CSS Components
+You can then refrence the Upgrage button in your HTML
 
-For creating css components please go to [CSS Setup](#Buttons-entry)
+```html
+<button class="uilib-btn btn-upgrade"></button>
+```
+
+For a [demo](http://wix.github.io/wix-ui-lib/#demo) and more information [check out the Buttons section in the UI-Lib docs](http://wix.github.io/wix-ui-lib/#components)
