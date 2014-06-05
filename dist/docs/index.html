@@ -6,12 +6,12 @@
 
     <link rel="stylesheet" href="dist/ui-lib.min.css"/>
     <link rel="stylesheet" href="dist/docs/docs.min.css"/>
-	
-		
+
+
 	<!-- jQuery Dependency -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<!-- Wix SDK -->
-	<script src="http://sslstatic.wix.com/services/js-sdk/1.28.0/js/Wix.js"></script>
+	<script src="http://sslstatic.wix.com/services/js-sdk/1.31.0/js/Wix.js"></script>
 	<!-- Wix UI -->
 	<script type="text/javascript" src="dist/ui-lib.min.js"></script>
     <!-- Vendor Js -->
@@ -56,6 +56,7 @@
             <div class="js-cmp-sidebar-wrapper">
                 <h2>Getting Started</h2>
                 <ul class="cmp-sidebar content">
+                    <li class="cmp-plugin-entry"><a data-scroll-inter="" href="#BowerInstall-entry">Install with Bower</a></li>
                     <li class="cmp-plugin-entry"><a data-scroll-inter="" href="#GetTheCode-entry">Get the code</a></li>
                     <li class="cmp-plugin-entry"><a data-scroll-inter="" href="#Dependencies-entry">Dependencies</a></li>
                     <li class="cmp-plugin-entry"><a data-scroll-inter="" href="#HTMLFileSetup-entry">HTML file setup</a></li>
@@ -72,6 +73,7 @@
                             <li class="cmp-plugin-entry"><a data-scroll-inter href="#WixCustomHTMLAttributes-GetComponentControllerInstanceDynamically-entry">Get component controller instance dynamically</a></li>
                         </ul>
                     </li>
+                    <li class="cmp-plugin-entry"><a data-scroll-inter="" href="#UILibForBusinessApps-entry">UI Lib for Business Apps</a></li>
                 </ul>
             </div>
 
@@ -80,7 +82,16 @@
             <div class="js-docs">
                 <div class="content">
                     <h1>Getting Started</h1>
-                    <div data-scroll-target data-name="# Get the Code"id="GetTheCode-entry" class="cmp-plugin-decs-entry">
+                    <div data-scroll-target data-name="# Install using Bower"id="BowerInstall-entry" class="cmp-plugin-decs-entry">
+<h2 id="install-using-bower">Install using Bower</h2>
+<p><!-- BowerInstall --></p>
+<pre><code>bower install wix-ui-lib2
+</code></pre>
+</div>
+
+
+
+<div data-scroll-target data-name="# Get the Code"id="GetTheCode-entry" class="cmp-plugin-decs-entry">
 <h2 id="get-the-code">Get the Code</h2>
 <p><!-- GetTheCode -->
 Download the latest release of the ui lib from <a href="https://github.com/wix/wix-ui-lib/releases/download/v2.1.2/wix-ui-lib-v2.1.2.zip">here</a> and add it to your project folder.</p>
@@ -447,6 +458,34 @@ Wix.UI.destroy($(&#39;#myElement&#39;), true);
 </code></pre>
 
 </div>
+
+
+
+<div data-scroll-target data-name="# UI Lib for Business Apps"id="UILibForBusinessApps-entry" class="cmp-plugin-decs-entry">
+<h2 id="ui-lib-for-business-apps">UI Lib for Business Apps</h2>
+<!-- UILibForBusinessApps -->
+
+<p>The Wix UI Lib for Business Apps includes customized CSS components to be used in the Dashboard context of the app.
+A Business App is part of the “My Account” area of the Wix user’s site, where they can manage their site as well as grow and manage his business. </p>
+<p>This library is a part of the Starter Kit for Wix 3rd Party Applications. </p>
+<h3 id="getting-started">Getting Started</h3>
+<p>Include the minified UI-Lib Dashboard CSS file in your application&#39;s HTML along with the Wix SDK.</p>
+<pre><code class="lang-html">&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;./ui-lib-dashboard.min.css&quot;&gt;&lt;/link&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script src=&quot;http://sslstatic.wix.com/services/js-sdk/1.29.0/js/Wix.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>You can then refrence the Upgrage button in your HTML</p>
+<pre><code class="lang-html">&lt;button class=&quot;uilib-btn btn-upgrade&quot;&gt;&lt;/button&gt;
+</code></pre>
+<p>For a <a href="http://wix.github.io/wix-ui-lib/#demo">demo</a> and more information <a href="http://wix.github.io/wix-ui-lib/#components">check out the Buttons section in the UI-Lib docs</a></p>
+
+</div>
                 </div>
             </div>
         </div>
@@ -477,7 +516,7 @@ Wix.UI.destroy($(&#39;#myElement&#39;), true);
             </div>
         </div>
 
-        
+
     </div>
 </div>
 
@@ -742,10 +781,10 @@ An accordion is divided to a vertical set of panes. By default only a single pan
 <p><strong>Note that the selected value will be saved inside the Wix site, there is no need to listen to an onChange event.</strong></p>
 <p>For an explanation on how to choose the default color and how the Wix color Palette works please refer to this <a href="http://dev.wix.com/docs/display/DRAF/Color+Selection+Guide">link</a>.</p>
 <h3 id="example">Example</h3>
-<div wix-param="colorWOpacity" wix-ctrl="ColorPickerWithOpacity" wix-options="{startWithColor: 'color-3'}"></div>
+<div wix-param="colorWOpacity" wix-ctrl="ColorPickerWithOpacity" wix-options="{startWithColor: 'color-3', startWithOpacity:90}"></div>
 
 <h3 id="markup">Markup</h3>
-<pre><code class="lang-html">&lt;div wix-param=&quot;colorWOpacity&quot; wix-ctrl=&quot;ColorPickerWithOpacity&quot; wix-options=&quot;{startWithColor: &#39;color-3&#39;}&quot;&gt;&lt;/div&gt;
+<pre><code class="lang-html">&lt;div wix-param=&quot;colorWOpacity&quot; wix-ctrl=&quot;ColorPickerWithOpacity&quot; wix-options=&quot;{startWithColor: &#39;color-3&#39;, startWithOpacity:90}&quot;&gt;&lt;/div&gt;
 </code></pre>
 <h3 id="options">Options</h3>
 <table>
@@ -761,6 +800,11 @@ An accordion is divided to a vertical set of panes. By default only a single pan
 <td>startWithColor</td>
 <td><code>color-1</code></td>
 <td>initial color to show</td>
+</tr>
+<tr>
+<td>startWithOpacity</td>
+<td>100</td>
+<td>initial opacity to show</td>
 </tr>
 </tbody>
 </table>
