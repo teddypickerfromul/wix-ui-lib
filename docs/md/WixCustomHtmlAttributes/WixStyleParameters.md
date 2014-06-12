@@ -19,7 +19,6 @@ You can use the `wix-param` attribute on supported components. Currently Wix sup
 - Checkbox
 
 #### Font Parameters Components
-- FontPicker
 - FontStylePicker
 
 **wix-param** attribute sets the key of the style parameter.
@@ -30,7 +29,7 @@ Color Picker component:
 <div wix-param="myParam" wix-ctrl="ColorPickerWithOpacity"></div>
 ```
 
-Font Picker component:
+Font Style Picker component:
 
 ```html
 <div wix-param="myFont" wix-ctrl="FontStylePicker"></div>
