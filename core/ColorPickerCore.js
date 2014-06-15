@@ -902,6 +902,7 @@ var createColorBox = (function (){
 				height : 'auto',
 				width : 'auto',
                 fixed: true,
+                maxPopupWidth: 265,
 				onclose : function () {
 					pickerInstance.hidePickers();
 				},
