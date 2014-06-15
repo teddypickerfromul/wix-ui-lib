@@ -338,8 +338,8 @@ jQuery.fn.definePlugin('Popup', function ($) {
         }
 
         // popup will be opened on the bottom of the control
-        if(top  < 0){
-            top = relativeToOffset.top + (relativeToHeight + arrowWidth);
+		if(top  < 0){
+			top = relativeToOffset.top + (relativeToHeight + arrowWidth) - 4;
             side = 'bottom';
         }
 

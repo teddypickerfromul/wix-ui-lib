@@ -1,4 +1,4 @@
-## HTML file setup
+## HTML File Setup for App Settings
 <!-- HTMLFileSetup -->
 
 To get started, include the minified ui lib JS and CSS files in your App Settings HTML. Also add the `wix-ui` attribute on the body element, this will hide the document until **Wix.UI.initialize** will be called.
