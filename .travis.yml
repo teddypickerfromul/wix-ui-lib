@@ -1,4 +1,6 @@
-before_script: npm update -g npm
+before_script:
+  - npm cache clean
+  - npm update -g npm
 language: node_js
 node_js:
   - 0.8
