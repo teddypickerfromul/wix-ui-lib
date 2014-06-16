@@ -15,11 +15,11 @@ Input also can accept validation function.
 
 ### Example with validation
 
-<div wix-model="mySmallNumber" wix-ctrl="Input" wix-options="{placeholder: 'Number input'}"></div>
+<div wix-model="mySmallNumber" wix-ctrl="Input" wix-options="{placeholder: 'Number input', type: 'number'}"></div>
 
 ### HTML
 ```html
-<div wix-model="mySmallNumber" wix-ctrl="Input" wix-options="{placeholder: 'Number input'}"></div>
+<div wix-model="mySmallNumber" wix-ctrl="Input" wix-options="{placeholder: 'Number input', type: 'number'}"></div>
 ```
 
 ### JS
@@ -36,3 +36,4 @@ Name        | Default   | Description
 placeholder | ``        | text for the input placeholder
 size        | `default` | input size options are `default`, `medium`, `large`, `x-large` and `big`
 disabled    | `false`   | whether this text input is disabled
+type        |  'text'   | type of the content to display, options are: 'text', 'number' and 'password'

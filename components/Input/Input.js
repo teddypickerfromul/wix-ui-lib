@@ -80,7 +80,7 @@ jQuery.fn.definePlugin('Input', function ($) {
 			var isPassRequiredValidation = this.options.required ? !!value.length : true;
 			var isDifferentValue = (this.$input.val() !== this.value || value !== this.value);
 			if(isPassRequiredValidation && this.options.validation(value) && isDifferentValue){
-				if(!isNaN(parseFloat(value)) && isFinite(value)){
+				if(this.options.type == 'number' && !isNaN(parseFloat(value)) && isFinite(value)){
 					value = Math.round(value);
 				}
 				this.lastValue = this.getValue();
@@ -88,16 +88,16 @@ jQuery.fn.definePlugin('Input', function ($) {
                     this.$input.val(value);
                 }
 				this.value = value;
-				if(this.options.validate){
+				if(this.options.validate && this.$input[0].checkValidity()){
 					this.$input.removeClass(classNames.invalidInputClass).addClass(classNames.validInputClass);
 				}
-			} else if(this.$input.val() !== this.value){
+			} else if(this.$input.val() !== this.value || !this.$input[0].checkValidity()){
 				this.value = '';
 				if(this.options.validate){
 					this.$input.removeClass(classNames.validInputClass).addClass(classNames.invalidInputClass);
 				}
 			} else {
-				if (this.$input.val() === ''){
+				if (this.$input.val() === '' && this.$input[0].checkValidity()){
 					this.$input.removeClass(classNames.invalidInputClass);
 				}
 			}
