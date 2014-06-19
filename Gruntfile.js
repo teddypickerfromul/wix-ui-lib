@@ -244,9 +244,10 @@ module.exports = function (grunt) {
                 options: {
                     template: '${{getting-started}}',
                     files:['docs/md/BowerInstall.md',
-                    	'docs/md/GetTheCode.md',
-                    	'docs/md/Dependencies.md', 
-                    	'docs/md/HtmlFileSetup.md',
+                        'docs/md/GetTheCode.md',
+                        'docs/md/Dependencies.md',
+                        'docs/md/HtmlFileSetup.md',
+                        'docs/md/UILibForBusinessApps.md',
                         'docs/md/NamespaceAndProgramming.md',
                         'docs/md/UsingComponents.md',
                         'docs/md/WixCustomHtmlAttributes.md',
@@ -256,8 +257,8 @@ module.exports = function (grunt) {
                         'docs/md/WixCustomHtmlAttributes/StyleParametersInCssStylesheet.md',
                         'docs/md/WixCustomHtmlAttributes/AdvanceUsage.md',
                         'docs/md/WixCustomHtmlAttributes/DynamicCreationOfjavascriptComponents.md',
-                        'docs/md/WixCustomHtmlAttributes/GetComponentControllerInstanceDynamically.md',
-                        'docs/md/UILibForBusinessApps.md'],
+                        'docs/md/WixCustomHtmlAttributes/GetComponentControllerInstanceDynamically.md'],
+
                     inject: dev + '/docs/index.html'
                 }
             },
@@ -265,9 +266,10 @@ module.exports = function (grunt) {
                 options: {
                     template: '${{getting-started}}',
                     files:['docs/md/BowerInstall.md',
-                    	'docs/md/GetTheCode.md',
-                    	'docs/md/Dependencies.md', 
-                    	'docs/md/HtmlFileSetup.md',
+                        'docs/md/GetTheCode.md',
+                        'docs/md/Dependencies.md',
+                        'docs/md/HtmlFileSetup.md',
+                        'docs/md/UILibForBusinessApps.md',
                         'docs/md/NamespaceAndProgramming.md',
                         'docs/md/UsingComponents.md',
                         'docs/md/WixCustomHtmlAttributes.md',
@@ -277,8 +279,7 @@ module.exports = function (grunt) {
                         'docs/md/WixCustomHtmlAttributes/StyleParametersInCssStylesheet.md',
                         'docs/md/WixCustomHtmlAttributes/AdvanceUsage.md',
                         'docs/md/WixCustomHtmlAttributes/DynamicCreationOfjavascriptComponents.md',
-                        'docs/md/WixCustomHtmlAttributes/GetComponentControllerInstanceDynamically.md',
-                        'docs/md/UILibForBusinessApps.md'],
+                        'docs/md/WixCustomHtmlAttributes/GetComponentControllerInstanceDynamically.md'],
                     inject: dist + '/docs/index.html'
                 }
             }
