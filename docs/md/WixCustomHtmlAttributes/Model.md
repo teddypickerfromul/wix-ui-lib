@@ -53,8 +53,6 @@ var componentsValues = Wix.UI.toJSON();
 ```
 ######jQuery Example
 ```javascript
-
-
 $( document ).ready(function(){
     loadSettings();
 
