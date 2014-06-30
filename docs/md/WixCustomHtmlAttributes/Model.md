@@ -53,23 +53,25 @@ var componentsValues = Wix.UI.toJSON();
 ```
 ######jQuery Example
 ```javascript
-var widgetId = Wix.Utils.getInstanceId() + '--' + Wix.Utils.getCompId();
 
-function saveSettings(){
-    $.post('save.php?id=' + widgetId, Wix.UI.toJSON());
-}
-
-function loadSettings(){
-    $.get('load.php?id=' + widgetId, function(data){
-        Wix.UI.initialize(data);
-    });
-}
-
-Wix.UI.onChange('*', function(){
-    saveSettings();
-});
 
 $( document ).ready(function(){
     loadSettings();
+
+    var widgetId = Wix.Utils.getInstanceId() + '--' + Wix.Utils.getCompId();
+
+    function saveSettings(){
+        $.post('save.php?id=' + widgetId, Wix.UI.toJSON());
+    }
+
+    function loadSettings(){
+        $.get('load.php?id=' + widgetId, function(data){
+            Wix.UI.initialize(data);
+        });
+    }
+
+    Wix.UI.onChange('*', function(){
+        saveSettings();
+    });
 });
 ```
