@@ -7,6 +7,7 @@ app.get('/', function(req, res) {
 
 app.use("/dist", express.static(__dirname + '/dist'));
 app.use("/images", express.static(__dirname + '/dist/images'));
+app.use("/js-docs", express.static(__dirname + '/docstrap'));
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
