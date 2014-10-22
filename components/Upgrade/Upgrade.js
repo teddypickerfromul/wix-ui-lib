@@ -23,7 +23,6 @@ jQuery.fn.definePlugin('Upgrade', function($){
 		getValue: function() {
 		},
 		setValue: function(value) {
-            debugger;
 		},
         upgrade: function() {
             var vendorProductId = this.options.vendorProductId;
