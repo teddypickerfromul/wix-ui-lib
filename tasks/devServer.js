@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 		app = express();
 		app.use(express.static("" + (process.cwd()) + "/" + webRoot));
 		app.use("/images", express.static("" + (process.cwd()) + "/images"));
-		app.use("/dist", express.static("" + (process.cwd()) + "/"  + distRoot));
+        app.use("/dist", express.static("" + (process.cwd()) + "/"  + distRoot));
 
 		app.use(express.errorHandler());
 		app.listen(webPort);
