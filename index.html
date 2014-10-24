@@ -11,18 +11,12 @@
 	<!-- jQuery Dependency -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<!-- Wix SDK -->
-	<script src="http://sslstatic.wix.com/services/js-sdk/1.31.0/js/Wix.js"></script>
+	<script src="http://sslstatic.wix.com/services/js-sdk/1.37.0/js/wix.min.js"></script>
 	<!-- Wix UI -->
 	<script type="text/javascript" src="dist/ui-lib.min.js"></script>
     <!-- Vendor Js -->
     <script type="text/javascript" src="dist/docs/jquery.sticky-kit.min.js"></script>
 	<script type="text/javascript">Wix.__disableStandaloneError__ = true;</script>
-
-    <!-- HTML5 shim IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <![endif]-->
-
 </head>
 <body>
 <nav class="navigation">
@@ -41,7 +35,7 @@
         <h2>3rd Party Applications Starter Kit</h2>
 
         <div class="get-ui-lib">
-            <div class="uilib-btn btn-xlarge"><a href="https://github.com/wix/wix-ui-lib/releases/download/v2.1.6/wix-ui-lib-v2.1.6.zip">Download Wix UI-LIB</a></div>
+            <div class="uilib-btn btn-xlarge"><a href="https://github.com/wix/wix-ui-lib/releases/download/wix-ui-lib-v2.1.8/wix-ui-lib-v2.1.8.zip">Download Wix UI-LIB</a></div>
             <div class="uilib-btn btn-xlarge"><a href="https://github.com/wix/wix-ui-lib">View on GitHub</a></div>
         </div>
 
@@ -95,7 +89,7 @@
 <div data-scroll-target data-name="# Get the Code"id="GetTheCode-entry" class="cmp-plugin-decs-entry">
 <h2 id="get-the-code">Get the Code</h2>
 <p><!-- GetTheCode -->
-Download the latest release of the ui lib from <a href="https://github.com/wix/wix-ui-lib/releases/download/v2.1.6/wix-ui-lib-v2.1.6.zip">here</a> and add it to your project folder.</p>
+Download the latest release of the ui lib from <a href="https://github.com/wix/wix-ui-lib/releases/download/wix-ui-lib-v2.1.8/wix-ui-lib-v2.1.8.zip">here</a> and add it to your project folder.</p>
 
 </div>
 
@@ -234,7 +228,7 @@ Download the latest release of the ui lib from <a href="https://github.com/wix/w
 <code>wix-ctrl</code> and <code>wix-options</code>:</p>
 <pre><code class="lang-html">&lt;div wix-model=&quot;myKey&quot; wix-ctrl=&quot;ComponentName&quot; wix-options=&quot;{Options}&quot;&gt;&lt;/div&gt;
 </code></pre>
-<p>The <strong>Wix.UI</strong> library manages all components that were decalred through markup or created dynamically.  <strong>Wix.UI.initialize()</strong> must be called on DOM ready to start the compoenets creations process and to display the document body. The compoenets will get created with the options that were specified inside the markup using the <code>wix-option</code> attribute.</p>
+<p>The <strong>Wix.UI</strong> library manages all components that were declared through markup or created dynamically.  <strong>Wix.UI.initialize()</strong> must be called on DOM ready to start the components creations process and to display the document body. The components will get created with the options that were specified inside the markup using the <code>wix-option</code> attribute.</p>
 <p>All the <strong>Wix.UI</strong> components should be initialized after the DOM is ready.</p>
 <pre><code class="lang-javascript">$( document ).ready(function(){
 
@@ -657,14 +651,14 @@ An accordion is divided to a vertical set of panes. By default only a single pan
 
 <p>Toggle Button Group component, enables selection of multiple options through a group of horizontally ordered toggle buttons.</p>
 <h3 id="example">Example</h3>
-<div wix-model="size" wix-ctrl="ToggleButtonGroup" wix-options="{value: {mini:true, medium:true, large:false}}">
+<div wix-model="size" wix-ctrl="ToggleButtonGroup">
     <button value="mini">Mini</button>
     <button value="medium">Medium</button>
     <button value="large">Large</button>
 </div>
 
 <h3 id="markup">Markup</h3>
-<pre><code class="lang-html">&lt;div wix-model=&quot;size&quot; wix-ctrl=&quot;ToggleButtonGroup&quot; wix-options=&quot;{value: {mini:true, medium:true, large:false}}&quot;&gt;
+<pre><code class="lang-html">&lt;div wix-model=&quot;size&quot; wix-ctrl=&quot;ToggleButtonGroup&quot;&gt;
     &lt;button value=&quot;mini&quot;&gt;Mini&lt;/button&gt;
     &lt;button value=&quot;medium&quot;&gt;Medium&lt;/button&gt;
     &lt;button value=&quot;large&quot;&gt;Large&lt;/button&gt;
@@ -1596,49 +1590,6 @@ $(&#39;#modalAnchorBtn&#39;).on(&#39;click&#39;, function(evt){
 <td>animation</td>
 <td><code>true</code></td>
 <td>show tooltip with/out animation</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-
-
-<div data-scroll-target data-name="Upgrade Button (available only for Business Apps)"id="Upgrade-entry" class="cmp-plugin-decs-entry">
-<h1 id="upgrade-button-available-only-for-business-apps-">Upgrade Button (available only for Business Apps)</h1>
-<!-- Upgrade -->
-
-<p>Upgrade Button component, opens Wix billing page with the given vendorProductId and cycle.</p>
-<h3 id="example">Example</h3>
-<div wix-ctrl="Upgrade" wix-options="{text:'Upgrade', vendorProductId:'deluxe'}"></div>
-
-<h3 id="markup">Markup</h3>
-<pre><code class="lang-html">&lt;div wix-ctrl=&quot;Upgrade&quot; wix-options=&quot;{text:&#39;Upgrade&#39;, vendorProductId:&#39;deluxe&#39;}&quot;&gt;&lt;/div&gt;
-</code></pre>
-<h3 id="options">Options</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>class</td>
-<td><code>btn-upgrade</code></td>
-<td>The button style</td>
-</tr>
-<tr>
-<td>vendorProductId</td>
-<td>``</td>
-<td>The vendor product id as entered in dev.wix.com </td>
-</tr>
-<tr>
-<td>cycle</td>
-<td><code>MONTHLY</code></td>
-<td>The billing Cycle could be &#39;MONTHLY&#39;, &#39;YEARLY&#39; or &#39;ONE_TIME&#39;</td>
 </tr>
 </tbody>
 </table>
