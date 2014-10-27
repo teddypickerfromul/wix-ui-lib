@@ -14,7 +14,7 @@ var popup = Wix.UI.create({ctrl: 'Popup',
                         options: {buttonSet: 'okCancel', fixed:true}});
 
 var modal = Wix.UI.create({ctrl: 'Popup',
-                        options: {modal:true, buttonSet: 'okCancel', fixed:true}});
+                        options: {modal:true, buttonSet: 'okCancel', fixed:true, title:'Modal'}});
 
 $('#popupAnchorBtn').on('click', function(evt){
     evt.stopPropagation();
@@ -41,7 +41,7 @@ var popup = Wix.UI.create({ctrl: 'Popup',
                         options: {buttonSet: 'okCancel', fixed:true}});
 	
 var modal = Wix.UI.create({ctrl: 'Popup',
-                        options: {modal:true, buttonSet: 'okCancel', fixed:true}});
+                        options: {modal:true, buttonSet: 'okCancel', fixed:true, title:'Modal'}});
 	
 $('#popupAnchorBtn').on('click', function(evt){
     evt.stopPropagation();
