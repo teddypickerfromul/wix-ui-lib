@@ -289,7 +289,7 @@ module.exports = function (grunt) {
             dev: {
                 options: {
                     template: '${{content}}',
-                    files:['components/**/*.md'],
+                    files:['components/**/*.md', 'docs/md/*.md', 'docs/md/**/*.md'],
                     inject: dev + '/docs/index.html'
                 }
             },
