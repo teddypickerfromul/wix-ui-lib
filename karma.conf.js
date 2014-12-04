@@ -1,49 +1,52 @@
 // Karma configuration
 // Generated on Sat Nov 16 2013 20:51:19 GMT+0300 (IDT)
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     // base path, that will be used to resolve files and exclude
     basePath: '',
+
+
     // frameworks to use
     frameworks: ['jasmine'],
+
+
     // list of files / patterns to load in the browser
     files: [
-        'components/**/*.css',
-		'stylesheets/buttons.css',
-		'stylesheets/common.css',
-		'stylesheets/settings.css',
-		'stylesheets/header.css',
+      'components/**/*.css',
+      'stylesheets/buttons.css',
+      'stylesheets/common.css',
+      'stylesheets/settings.css',
+      'stylesheets/header.css',
 
-		'components/Radio/radio.css',
-		'components/Checkbox/checkbox.css',
-		'components/Accordion/accordion.css',
-		'components/Dropdown/dropdown.css',
-		'components/Popup/popup.css',
-		'components/Input/input.css',
-		'components/Spinner/spinner.css',
-				
-		'components/ColorPicker/ColorPicker.css',
-		'components/Slider/slider.css',
-		'components/FixedPositionControl/FixedPositionControl.css',
+      'components/Radio/radio.css',
+      'components/Checkbox/checkbox.css',
+      'components/Accordion/accordion.css',
+      'components/Dropdown/dropdown.css',
+      'components/Popup/popup.css',
+      'components/Input/input.css',
+      'components/Spinner/spinner.css',
 
-	
-        'http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js',
-		'http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js',
-        'http://sslstatic.wix.com/services/js-sdk/1.28.0/js/Wix.js',
+      'components/ColorPicker/ColorPicker.css',
+      'components/Slider/slider.css',
+      'components/FixedPositionControl/FixedPositionControl.css',
 
-		'tests/mocks/sdk/**.js',
-		'tests/addons/**.js',
+      'http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js',
+      'http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js',
+      'http://sslstatic.wix.com/services/js-sdk/1.28.0/js/Wix.js',
 
-		'core/definePlugin.js',
-		'core/ColorPickerCore.js',
-		'core/core.js',
-		'components/**/*.js',
-		
-		
-		'tests/mocks/*.js',
-        
-		'tests/**Spec.js'
+      'tests/mocks/sdk/**.js',
+      'tests/addons/**.js',
+
+      'core/definePlugin.js',
+      'core/ColorPickerCore.js',
+      'core/core.js',
+      'components/**/*.js',
+
+
+      'tests/mocks/*.js',
+
+      'tests/**Spec.js'
     ],
 
 
@@ -85,12 +88,13 @@ module.exports = function(config) {
     // - IE (only Windows)
     browsers: ['Chrome'],
 
+
     plugins : [
-            'karma-chrome-launcher',
-            'karma-firefox-launcher',
-            'karma-jasmine',
-            'karma-phantomjs-launcher'
-            ],
+      'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-jasmine',
+      'karma-phantomjs-launcher'
+    ],
 
 
     // If browser does not capture in given timeout [ms], kill it
