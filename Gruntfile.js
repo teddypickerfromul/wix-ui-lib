@@ -308,7 +308,7 @@ module.exports = function (grunt) {
 					archive: 'archive.zip'
 				},
 				files: [
-					{src: ['dist/images/**', 'dist/settings.html', 'dist/ui-lib**'], dest: '/'}
+					{src: ['dist/images/**', 'dist/settings.html', 'dist/ui-lib**', 'LICENSE.txt'], dest: '/'}
 				]
       }
 		},
