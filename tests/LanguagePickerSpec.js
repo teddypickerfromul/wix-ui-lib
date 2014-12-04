@@ -26,13 +26,20 @@ describe('LanguagePicker', function () {
         expect($languagePicker).toBeWixed();
     });
 
-    it('should add supported languages to picker', function(){
-        Wix.UI.initializePlugin(element);
-        var $languagePicker = $(".uilib-languagePicker");
-        var langs = givenLanguagesWeSupport();
-        _.each($languagePicker.find('.options .option'), function(element){
-            expect(_.indexOf(langs,$(element).text())).toBeGreaterThan(-1);
-        });
+    it('should add supported languages and values to language picker', function () {
+      var $languagePicker, $options, $elem;
+      var langs = givenLanguagesWeSupport();
+      var values = getSupportedValues();
+      
+      Wix.UI.initializePlugin(element);
+      $languagePicker = $(".uilib-languagePicker");
+      $options = $languagePicker.find('.options .option');
+
+      _.each($options, function (elem) {
+        $elem = $(elem);
+        expect(_.indexOf(langs, $elem.text())).toBeGreaterThan(-1);
+        expect(_.indexOf(values, $elem.attr('data-value'))).toBeGreaterThan(-1);
+      });
     });
 
     describe('Default Options', function () {
@@ -72,5 +79,9 @@ describe('LanguagePicker', function () {
 
     function givenLanguagesWeSupport() {
        return ['English', 'Deutsch', 'Español', 'Français', 'Italiano', 'Polski', 'Português', 'Русский', '日本語', '한국어', 'Türkçe'];
+    }
+    
+    function getSupportedValues() {
+      return ['En', 'De', 'Es', 'Fr', 'It', 'Pl', 'Pt', 'Ru', 'Ja', 'Ko', 'Tr'];
     }
 });
