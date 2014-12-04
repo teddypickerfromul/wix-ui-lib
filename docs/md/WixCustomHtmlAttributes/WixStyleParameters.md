@@ -38,7 +38,9 @@ Font Picker component:
 
 wix-param can also be consumed inside the App's Widget/Page. You can use **Wix SDK** to get all the style parameters that were set in the App's Settings.
 ```javascript
-Wix.getStyleParams(function(styleParams){
-    // styleParams is a map with all style values {colors:{}, numbers:{}, booleans:{}, fonts:{}}
+Wix.Styles.getStyleParams(function(styleParams) {
+    //styleParams is a map with all style values
+    //{colors:{}, numbers:{}, booleans:{}, fonts:{}}
+    //which were configured by the user.
 });
 ```
