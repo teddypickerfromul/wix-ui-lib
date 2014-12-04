@@ -11,7 +11,7 @@
 	<!-- jQuery Dependency -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<!-- Wix SDK -->
-	<script src="http://sslstatic.wix.com/services/js-sdk/1.31.0/js/Wix.js"></script>
+	<script src="http://sslstatic.wix.com/services/js-sdk/1.40.0/js/Wix.js"></script>
 	<!-- Wix UI -->
 	<script type="text/javascript" src="dist/ui-lib.min.js"></script>
     <!-- Vendor Js -->
@@ -105,7 +105,7 @@ Download the latest release of the ui lib from <a href="https://github.com/wix/w
 <h2 id="dependencies">Dependencies</h2>
 <!-- Dependencies -->
 
-<p>Wix UI lib dependencies are jQuery from version 1.9.0 and Wix SDK version 1.31.0 make sure you include them in your HTML.</p>
+<p>Wix UI lib dependencies are jQuery from version 1.9.0 and Wix SDK version 1.40.0 make sure you include them in your HTML.</p>
 
 </div>
 
@@ -137,7 +137,7 @@ Download the latest release of the ui lib from <a href="https://github.com/wix/w
         &lt;/header&gt;
         &lt;!-- your settings --&gt;
         &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js&quot;&gt;&lt;/script&gt;
-        &lt;script src=&quot;http://sslstatic.wix.com/services/js-sdk/1.31.0/js/Wix.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;http://sslstatic.wix.com/services/js-sdk/1.40.0/js/Wix.js&quot;&gt;&lt;/script&gt;
         &lt;script src=&quot;ui-lib.min.js&quot;&gt;&lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
@@ -191,7 +191,7 @@ Download the latest release of the ui lib from <a href="https://github.com/wix/w
 
 <p>The Wix UI Lib include two types of components - CSS &amp; Javascript.</p>
 <h3 id="css-components">CSS Components</h3>
-<p>Css components are several css classes that can help you build the ui of the settings.</p>
+<p>CSS components are several CSS classes that can help you build the ui of the settings.</p>
 <h4 id="buttons">Buttons</h4>
 <p>Wix button classes to create styled buttons.</p>
 <h4 id="icons">Icons</h4>
@@ -210,10 +210,10 @@ Download the latest release of the ui lib from <a href="https://github.com/wix/w
 <p>The Wix UI Lib defines custom attributes which enable components initialization from within the HTML markup.</p>
 <p><strong>wix-ctrl -</strong> component&#39;s controller declaration.</p>
 <p><strong>wix-options -</strong> component initialization options.</p>
-<p><strong>wix-ctrl:{options} - </strong> Alternative for combining the two attributes in one.</p>
-<p><strong>wix-param -</strong> define style parameter key for a component - will be saved inside the site and not accessable for the app.</p>
-<p><strong>wix-model -</strong> define app model key for a component - this is a two way data item that it&#39;s value is accessable by the app through the Wix.UI.get/set methods. Changes to this item can tracked by subscribing to change events Wix.UI.onChange method.</p>
-<p><code>Warning: wix-pram &amp; wix-model are mutually exclusive and can not co-exist on the same controller. Only one of them should be used.</code></p>
+<p><strong>wix-ctrl:{options} -</strong> an alternative for combining the two attributes in one.</p>
+<p><strong>wix-param -</strong> defines style parameter key for a component - will be saved inside the site and not accessible for the app.</p>
+<p><strong>wix-model -</strong> defines app model key for a component - this is a two way data item that it&#39;s value is accessible by the app through the Wix.UI.get/set methods. Changes to this item can tracked by subscribing to change events Wix.UI.onChange method.</p>
+<p><code>Warning: wix-param &amp; wix-model are mutually exclusive and cannot co-exist on the same controller. Only one of them should be used.</code></p>
 <p>All attributes can be prefixed with <strong>data-</strong> to be W3C compliant (Optional).</p>
 
 </div>
@@ -354,8 +354,10 @@ $( document ).ready(function(){
 <pre><code class="lang-html">&lt;div wix-param=&quot;myFont&quot; wix-ctrl=&quot;FontStylePicker&quot;&gt;&lt;/div&gt;
 </code></pre>
 <p>wix-param can also be consumed inside the App&#39;s Widget/Page. You can use <strong>Wix SDK</strong> to get all the style parameters that were set in the App&#39;s Settings.</p>
-<pre><code class="lang-javascript">Wix.getStyleParams(function(styleParams){
-    // styleParams is a map with all style values {colors:{}, numbers:{}, booleans:{}, fonts:{}}
+<pre><code class="lang-javascript">Wix.Styles.getStyleParams(function(styleParams) {
+    //styleParams is a map with all style values
+    //{colors:{}, numbers:{}, booleans:{}, fonts:{}}
+    //which were configured by the user.
 });
 </code></pre>
 
@@ -1099,10 +1101,15 @@ Input also can accept validation function.</p>
 <script>
 
 var popup = Wix.UI.create({ctrl: 'Popup',
-                        options: {buttonSet: 'okCancel', fixed:true}});
+                        options: { buttonSet: 'okCancel', fixed:true}});
 
 var modal = Wix.UI.create({ctrl: 'Popup',
-                        options: {modal:true, buttonSet: 'okCancel', fixed:true}});
+                        options: {
+                             modal:true,
+                             buttonSet: 'okCancel',
+                             fixed:true,
+                             title:'Modal'
+                         }});
 
 $('#popupAnchorBtn').on('click', function(evt){
     evt.stopPropagation();
@@ -1125,7 +1132,12 @@ $('#modalAnchorBtn').on('click', function(evt){
                         options: {buttonSet: &#39;okCancel&#39;, fixed:true}});
 
 var modal = Wix.UI.create({ctrl: &#39;Popup&#39;,
-                        options: {modal:true, buttonSet: &#39;okCancel&#39;, fixed:true}});
+                        options: {
+                             modal:true,
+                             buttonSet: &#39;okCancel&#39;,
+                             fixed:true,
+                             title:&#39;Modal&#39;
+                         }});
 
 $(&#39;#popupAnchorBtn&#39;).on(&#39;click&#39;, function(evt){
     evt.stopPropagation();
@@ -1321,10 +1333,10 @@ $(&#39;#modalAnchorBtn&#39;).on(&#39;click&#39;, function(evt){
 
 <p>Slider component, enables selection from linear range of numeric values through a draggable knob. The Slider allows to set the selected range and text labels before and after. It also allows to add a tooltip indication.</p>
 <h3 id="example">Example</h3>
-<div  wix-model="myValue" wix-ctrl="Slider" wix=options=="{{ maxValue:500, preLabel:'zero', postLabel:'five hundreds'}"></div>
+<div  wix-model="myValue" wix-ctrl="Slider" wix-options="{ maxValue:500, preLabel:'0', postLabel:'500'}"></div>
 
 <h3 id="markup">Markup</h3>
-<pre><code class="lang-html">&lt;div  wix-model=&quot;myValue&quot; wix-ctrl=&quot;Slider&quot; wix=options==&quot;{{ maxValue:500, preLabel:&#39;zero&#39;, postLabel:&#39;five hundreds&#39;}&quot;&gt;&lt;/div&gt;
+<pre><code class="lang-html">&lt;div  wix-model=&quot;myValue&quot; wix-ctrl=&quot;Slider&quot; wix-options=&quot;{ maxValue:500, preLabel:&#39;0&#39;, postLabel:&#39;500&#39;}&quot;&gt;&lt;/div&gt;
 </code></pre>
 <h3 id="options">Options</h3>
 <table>
@@ -1339,12 +1351,12 @@ $(&#39;#modalAnchorBtn&#39;).on(&#39;click&#39;, function(evt){
 <tr>
 <td>minValue</td>
 <td><code>0</code></td>
-<td>minimum value on the slider</td>
+<td>minimum value of the slider</td>
 </tr>
 <tr>
 <td>maxValue</td>
 <td><code>100</code></td>
-<td>maximum value on the slider</td>
+<td>maximum value of the slider</td>
 </tr>
 <tr>
 <td>value</td>
@@ -1369,7 +1381,7 @@ $(&#39;#modalAnchorBtn&#39;).on(&#39;click&#39;, function(evt){
 <tr>
 <td>tooltip</td>
 <td><code>false</code></td>
-<td>whether to show a tooltip for the current value</td>
+<td>indicates whether to show a tooltip for the current value</td>
 </tr>
 </tbody>
 </table>
