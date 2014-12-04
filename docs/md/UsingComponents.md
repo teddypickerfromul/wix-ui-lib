@@ -6,7 +6,7 @@ The Wix UI Lib include two types of components - CSS & Javascript.
 
 ### CSS Components
 
-Css components are several css classes that can help you build the ui of the settings.
+CSS components are several CSS classes that can help you build the ui of the settings.
 
 #### Buttons
 
