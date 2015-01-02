@@ -289,7 +289,7 @@ module.exports = function (grunt) {
             dev: {
                 options: {
                     template: '${{content}}',
-                    files:['components/**/*.md'],
+                    files:['components/**/*.md', 'docs/md/*.md', 'docs/md/**/*.md'],
                     inject: dev + '/docs/index.html'
                 }
             },
@@ -308,7 +308,7 @@ module.exports = function (grunt) {
 					archive: 'archive.zip'
 				},
 				files: [
-					{src: ['dist/images/**', 'dist/settings.html', 'dist/ui-lib**'], dest: '/'}
+					{src: ['dist/images/**', 'dist/settings.html', 'dist/ui-lib**', 'LICENSE.txt'], dest: '/'}
 				]
       }
 		},
