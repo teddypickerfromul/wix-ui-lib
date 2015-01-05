@@ -8,7 +8,7 @@ describe('LanguagePicker', function () {
                 var $option = this.actual.find('.selected .option');
                 var $globe = this.actual.find('.selected .option span.globe');
                 var $options = this.actual.find('.options .option');
-                return $option.length && $globe.length && $options.length === 11;
+                return $option.length && $globe.length && $options.length === 12;
             }
         });
     });
@@ -78,10 +78,10 @@ describe('LanguagePicker', function () {
     });
 
     function givenLanguagesWeSupport() {
-       return ['English', 'Deutsch', 'Español', 'Français', 'Italiano', 'Polski', 'Português', 'Русский', '日本語', '한국어', 'Türkçe'];
+       return ['English', 'Deutsch', 'Español', 'Français', 'Italiano', 'Polski', 'Português', 'Русский', '日本語', '한국어', 'Türkçe', 'Nederlands'];
     }
     
     function getSupportedValues() {
-      return ['En', 'De', 'Es', 'Fr', 'It', 'Pl', 'Pt', 'Ru', 'Ja', 'Ko', 'Tr'];
+      return ['En', 'De', 'Es', 'Fr', 'It', 'Pl', 'Pt', 'Ru', 'Ja', 'Ko', 'Tr', 'Nl'];
     }
 });
