@@ -1,12 +1,12 @@
-## UI Lib for Business Apps
+## UI Lib for Dashboard Apps
 <!-- UILibForBusinessApps -->
 
-The Wix UI Lib for Business Apps includes customized CSS components to be used in the Dashboard context of the app.
+The Wix UI Lib for Dashboard Apps includes customized CSS components to be used in the user dashboard.
 
 This library is a part of the Starter Kit for Wix 3rd Party Applications. 
 
 
-### HTML file Setup for Business Apps
+### HTML file Setup for Dashboard Apps
 
 Include the minified UI-Lib Dashboard CSS file in your application's HTML along with the Wix SDK.
 
@@ -17,7 +17,7 @@ Include the minified UI-Lib Dashboard CSS file in your application's HTML along 
         <link rel="stylesheet" href="./ui-lib-dashboard.min.css"></link>
     </head>
     <body>
-        <script src="http://sslstatic.wix.com/services/js-sdk/1.31.0/js/Wix.js"></script>
+        <script type="text/javascript" src="//sslstatic.wix.com/services/js-sdk/1.42.0/js/wix.min.js"></script>
     </body>
 </html>
 ```
