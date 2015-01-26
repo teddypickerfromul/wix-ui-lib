@@ -23,6 +23,9 @@ jQuery.fn.definePlugin('LanguagePicker', function () {
     return {
         init: function () {
             this.markup();
+            if (symbToName[this.options.value]) {
+                this.setValue(this.options.value);
+            }
             this.bindEvents();
         },
         markup: function () {
