@@ -60,7 +60,7 @@ describe('LanguagePicker', function () {
 
     it('should set selected language to value option', function () {
         var element = givenElement('lp1').appendTo(document.body);
-        element.attr('wix-options', '{ value: \'Pl\' }');
+        element.attr('wix-options', '{ selectedLanguage: \'Pl\' }');
         Wix.UI.initializePlugin(element);
         expect(element.find('.selected .option').text()).toBe('Pl');
         element.remove();
@@ -68,7 +68,7 @@ describe('LanguagePicker', function () {
 
     it('should set selected language to English if value option is unknown', function () {
         var element = givenElement('lp2').appendTo(document.body);
-        element.attr('wix-options', '{ value: \'??\' }');
+        element.attr('wix-options', '{ selectedLanguage: \'??\' }');
         Wix.UI.initializePlugin(element);
         expect(element.find('.selected .option').text()).toBe('En');
         element.remove();
