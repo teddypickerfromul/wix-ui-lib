@@ -1,4 +1,4 @@
-# Upgrade Button (available only for Business Apps)
+# Upgrade Button (available only for Dashboard endpoint)
 <!-- Upgrade -->
 
 Upgrade Button component, opens Wix billing page with the given vendorProductId and cycle.
