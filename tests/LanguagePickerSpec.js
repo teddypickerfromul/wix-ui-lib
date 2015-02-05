@@ -13,7 +13,7 @@ describe('LanguagePicker', function () {
         });
     });
     beforeEach(function () {
-        element = $('<div wix-model="languagePicker" wix-ctrl="LanguagePicker"></div>').appendTo('body')[0];
+        element = givenElement().appendTo('body')[0];
     });
 
     afterEach(function () {
@@ -51,12 +51,27 @@ describe('LanguagePicker', function () {
             var $selected = $languagePicker.find('.selected .option');
             expect($selected.text()).toBe('En');
         });
-
         it('should add a globe span to selected option', function () {
             var $languagePicker = $(".uilib-languagePicker");
             var $selected = $languagePicker.find('.selected .option');
             expect($selected.find("span.globe").length).toEqual(1);
         });
+    });
+
+    it('should set selected language to value option', function () {
+        var element = givenElement('lp1').appendTo(document.body);
+        element.attr('wix-options', '{ value: \'Pl\' }');
+        Wix.UI.initializePlugin(element);
+        expect(element.find('.selected .option').text()).toBe('Pl');
+        element.remove();
+    });
+
+    it('should set selected language to English if value option is unknown', function () {
+        var element = givenElement('lp2').appendTo(document.body);
+        element.attr('wix-options', '{ value: \'??\' }');
+        Wix.UI.initializePlugin(element);
+        expect(element.find('.selected .option').text()).toBe('En');
+        element.remove();
     });
 
     it('should set selected value from the option data-value', function () {
@@ -83,5 +98,10 @@ describe('LanguagePicker', function () {
 
     function getSupportedValues() {
         return ['En', 'De', 'Es', 'Fr', 'It', 'Pl', 'Pt', 'Ru', 'Ja', 'Ko', 'Tr', 'Nl'];
+    }
+
+    function givenElement (modelName) {
+        modelName = modelName || 'languagePicker';
+        return $('<div wix-model="' + modelName + '" wix-ctrl="LanguagePicker"></div>');
     }
 });
