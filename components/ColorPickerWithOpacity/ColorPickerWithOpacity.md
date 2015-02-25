@@ -5,7 +5,7 @@ Color Picker with opacity component, provide Wix style color selection with a 5x
 
 **Note that the selected value will be saved inside the Wix site, there is no need to listen to an onChange event.**
 
-For an explanation on how to choose the default color and how the Wix color Palette works please refer to this [link](http://dev.wix.com/docs/display/DRAF/Color+Selection+Guide).
+For an explanation on how to choose the default color and how the Wix color Palette works please refer to this [link](http://dev.wix.com/docs/product/designing-your-app#wix-color-picker).
 
 ### Example
 
