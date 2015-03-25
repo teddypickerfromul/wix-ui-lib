@@ -2,7 +2,7 @@
 <!-- WixCustomHTMLAttributes-DynamicCreationOfjavascriptComponents -->
 
 ```javascript
-//create plugin and element that are conected to wix param or model
+//create plugin and element that are connected to wix-param or wix-model
 var jQueryElement = Wix.UI.create({
     id:'myElement', //DOM element id
     ctrl: 'ColorPicker', //wix-ctrl

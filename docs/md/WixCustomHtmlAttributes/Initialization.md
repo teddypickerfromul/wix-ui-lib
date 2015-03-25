@@ -4,7 +4,7 @@
 There are 2 ways to initialize the components:
 
 * initialize with markup (prefered)
-* initialize with javascript (advance)
+* initialize with javascript (advanced)
 
 
 #### Initialize with markup
@@ -15,7 +15,7 @@ Each component can be initialized with a simple markup and two important attribu
 <div wix-model="myKey" wix-ctrl="ComponentName" wix-options="{Options}"></div>
 ```
 
-The **Wix.UI** library manages all components that were decalred through markup or created dynamically.  **Wix.UI.initialize()** must be called on DOM ready to start the compoenets creations process and to display the document body. The compoenets will get created with the options that were specified inside the markup using the `wix-option` attribute.
+The **Wix.UI** library manages all components that were declared through markup or created dynamically.  **Wix.UI.initialize()** must be called on DOM ready to start the components creation process and to display the document body. The components will get created with the options that were specified inside the markup using the `wix-option` attribute.
 
 All the **Wix.UI** components should be initialized after the DOM is ready.
 ```javascript
