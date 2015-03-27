@@ -17,7 +17,7 @@ Include the minified UI-Lib Dashboard CSS file in your application's HTML along 
         <link rel="stylesheet" href="./ui-lib-dashboard.min.css"></link>
     </head>
     <body>
-        <script type="text/javascript" src="//sslstatic.wix.com/services/js-sdk/1.42.0/js/wix.min.js"></script>
+        <script type="text/javascript" src="//sslstatic.wix.com/services/js-sdk/1.43.0/js/wix.min.js"></script>
     </body>
 </html>
 ```
