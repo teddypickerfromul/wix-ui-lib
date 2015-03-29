@@ -47,7 +47,7 @@ Wix.UI.onChange('*', function(value, key){
 ```
 #### Save Wix.UI Model
 
-When you want to save the state of your components you can simply call the toJSON function on the **Wix.UI** to get it's current state. This saved json representation can be later used to (re)initialize the **Wix.UI**. E.g. you can save it in your database and read on next invocations of the App Settings.
+When you want to save the state of your components you can simply call the toJSON function on the **Wix.UI** to get it's current state. This saved JSON representation can be later used to (re)initialize the **Wix.UI**. E.g. you can save it in your database and read on next invocations of the App Settings.
 ```javascript
 var componentsValues = Wix.UI.toJSON();
 ```

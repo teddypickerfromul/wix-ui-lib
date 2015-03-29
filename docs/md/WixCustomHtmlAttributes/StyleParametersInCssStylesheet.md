@@ -1,7 +1,7 @@
 ###Style parameters in a CSS stylesheet
 <!-- WixCustomHTMLAttributes-StyleParametersInCssStylesheet -->
 
-You can use the color and font style parameters inside a **inline CSS style** within your widget/page, It's a simple template engine that uses {{value}} to interpolate the style parameters. fallback values are separated with spaces {{value fallback}}. In order to activate it put `wix-style` attribute on an inline style.
+You can use the color and font style parameters inside a **inline CSS style** within your widget/page. It's a simple template engine that uses {{value}} to interpolate the style parameters. fallback values are separated with spaces {{value fallback}}. In order to activate it put `wix-style` attribute on an inline style.
 ```html
 <style wix-style>
     body {
