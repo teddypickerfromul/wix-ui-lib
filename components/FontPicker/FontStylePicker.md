@@ -12,7 +12,7 @@ Font Style Picker component, control the selection of all relevant properties fo
 
 **Note that the selected value will be saved inside the Wix site, there is no need to listen to an onChange event.**
 
-For an explanation on how to choose the default text style and how the Wix Editor styles work please refer to this [link](http://dev.wix.com/docs/display/DRAF/Font+Selection+Guide).
+For an explanation on how to choose the default text style and how the Wix Editor styles work please refer to this [link](http://dev.wix.com/docs/product/designing-your-app#wix-font-picker).
 
 ### Example
 
