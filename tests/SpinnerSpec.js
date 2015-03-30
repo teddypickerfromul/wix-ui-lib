@@ -150,6 +150,20 @@ describe('Spinner', function () {
 		expect($element.hasClass('default')).toBeTruthy();
 	});
 
+    it('should change input value two times in a row', function () {
+        Wix.UI.initializePlugin(element);
+        var $input = $element.find('input');
+        var event = givenEnterPressedEvent();
+        $input.val('1001');
+        $input.trigger(event);
+        expect(Wix.UI.get('numOfItems')).toBe(1000);
+        expect($input.val()).toBe('1000');
+        $input.val('1001');
+        $input.trigger(event);
+        expect(Wix.UI.get('numOfItems')).toBe(1000);
+        expect($input.val()).toBe('1000');
+    });
+
 	function givenSpinner(options){
 		options = options || {};
 		$element.attr('wix-options', JSON.stringify(options));
