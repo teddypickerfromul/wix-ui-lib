@@ -7,20 +7,21 @@ jQuery.fn.definePlugin('LanguagePicker', function () {
 
     var symbToName = {
         'En': 'English',
+        'Da': 'Dansk',
         'De': 'Deutsch',
         'Es': 'Español',
         'Fr': 'Français',
         'It': 'Italiano',
         'Nl': 'Nederlands',
-        'No': 'Norsk', 
+        'No': 'Norsk',
         'Pl': 'Polski',
         'Pt': 'Português',
         'Ru': 'Русский',
-        'Sv': 'Svenska', 
+        'Sv': 'Svenska',
         'Ja': '日本語',
         'Ko': '한국어',
-        'Tr': 'Türkçe'/*,
-        'He': 'עברית'*/
+        'Tr': 'Türkçe',
+        'He': 'עברית'
     };
 
     return {
@@ -66,7 +67,7 @@ jQuery.fn.definePlugin('LanguagePicker', function () {
         },
         getDefaults: function () {
             return {
-                languages: ['En', 'De', 'Es', 'Fr', 'It', 'Nl', 'No', 'Pl', 'Pt', 'Ru', 'Sv', 'Ja', 'Ko', 'Tr'/*, 'He'*/],
+                languages: ['En', 'Da', 'De', 'Es', 'Fr', 'It', 'Nl', 'No', 'Pl', 'Pt', 'Ru', 'Sv', 'Ja', 'Ko', 'Tr', 'He'],
                 height: 'auto'
             };
         },
