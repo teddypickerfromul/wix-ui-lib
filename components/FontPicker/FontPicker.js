@@ -63,7 +63,7 @@ jQuery.fn.definePlugin('FontPicker', function () {
         var fontFamilyArr = cssFontFamily.split(',');
 
         for (var fontFamily in fontFamilyArr) {
-            if (fontFamilyArr[fontFamily].indexOf('"') < 0) {
+            if (fontFamilyArr[fontFamily].indexOf('"') < 0 && fontFamilyArr[fontFamily].indexOf("'") < 0) {
                 fontFamilyArr[fontFamily]  = '"' + fontFamilyArr[fontFamily]  + '"';
             }
         }
