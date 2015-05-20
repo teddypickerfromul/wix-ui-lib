@@ -8,7 +8,7 @@ describe('LanguagePicker', function () {
                 var $option = this.actual.find('.selected .option');
                 var $globe = this.actual.find('.selected .option span.globe');
                 var $options = this.actual.find('.options .option');
-                return $option.length && $globe.length && $options.length === 12;
+                return $option.length && $globe.length && $options.length === givenLanguagesWeSupport().length;
             }
         });
     });
@@ -93,11 +93,11 @@ describe('LanguagePicker', function () {
     });
 
     function givenLanguagesWeSupport() {
-        return ['English', 'Deutsch', 'Español', 'Français', 'Italiano', 'Polski', 'Português', 'Русский', '日本語', '한국어', 'Türkçe', 'Nederlands'];
+        return ['English', 'Deutsch', 'Español', 'Français', 'Italiano', 'Polski', 'Português', 'Русский', '日本語', '한국어', 'Türkçe', 'Nederlands', 'עברית'];
     }
 
     function getSupportedValues() {
-        return ['En', 'De', 'Es', 'Fr', 'It', 'Pl', 'Pt', 'Ru', 'Ja', 'Ko', 'Tr', 'Nl'];
+        return ['En', 'De', 'Es', 'Fr', 'It', 'Pl', 'Pt', 'Ru', 'Ja', 'Ko', 'Tr', 'Nl', 'He'];
     }
 
     function givenElement (modelName) {

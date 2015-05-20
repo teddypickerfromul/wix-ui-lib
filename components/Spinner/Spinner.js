@@ -109,9 +109,11 @@ jQuery.fn.definePlugin('Spinner', function ($) {
 		},
 		setValue: function (valueInRange) {
             this.options.value = this.valueInRangeToInnerRange(valueInRange);
+			if (valueInRange !== this.last_value) {
+				this.update();
+			}
 			if (this.options.value !== this.last_value) {
                 this.last_value = this.options.value;
-				this.update();
 				return true;
 			}
 		},

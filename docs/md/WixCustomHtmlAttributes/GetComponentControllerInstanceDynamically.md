@@ -9,7 +9,7 @@ var pluginInstance = $('#myElement').getCtrl();
 
 #### Dynamic component destruction
 
-when you need to remove a component form the page to avoid memeory leaks use **Wix.UI.destroyPlugin**
+when you need to remove a component form the page to avoid memory leaks use **Wix.UI.destroyPlugin**
 ```javascript
 //destroy the component and remove all listeners
 Wix.UI.destroy($('#myElement'));
