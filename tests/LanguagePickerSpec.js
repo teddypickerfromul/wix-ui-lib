@@ -93,11 +93,11 @@ describe('LanguagePicker', function () {
     });
 
     function givenLanguagesWeSupport() {
-        return ['English', 'Deutsch', 'Español', 'Français', 'Italiano', 'Polski', 'Português', 'Русский', '日本語', '한국어', 'Türkçe', 'Nederlands', 'עברית'];
+        return ['English', 'Deutsch', 'Español', 'Français', 'Italiano', 'Polski', 'Português', 'Русский', '日本語', '한국어', 'Türkçe', 'Nederlands', 'עברית', 'svenska', 'Norsk'];
     }
 
     function getSupportedValues() {
-        return ['En', 'De', 'Es', 'Fr', 'It', 'Pl', 'Pt', 'Ru', 'Ja', 'Ko', 'Tr', 'Nl', 'He'];
+        return ['En', 'De', 'Es', 'Fr', 'It', 'Pl', 'Pt', 'Ru', 'Ja', 'Ko', 'Tr', 'Nl', 'He', 'Sv', 'No'];
     }
 
     function givenElement (modelName) {
