@@ -93,7 +93,7 @@ describe('LanguagePicker', function () {
     });
 
     function givenLanguagesWeSupport() {
-        return ['English', 'Deutsch', 'Español', 'Français', 'Italiano', 'Polski', 'Português', 'Русский', '日本語', '한국어', 'Türkçe', 'Nederlands', 'עברית', 'svenska', 'Norsk'];
+        return ['English', 'Deutsch', 'Español', 'Français', 'Italiano', 'Polski', 'Português', 'Русский', '日本語', '한국어', 'Türkçe', 'Nederlands', 'עברית', 'Svenska', 'Norsk'];
     }
 
     function getSupportedValues() {

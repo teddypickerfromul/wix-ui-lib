@@ -19,7 +19,7 @@ jQuery.fn.definePlugin('LanguagePicker', function () {
 		'Tr': 'Türkçe',
 		'Nl': 'Nederlands',
 		'He': 'עברית',
-		'Sv': 'svenska',
+		'Sv': 'Svenska',
 		'No': 'Norsk'
 	};
 
