@@ -1,22 +1,23 @@
 jQuery.fn.definePlugin('Spinner', function ($) {
 	'use strict';
-	
+
 	var styles = {
-        className: 'uilib-spinner',
+		className: 'uilib-spinner',
 		defaultSize: 'default',
 		mediumSize: 'medium',
 		largeSize: 'large',
-        upArrow: 'up-arrow',
-        downArrow: 'down-arrow'
-    };
-    var events = {
-        mouseDown: 'mousedown',
-        mouseUp: 'mouseup',
-        mouseLeave: 'mouseleave',
-        focusOut: 'focusout',
-        keypress: 'keypress'
-    };
-	
+		upArrow: 'up-arrow',
+		downArrow: 'down-arrow'
+	};
+	var events = {
+		mouseDown: 'mousedown',
+		mouseUp: 'mouseup',
+		mouseLeave: 'mouseleave',
+		focusOut: 'focusout',
+		keypress: 'keypress',
+		change: 'change'
+	};
+
 	return {
 		init: function(){
 			this.markup();
@@ -30,11 +31,12 @@ jQuery.fn.definePlugin('Spinner', function ($) {
 				value : 0,
 				step: 1,
 				precision: 0
-			}; 
+			};
 		},
 		markup: function () {
+			this.$input = $("<input autocomplete='off'>");
 			this.$el
-				.append("<input autocomplete='off'>")
+				.append(this.$input)
 				.append(_buttonHtml());
 			if(!this.$el.hasClass(styles.className)){
 				this.$el.addClass(styles.className);
@@ -62,14 +64,14 @@ jQuery.fn.definePlugin('Spinner', function ($) {
 					spinner.setValue(_parse(spinner.getValue()) + spinner.options.step * dir);
 					startAutoRoll();
 				},100);
-			}
-            
+			};
+
 			this.$el.on(events.mouseUp + ' ' + events.mouseLeave, function(evt){
-			   clearTimeout(autoRollTicket);
-			   dir = 0;               
-               if(evt.type !== 'mouseleave'){
-                   spinner.triggerChangeEvent(spinner.getValue());
-               }
+				clearTimeout(autoRollTicket);
+				dir = 0;
+				if(evt.type !== 'mouseleave'){
+					spinner.triggerChangeEvent(spinner.getValue());
+				}
 			});
 
 			this.$el.on(events.mouseDown, '.' + styles.upArrow, function(){
@@ -92,7 +94,7 @@ jQuery.fn.definePlugin('Spinner', function ($) {
 
 			this.$el.on(events.focusOut, 'input', function(){
 				if(spinner.setValue(_parse(spinner.getValue()))){
-                    spinner.triggerChangeEvent(spinner.getValue());
+					spinner.triggerChangeEvent(spinner.getValue());
 				}
 			});
 
@@ -103,45 +105,49 @@ jQuery.fn.definePlugin('Spinner', function ($) {
 					}
 				}
 			});
+
+			this.$input.on(events.change, function (e) {
+				if ( spinner.setValue(e.currentTarget.value) === false ) {
+					this.value = spinner.last_value;
+				}
+			})
 		},
 		getValue: function () {
-			return +this.$el.find('input').val();
+			return +this.$input.val();
 		},
 		setValue: function (valueInRange) {
-            this.options.value = this.valueInRangeToInnerRange(valueInRange);
-			if (valueInRange !== this.last_value) {
-				this.update();
-			}
+			this.options.value = this.valueInRangeToInnerRange(valueInRange);
 			if (this.options.value !== this.last_value) {
-                this.last_value = this.options.value;
+				this.last_value = this.options.value;
+				this.update();
 				return true;
 			}
+			return false;
 		},
 		update: function () {
-            this.$el.find('input').val(this.options.value);
+			this.$input.val(this.options.value);
 			return this;
 		},
 		valueInRangeToInnerRange: function (value) {
-            value = +(+value).toFixed(this.options.precision);
+			value = $.isNumeric(value) ? +(+value).toFixed(this.options.precision) : this.last_value  || 0;
 			value = value < this.options.minValue ? this.options.minValue : value;
 			value = value > this.options.maxValue ? this.options.maxValue : value;
 			return value;
 		}
 	};
-	
-	
-    function _buttonHtml() {
-        return "" +
-            "<div class=" + styles.upArrow + "></div>" +
-            "<div class=" + styles.downArrow +"></span>";
-    }
 
-    function _parse(val) {
-        if (typeof val === "string" && val !== "" ) {
-            val = parseFloat(val);
-        }
-        return val === "" || isNaN(val) ? null : val;
-    }
-	
+
+	function _buttonHtml() {
+		return "" +
+			"<div class=" + styles.upArrow + "></div>" +
+			"<div class=" + styles.downArrow +"></span>";
+	}
+
+	function _parse(val) {
+		if (typeof val === "string" && val !== "" ) {
+			val = parseFloat(val);
+		}
+		return val === "" || isNaN(val) ? null : val;
+	}
+
 });
-
