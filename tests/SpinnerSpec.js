@@ -59,10 +59,73 @@ describe('Spinner', function () {
 		});
     });
 
-    it('should set value to 0 if input is not numeric', function(){
-        Wix.UI.initializePlugin(element);
-		$element.find('input').val('wix was here').focusout();
-        expect(Wix.UI.get('numOfItems')).toBe(0);
+    describe('handle invalid values', function() {
+        it('should set value to the last valid value if input is not numeric', function(){
+            Wix.UI.initializePlugin(element);
+            $element.find('input').val(10).focusout();
+            $element.find('input').val('wix was here').focusout();
+            expect(Wix.UI.get('numOfItems')).toBe(10);
+        });
+
+        it('should set value to minValue if input is not numeric and there is no last valid value', function(){
+            var element = $('<div wix-model="numOfItems" wix-ctrl="Spinner" wix-options="{ maxValue:100, minValue:5 }"></div>').appendTo('body')[0];
+            var $element = $(element);
+            Wix.UI.initializePlugin(element);
+            $element.find('input').val('wix was here').focusout();
+            expect(Wix.UI.get('numOfItems')).toBe(5);
+        });
+
+        it('should set value to minValue if value is numeric string && lower then minValue', function(){
+            var element = $('<div wix-model="numOfItems" wix-ctrl="Spinner" wix-options="{ maxValue:100, minValue:5 }"></div>').appendTo('body')[0];
+            var $element = $(element);
+            Wix.UI.initializePlugin(element);
+            $element.find('input').val('-5.46').focusout();
+            expect(Wix.UI.get('numOfItems')).toBe(5);
+        });
+
+        it('should set value to minValue if value is number && lower then minValue', function(){
+            var element = $('<div wix-model="numOfItems" wix-ctrl="Spinner" wix-options="{ maxValue:100, minValue:5 }"></div>').appendTo('body')[0];
+            var $element = $(element);
+            Wix.UI.initializePlugin(element);
+            $element.find('input').val(-5.56).focusout();
+            expect(Wix.UI.get('numOfItems')).toBe(5);
+        });
+
+        it('should set value to maxValue if value is numeric string && higher then maxValue', function(){
+            var element = $('<div wix-model="numOfItems" wix-ctrl="Spinner" wix-options="{ maxValue:100, minValue:5 }"></div>').appendTo('body')[0];
+            var $element = $(element);
+            Wix.UI.initializePlugin(element);
+            $element.find('input').val('99999').focusout();
+            expect(Wix.UI.get('numOfItems')).toBe(100);
+        });
+
+        it('should set value to maxValue if value is number && higher then maxValue', function(){
+            var element = $('<div wix-model="numOfItems" wix-ctrl="Spinner" wix-options="{ maxValue:100, minValue:5 }"></div>').appendTo('body')[0];
+            var $element = $(element);
+            Wix.UI.initializePlugin(element);
+            $element.find('input').val(99999).focusout();
+            expect(Wix.UI.get('numOfItems')).toBe(100);
+        });
+
+        it('should handle several following tries to set out of range value', function () {
+            var element = $('<div wix-model="numOfItems" wix-ctrl="Spinner" wix-options="{ maxValue:1000, minValue:5 }"></div>').appendTo('body')[0];
+            var $element = $(element);
+            Wix.UI.initializePlugin(element);
+            $element.find('input').val('1001').focusout();
+            expect(Wix.UI.get('numOfItems')).toBe(1000);
+            $element.find('input').val('1000').focusout();
+            expect(Wix.UI.get('numOfItems')).toBe(1000);
+            $element.find('input').val('5000').focusout();
+            expect(Wix.UI.get('numOfItems')).toBe(1000);
+            $element.find('input').val('10').focusout();
+            expect(Wix.UI.get('numOfItems')).toBe(10);
+            $element.find('input').val('0').focusout();
+            expect(Wix.UI.get('numOfItems')).toBe(5);
+            $element.find('input').val('-10').focusout();
+            expect(Wix.UI.get('numOfItems')).toBe(5);
+            $element.find('input').val(3).focusout();
+            expect(Wix.UI.get('numOfItems')).toBe(5);
+        });
     });
 
     it('should change control value on input focusout', function(){
@@ -149,20 +212,6 @@ describe('Spinner', function () {
 		givenSpinner({ size: 'wix-foo' });
 		expect($element.hasClass('default')).toBeTruthy();
 	});
-
-    it('should change input value two times in a row', function () {
-        Wix.UI.initializePlugin(element);
-        var $input = $element.find('input');
-        var event = givenEnterPressedEvent();
-        $input.val('1001');
-        $input.trigger(event);
-        expect(Wix.UI.get('numOfItems')).toBe(1000);
-        expect($input.val()).toBe('1000');
-        $input.val('1001');
-        $input.trigger(event);
-        expect(Wix.UI.get('numOfItems')).toBe(1000);
-        expect($input.val()).toBe('1000');
-    });
 
 	function givenSpinner(options){
 		options = options || {};
