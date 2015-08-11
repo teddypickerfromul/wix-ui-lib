@@ -213,13 +213,13 @@
 			plugin.updateDisplay();
 		});	
 		
-        this.$el.mousewheel(function(evt, delta){
+        this.$el.mousewheel(function(evt, delta, deltaX, deltaY){
 
             if ($bar.css('display') === 'none') return;
 			evt.preventDefault();
             var speed = 10;
             var initPos = $bar.position().top;
-            var pos = initPos - (delta * speed);
+            var pos = initPos - (deltaY * speed);
             var rh = $rail.height();
             var bh = $bar.height();
 
