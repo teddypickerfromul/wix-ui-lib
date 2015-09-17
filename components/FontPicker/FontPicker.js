@@ -63,7 +63,10 @@ jQuery.fn.definePlugin('FontPicker', function () {
         var fontFamilyArr = cssFontFamily.split(',');
 
         for (var fontFamily in fontFamilyArr) {
-            if (fontFamilyArr[fontFamily].indexOf('"') < 0 && fontFamilyArr[fontFamily].indexOf("'") < 0) {
+			if (!fontFamilyArr.hasOwnProperty(fontFamily)) {
+				continue;
+			}
+			if (fontFamilyArr[fontFamily].indexOf('"') < 0 && fontFamilyArr[fontFamily].indexOf("'") < 0) {
                 fontFamilyArr[fontFamily]  = '"' + fontFamilyArr[fontFamily]  + '"';
             }
         }
@@ -80,6 +83,9 @@ jQuery.fn.definePlugin('FontPicker', function () {
 		allFontsMeta.forEach(function (fontsMetaLang) {
 			var fontsMeta = fontsMetaLang.fonts;
 			for (var f in fontsMeta) {
+				if (!fontsMeta.hasOwnProperty(f)) {
+					continue;
+				}
 				var font = fontsMeta[f];
 				var offsetIndex = font.characterSets.indexOf(fontsMetaLang.lang);
 				var spriteIndex = font.spriteIndex + offsetIndex;
