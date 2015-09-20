@@ -17,6 +17,6 @@ Language Picker component, expandable dropdown list of languages. Use it to cont
 
 Name             | Default                                                              | Description
 -----------------|----------------------------------------------------------------------|------------
-languages        | `['En', 'De', 'Es', 'Fr', 'It', 'Po', 'Pt', 'Ru', 'Ja', 'Ko', 'Tr']` | a list of languages to choose from
+languages        | `['En', 'De', 'Es', 'Fr', 'It', 'Po', 'Pt', 'Ru', 'Ja', 'Ko', 'Tr', 'Nl', 'He', 'Sv', 'No']` | a list of languages to choose from
 height           | `auto`                                                               | expandable list height, extra content will cam be accessed by scrolling the list
 selectedLanguage | `En`                                                                 | language code to set as default
