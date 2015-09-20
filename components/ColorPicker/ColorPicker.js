@@ -43,7 +43,7 @@ jQuery.fn.definePlugin('ColorPicker', function ($) {
 			var colorFromTheme;
 			try{
 				if(this.isParamConected && typeof color==='string'){
-					colorFromTheme = (Wix.Styles || Wix.Settings).getColorByRefrence(color);
+					colorFromTheme = (Wix.Styles || Wix.Settings).getColorByrefrence(color);
 				} else if(this.isParamConected && color.color.reference){
 					colorFromTheme = color.color;
 				}

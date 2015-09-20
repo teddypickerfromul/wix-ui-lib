@@ -48,7 +48,7 @@ jQuery.fn.definePlugin('ColorPickerWithOpacity', function ($) {
 			if(value && typeof value === 'object'){
 				//if(plugs.colorPicker.isParamConected){
 					color = (value.color && value.color.reference) ? value.color.reference : (value.rgba || value.cssColor);
-					opacity = (value.opacity || extractOpacityFromColor(color)) * 100;
+					opacity = (value.opacity !== undefined ? value.opacity : extractOpacityFromColor(color)) * 100;
 				//}else {
 				//	color = (value.cssColor || value.rgba);
 				//	opacity = (value.opacity || extractOpacityFromColor(color)) * 100;

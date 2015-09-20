@@ -96,7 +96,7 @@ describe('ColorPickers', function () {
         });
 	});
 	
-	describe('ColorPickerWithOpacity', function () {
+	ddescribe('ColorPickerWithOpacity', function () {
 
 		it('should set the initial value (Model Flow)', function () {
 		
@@ -183,6 +183,25 @@ describe('ColorPickers', function () {
 			
 			Wix.UI.destroy($el, true);
 			
+		});
+
+		it('should set the opacity to 0 in case value.opacity equals to 0 and color is predefined of type color-*', function() {
+			var $el = createPlugin({
+				ctrl : 'ColorPickerWithOpacity',
+				model : 'color',
+				options : {
+					startWithColor:'color-2',
+					startWithOpacity: 100
+				}
+			});
+
+			$el.appendTo('body');
+
+			$el.ColorPickerWithOpacity('setValue', {cssColor: 'color-2', opacity: 0});
+			var color = $el.ColorPickerWithOpacity('getValue');
+			expect(color).toBe('rgba(0,136,203,0)');
+
+			Wix.UI.destroy($el, true);
 		});
 	});
 
