@@ -788,7 +788,7 @@ var createColorBox = (function (){
 		
 		changePickerLabel.onclick = function(){
 			options.onchangepicker && options.onchangepicker.call();
-		}
+		};
 		
 		function createColorNode(color, className){
 			var colorNode = document.createElement('div');
@@ -833,7 +833,7 @@ var createColorBox = (function (){
 			hidePickers:hidePickers,
 			showPickers:showPickers,
 			setColor: function(color){
-				var colorFromTheme = findReferanceName(color);
+				var colorFromTheme = Wix.Styles.getColorByreference(color);
 				if(colorFromTheme){
 					cb.colorPalete.setColor(colorFromTheme.reference);	
 					cb.colorPicker.setColor(colorFromTheme.value);
@@ -855,9 +855,9 @@ var createColorBox = (function (){
 		function initialize(){
 
 			markup();
-			var ref = findReferanceName(options.color);
+			var colorFromTheme = Wix.Styles.getColorByreference(options.color);
 
-			cb.colorPicker = ColorPicker(cb.colorBoxPicker, ref ? ref.value : options.color, showSimplePicker);
+			cb.colorPicker = ColorPicker(cb.colorBoxPicker, colorFromTheme ? colorFromTheme.value : options.color, showSimplePicker);
 			
 			cb.colorPicker.on('oncolorpickerchange', function(color){
 				cb.colorPalete.removeSelection();
@@ -868,7 +868,7 @@ var createColorBox = (function (){
 			cb.colorPalete = createColorPalete({
 				width: '182px',
 				parent: cb.popup.content,
-				selected: ref,
+				selected: colorFromTheme,
 				onchangepicker: function(){
 					showAdvancePicker();
 				},
@@ -883,7 +883,7 @@ var createColorBox = (function (){
 			
 			showSimplePicker();
 			
-			ref ? setBoxInnerColor(ref.value, ref) : setBoxInnerColor(options.color, false);
+			colorFromTheme ? setBoxInnerColor(colorFromTheme.value, colorFromTheme) : setBoxInnerColor(options.color, false);
 			
 			hidePickers();	
 			bindEvents();
@@ -937,24 +937,6 @@ var createColorBox = (function (){
 			cb.colorBox.appendChild(cb.colorBoxInnerArrow);
 			
 			options.parent && options.parent.appendChild(cb.colorBox);
-		}
-		
-		function findReferanceName(ref){
-			if(!ref){
-				return false
-			}
-			if(ref.reference){return ref;}
-			for(var i =0; i < options.primColors.length;i++){
-				if(options.primColors[i].reference === ref){
-					return options.primColors[i];
-				}
-			}
-			for(var i =0; i < options.paleteColors.length;i++){
-				if(options.paleteColors[i].reference === ref){
-					return options.paleteColors[i];
-				}
-			}
-			return false;
 		}
 		
 		function bindEvents(){
