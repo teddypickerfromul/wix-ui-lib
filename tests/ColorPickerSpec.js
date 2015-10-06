@@ -96,7 +96,7 @@ describe('ColorPickers', function () {
         });
 	});
 	
-	ddescribe('ColorPickerWithOpacity', function () {
+	describe('ColorPickerWithOpacity', function () {
 
 		it('should set the initial value (Model Flow)', function () {
 		
@@ -196,7 +196,7 @@ describe('ColorPickers', function () {
 			});
 
 			$el.appendTo('body');
-
+			spyOn(Wix.Styles, 'getColorByreference').andReturn({value: 'rgb(0,136,203)', reference: 'color-2'});
 			$el.ColorPickerWithOpacity('setValue', {cssColor: 'color-2', opacity: 0});
 			var color = $el.ColorPickerWithOpacity('getValue');
 			expect(color).toBe('rgba(0,136,203,0)');

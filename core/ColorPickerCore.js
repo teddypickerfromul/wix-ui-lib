@@ -34,7 +34,7 @@ var createColorBox = (function (){
 		})();
 		
 		//atob btoa polyfill
-		;(function () {
+		(function () {
 			var
 			object = typeof window != 'undefined' ? window : exports,
 			chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
@@ -834,6 +834,9 @@ var createColorBox = (function (){
 			showPickers:showPickers,
 			setColor: function(color){
 				var colorFromTheme = Wix.Styles.getColorByreference(color);
+				if (!colorFromTheme || !colorFromTheme.value) {
+					colorFromTheme = false;
+				}
 				if(colorFromTheme){
 					cb.colorPalete.setColor(colorFromTheme.reference);	
 					cb.colorPicker.setColor(colorFromTheme.value);
@@ -850,13 +853,15 @@ var createColorBox = (function (){
 			getColorObject: function(){
 				return cb.colorObject;
 			}
-		}
+		};
 		
 		function initialize(){
 
 			markup();
 			var colorFromTheme = Wix.Styles.getColorByreference(options.color);
-
+			if (!colorFromTheme || !colorFromTheme.value) {
+				colorFromTheme = false;
+			}
 			cb.colorPicker = ColorPicker(cb.colorBoxPicker, colorFromTheme ? colorFromTheme.value : options.color, showSimplePicker);
 			
 			cb.colorPicker.on('oncolorpickerchange', function(color){
